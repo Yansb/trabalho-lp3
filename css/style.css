@@ -1,0 +1,48 @@
+#exterior {
+    display: inline-block;
+    width: 500px;
+    border: 3px solid grey;
+    padding: 50px;
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+    /* margin-top: 250px; */
+}
+
+#interior {
+    width: 400px;
+    border: 2px solid grey;
+    background-color: #d7d9dd;
+    padding: 50px;
+    margin: 10px;
+}
+
+tabela{
+    background-color: #492EB7;
+    clear: both;
+
+
+}
+
+
+.container{
+   
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+} 
+
+
+.filtros{
+    padding: 5px;
+}
+*
+#botoes{
+    display: flex;
+} 
+
+.logoUneb{
+    display: flex;
+    justify-content: center;
+}
+

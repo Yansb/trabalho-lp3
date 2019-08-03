@@ -1,0 +1,30 @@
+#titulo{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 30px;
+    position: relative;
+  
+
+
+}
+
+.container{
+    display: inline-block;
+    width: 500px;
+    border: 3px solid grey;
+    padding: 50px;
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+}
+
+
+.arrumar{
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    border: 2px solid grey;
+    background-color: #d7d9dd;
+    padding: 50px;
+    margin: 10px;
+}

@@ -1,0 +1,269 @@
+html,body {
+   background-color:#1B2F62; 
+  
+   
+}
+
+footer {
+    
+    background-color: rgb(66, 33, 33);
+}
+
+h1,h5{
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+    color: aqua;
+
+}
+
+
+
+li,a {
+    color: rgb(15, 70, 70);
+    margin-top: 10px;
+}
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.botoes{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+ .container{
+    
+    display: flex;
+    align-items: center;
+    height: 230px;
+    width: 300px;
+    border: 2px solid ghostwhite;
+    border-radius: 5px;
+    margin-left: 40%;
+    margin-top: 3%;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.ChatProcessamento{
+    
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: 300px;
+    border: 2px solid rgb(66, 212, 218);
+    border-radius: 5px;
+    margin-left: 60%;
+    margin-top: 3%;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+
+.titulo{
+    align-content: center;
+    color: aqua; 
+    padding: 5%;
+ 
+   
+}
+
+
+.containerAbaixo{
+    background-color: #1B2F62;
+    height: 800px;
+
+}
+
+.header,.col-md-12{
+    background-color:#3A5693;
+    height: 120px;
+    
+}
+
+.formTecnico, .formArea,.formcadastro{
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: 300px;
+    border: 2px solid ghostwhite;
+    border-radius: 8px;
+    margin-left: 40%;
+    margin-top: 3%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: rgb(15, 70, 70);
+    background-color: rgb(179, 226, 245);
+
+
+}
+
+th{
+    cursor: pointer;
+}
+
+.chamados{
+  position: absolute;
+    background-color: rgb(179, 226, 245); 
+    width: 90%;
+    margin-top: 5%;   
+    left:5%;
+    right:20px;
+   
+   
+}
+
+.chamado{
+    position: absolute;
+    background-color: rgb(179, 226, 245);
+    width: 80%;
+    top: 40%;
+    left: 10%;
+    margin-block-end: 40%;
+   
+}
+.pesquisa{
+    position: absolute;
+    text-align: center;
+    color: aqua;
+    height:50%;
+    right: 50%; 
+
+
+}
+.divEsquerda{
+
+    position: relative;
+    border-width:2px;
+    width: 200px;
+    height: 100px;
+    left:0px;
+    float: left;
+  
+
+}
+.divDireita{
+   
+    position: absolute;;
+    border-width:2px;
+    width:200px;
+    left: 300px;
+    margin-top: 4%;
+  
+
+   
+ }
+
+ .divBotao{
+     position: absolute;
+    margin: auto;
+    left: 200px;
+    top: 100px;
+
+ }
+
+.esquerda{
+    position: absolute ;
+    background-color:  rgb(66, 212, 218);
+    width: 30%;
+    top: 20%;
+    left: 3%;
+
+
+}
+
+.direita{
+    display: flex;
+    position: absolute ;
+    top: 10%;
+    right: 3%; 
+    margin-top:7%; 
+   
+}
+
+
+.itens{
+
+  
+    display: flex;
+    align-items: center;
+    width: 300px;
+    margin-left: 40%;
+    margin-top: 8%;
+    flex-direction: column;
+    flex-wrap: wrap;
+   
+}
+
+
+#exterior {
+    display: inline-block;
+    width: 500px;
+    border: 3px solid grey;
+    padding: 50px;
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+    /* margin-top: 250px; */
+}
+
+#interior {
+    width: 400px;
+    border: 2px solid grey;
+    background-color: #d7d9dd;
+    padding: 50px;
+    margin: 10px;
+}
+
+#form{
+    flex-direction: column;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+   
+    
+    
+
+}
+tabela{
+    background-color: #492EB7;
+    clear: both;
+
+
+}
+
+
+.container2{
+   
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+} 
+
+
+.filtros{
+    padding: 5px;
+}
+
+#botoes{
+    display: flex;
+} 
+
+.logoUneb{
+    display: flex;
+    justify-content: center;
+}
+
+.ajusteTable{
+    position: absolute;
+    width:35%;
+   left: 35%
+}
+
