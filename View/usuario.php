@@ -32,14 +32,14 @@
             <div class="btn btn-info btn-lg">Menu</div>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="cadastropedido.html">Voltar</a>
+            <a class="dropdown-item" href="index.php">Voltar</a>
           </div>
         </li>
 
       </ul>
     </div>
     <div>
-      <a href="cadastropedido.html" class="btn btn-info btn-lg">
+      <a href="index.php" class="btn btn-info btn-lg">
         <span class="glyphicon glyphicon-log-out"></span> Logout
       </a>
     </div>
@@ -129,8 +129,8 @@
           </thead>
           <tr>
 
-            <td scope="row"><a href="ChamadoAtualUsuario.html"> 01</a></td>
-            <td><a href="ChamadoAtualUsuario.html">Máquina não liga </a></td>
+            <td scope="row"><a href="ChamadoAtualUsuario.php"> 01</a></td>
+            <td><a href="ChamadoAtualUsuario.php">Máquina não liga </a></td>
             <td>Exemplo</td>
             <td>Exemplo</td>
             <td>Exemplo</td>
@@ -142,8 +142,8 @@
           </tr>
           <tr>
 
-            <td scope="row"><a href="ChamadoAtualUsuario.html">02</a></td>
-            <td> <a href="ChamadoAtualUsuario.html">Exemplo</a></td>
+            <td scope="row"><a href="ChamadoAtualUsuario.php">02</a></td>
+            <td> <a href="ChamadoAtualUsuario.php">Exemplo</a></td>
             <td>Exemplo</td>
             <td>Exemplo</td>
             <td>Exemplo</td>
@@ -155,8 +155,8 @@
           </tr>
           <tr>
 
-            <td scope="row"><a href="ChamadoAtualUsuario.html">02</a></td>
-            <td> <a href="ChamadoAtualUsuario.html">Exemplo</a></td>
+            <td scope="row"><a href="ChamadoAtualUsuario.php">02</a></td>
+            <td> <a href="ChamadoAtualUsuario.php">Exemplo</a></td>
             <td>Exemplo</td>
             <td>Exemplo</td>
             <td>Exemplo</td>
@@ -168,8 +168,8 @@
           </tr>
           <tr>
 
-            <td scope="row"><a href="ChamadoAtualUsuario.html">02</a></td>
-            <td> <a href="ChamadoAtualUsuario.html">Exemplo</a></td>
+            <td scope="row"><a href="ChamadoAtualUsuario.php">02</a></td>
+            <td> <a href="ChamadoAtualUsuario.php">Exemplo</a></td>
             <td>Exemplo</td>
             <td>Exemplo</td>
             <td>Exemplo</td>

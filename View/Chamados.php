@@ -29,12 +29,12 @@
                         <div class="btn btn-info btn-lg">Menu</div>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="Chamados.html">Chamados</a>
-                        <a class="dropdown-item" href="cadastroa.html">Cadastro Setor</a>
-                        <a class="dropdown-item" href="CadastroT.html">Cadastro Técnico</a>
-                        <a class="dropdown-item" href="problemas.html">Cadastro Problemas</a>
-                        <a class="dropdown-item" href="relatorios.html">Relatórios</a>
-                        <a class="dropdown-item" href="ListaTec.html">Administrador</a>
+                        <a class="dropdown-item" href="Chamados.php">Chamados</a>
+                        <a class="dropdown-item" href="cadastroSetor.php">Cadastro Setor</a>
+                        <a class="dropdown-item" href="CadastroTecnico.php">Cadastro Técnico</a>
+                        <a class="dropdown-item" href="problemas.php">Cadastro Problemas</a>
+                        <a class="dropdown-item" href="relatorios.php">Relatórios</a>
+                        <a class="dropdown-item" href="ListaTec.php">Administrador</a>
                     </div>
                 </li>
                 <li>
@@ -47,7 +47,7 @@
 
 
         <div>
-            <a href="login.html" class="btn btn-info btn-lg">
+            <a href="login.php" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-log-out"></span> Logout
             </a>
         </div>
@@ -180,8 +180,8 @@
                 </thead>
                 <tr>
 
-                    <td scope="row"><a href="chamadoAtual.html"> 01</a></td>
-                    <td><a href="chamadoAtual.html"> Máquina não liga </a></td>
+                    <td scope="row"><a href="chamadoAtual.php"> 01</a></td>
+                    <td><a href="chamadoAtual.php"> Máquina não liga </a></td>
                     <td>Exemplo</td>
                     <td>Exemplo</td>
                     <td>Exemplo</td>
@@ -193,8 +193,8 @@
                 </tr>
                 <tr>
 
-                    <td scope="row"><a href="chamadoAtual.html">02</a></td>
-                    <td> <a href="chamadoAtual.html">Exemplo</a></td>
+                    <td scope="row"><a href="cchamadoAtual.php">02</a></td>
+                    <td> <a href="chamadoAtual.php">Exemplo</a></td>
                     <td>Exemplo</td>
                     <td>Exemplo</td>
                     <td>Exemplo</td>
@@ -206,8 +206,8 @@
                 </tr>
                 <tr>
 
-                    <td scope="row"><a href="chamadoAtual.html">02</a></td>
-                    <td> <a href="chamadoAtual.html">Exemplo</a></td>
+                    <td scope="row"><a href="chamadoAtual.php">02</a></td>
+                    <td> <a href="chamadoAtual.php">Exemplo</a></td>
                     <td>Exemplo</td>
                     <td>Exemplo</td>            
                     <td>Exemplo</td>
@@ -219,8 +219,8 @@
                 </tr>
                 <tr>
 
-                    <td scope="row"><a href="chamadoAtual.html">02</a></td>
-                    <td> <a href="chamadoAtual.html">Exemplo</a></td>
+                    <td scope="row"><a href="chamadoAtual.php">02</a></td>
+                    <td> <a href="chamadoAtual.php">Exemplo</a></td>
                     <td>Exemplo</td>
                     <td>Exemplo</td>
                     <td>Exemplo</td>

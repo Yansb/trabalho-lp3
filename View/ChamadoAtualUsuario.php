@@ -29,7 +29,7 @@
                         <div class="btn btn-info btn-lg">Menu</div>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                           <a class="dropdown-item" href="usuario.html">Chamados</a>
+                           <a class="dropdown-item" href="usuario.php">Chamados</a>
                          
                         </div>
                       </li>
@@ -43,7 +43,7 @@
       
         
         <div> 
-            <a href="cadastropedido.html" class="btn btn-info btn-lg">
+            <a href="index.php" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-log-out"></span> Logout
             </a>
         </div>
@@ -101,7 +101,7 @@
         <div class="list-group" id="list-tab" role="tablist">
                 
                 <a class="list-group-item list-group-item-action" id="Cancelar" data-toggle="list" href="#" role="tab" aria-controls="Cancelar" onclick="cancelar()">Cancelar Chamado</a>
-                <a class="list-group-item list-group-item-action" id="Retornar"  href="usuario.html" role="tab" aria-controls="Retornar">Retornar</a>
+                <a class="list-group-item list-group-item-action" id="Retornar"  href="usuario.php" role="tab" aria-controls="Retornar">Retornar</a>
  
         </div>
 

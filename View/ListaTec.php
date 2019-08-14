@@ -31,11 +31,11 @@
             <div class="btn btn-info btn-lg">Menu</div>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="Chamados.html">Chamados</a>
-            <a class="dropdown-item" href="cadastroa.html">Cadastro Setor</a>
-            <a class="dropdown-item" href="CadastroT.html">Cadastro Técnico</a>
-            <a class="dropdown-item" href="problemas.html">Cadastro Problemas</a>
-            <a class="dropdown-item" href="relatorios.html">Relatórios</a>
+            <a class="dropdown-item" href="Chamados.php">Chamados</a>
+            <a class="dropdown-item" href="cadastroSetor.php">Cadastro Setor</a>
+            <a class="dropdown-item" href="CadastroTecnico.php">Cadastro Técnico</a>
+            <a class="dropdown-item" href="problemas.php">Cadastro Problemas</a>
+            <a class="dropdown-item" href="relatorios.php">Relatórios</a>
           </div>
         </li>
         <li>
@@ -46,7 +46,7 @@
 
 
     <div>
-      <a href="login.html" class="btn btn-info btn-lg">
+      <a href="login.php" class="btn btn-info btn-lg">
         <span class="glyphicon glyphicon-log-out"></span> Logout
       </a>
     </div>
@@ -76,7 +76,7 @@
           <th>Carlos Almeida</th>
           <th>Técnico da Acadêmica</th>
           <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="CadastroT.html"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
+          <th> <a href="CadastroTecnico.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
 
         </tr>
         <tr>
@@ -84,14 +84,14 @@
           <th>Matheus souza</th>
           <th>Técnico de Informática</th>
           <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="CadastroT.html"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
+          <th> <a href="CadastroTecnico.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
         </tr>
         <tr>
           <th>078245222</th>
           <th>Yan Barreto</th>
           <th>Coordenador</th>
           <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="CadastroT.html"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
+          <th> <a href="CadastroTecnico.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
         </tr>
         <tr>
           <th></th>
@@ -125,7 +125,7 @@
           <th>Exemple</th>
           <th>Exemple</th>
           <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="cadastroa.html"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
+          <th> <a href="cadastroSetor.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
 
         </tr>
         <tr>
@@ -134,7 +134,7 @@
           <th>Exemple</th>
           <th>Exemple</th>
           <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="cadastroa.html"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
+          <th> <a href="cadastroSetor.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
 
         </tr>
         <tr>
@@ -143,7 +143,7 @@
           <th>Exemple</th>
           <th>Exemple</th>
           <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="cadastroa.html"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a> 
+          <th> <a href="cadastroSetor.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a> 
         </tr>
         <tr>
           <th></th>
@@ -174,21 +174,21 @@
           <th>07</th>
           <th>Exemple</th>
           <th> <button class="btn btn-info" type="submit" name="validar">Excluir</button></th>
-          <th> <a href="problemas.html"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a> 
+          <th> <a href="problemas.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a> 
 
         </tr>
         <tr>
           <th>08</th>
           <th>Exemple</th>
           <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="problemas.html"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a> >
+          <th> <a href="problemas.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a> >
         </tr>
         <tr>
           <th>02</th>
           <th>Exemple</th>
 
           <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="problemas.html"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a> 
+          <th> <a href="problemas.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a> 
         </tr>
         <tr>
           <th></th>

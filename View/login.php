@@ -24,7 +24,7 @@
 
             <ul class="right hide-on-med-and-down">
 
-                <li><a href="cadastropedido.html" waves-effect waves-light btn-small"><i
+                <li><a href="index.php" waves-effect waves-light btn-small"><i
                             class="material-icons left">cloud</i>Novo Chamado</a></a></li>
             </ul>
         </div>
@@ -51,7 +51,7 @@
         <div class="container">
             <div class="form">
 
-                <form action="Chamados.html" method="POST" class="login">
+                <form action="Chamados.php" method="POST" class="login">
                     <div id="usuario">
 
                         <div class="input-field col s6">

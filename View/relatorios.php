@@ -31,12 +31,12 @@
                   <div class="btn btn-info btn-lg">Menu</div>
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                     <a class="dropdown-item" href="Chamados.html">Chamados</a>
-                    <a class="dropdown-item" href="cadastroa.html">Cadastro Setor</a>
-                    <a class="dropdown-item" href="CadastroT.html">Cadastro Técnico</a>
-                    <a class="dropdown-item" href="problemas.html">Cadastro Problemas</a>
+                     <a class="dropdown-item" href="Chamados.php">Chamados</a>
+                    <a class="dropdown-item" href="cadastroSetor.php">Cadastro Setor</a>
+                    <a class="dropdown-item" href="CadastroTecnico.php">Cadastro Técnico</a>
+                    <a class="dropdown-item" href="problemas.php">Cadastro Problemas</a>
                     <a class="dropdown-item" href=#>Relatórios</a>
-                    <a class="dropdown-item" href="ListaTec.html">Administrador</a>
+                    <a class="dropdown-item" href="ListaTec.php">Administrador</a>
                   </div>
                 </li>
                 <li>
@@ -47,7 +47,7 @@
               </ul>
             </div>
             <div> 
-                <a href="login.html" class="btn btn-info btn-lg">
+                <a href="login.php" class="btn btn-info btn-lg">
                    <span class="glyphicon glyphicon-log-out"></span> Logout
                 </a>
             </div>

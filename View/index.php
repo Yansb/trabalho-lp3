@@ -29,7 +29,7 @@
                                                 <div class="btn btn-info btn-lg">Menu</div>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                <a class="dropdown-item" href="login.html">Login Técnico</a>
+                                                <a class="dropdown-item" href="login.php">Login Técnico</a>
 
                                         </div>
                                 </li>
@@ -122,9 +122,9 @@
 
                                 </form>
                                 <div>
-                                        <a href="usuario.html"><button class="btn btn-info"
+                                        <a href="usuario.php"><button class="btn btn-info"
                                                         onclick="pedecpf()">consulta</button></a>
-                                        <a href="Software.html"><button class="btn btn-info">Sofware de
+                                        <a href="Software.php"><button class="btn btn-info">Sofware de
                                                         Instalação</button></a>
 
                                 </div>

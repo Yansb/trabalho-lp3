@@ -63,8 +63,8 @@
                     <p> <input class="btn btn-info" type="submit" value="Enviar Chamado" onclick="software()"></p>
                 </form>
                 <div>
-                    <p><a href="cadastropedido.html"><button class="btn btn-info">Voltar</button></a> </p>
-                    <a href="usuario.html"><button class="btn btn-info" onclick="pedecpf()">consulta</button></a>
+                    <p><a href="index.php"><button class="btn btn-info">Voltar</button></a> </p>
+                    <a href="usuario.php"><button class="btn btn-info" onclick="pedecpf()">consulta</button></a>
                 </div>
 
 
