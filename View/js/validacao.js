@@ -115,15 +115,16 @@ function mostraOculta(opc) {
 }
 
 
-function pedecpf() {
+/*function pedecpf() {
+    var CPF;
     do {
 
-        nome = prompt("Digite o seu CPF");
+        CPF = prompt("Digite o seu CPF");
 
-    } while (nome == null || nome == "" || nome.length<11 || nome.length>11);
+    } while (CPF == null || CPF == "" || CPF.length<11 || CPF.length>11);
 
 
-}
+}*/
 
 function pedesenha() {
     do {
