@@ -237,22 +237,29 @@
         {
             Protected $Status; 
             Protected $Descricao;
-            Protected $DataAbertura; 
-            Protected $DataFechamento;
+            Protected $DataHoraAbertura; 
+            Protected $DataHoraFechamento;
             Protected $Prioridade;
             Protected $Numero;
-            Protected $Hora; 
+            Protected $Arquivo; 
+            Protected $OBS; 
+            Protected $Setor;
+            Protected $Problema; 
+            
 
-            public function __construct($Status,$Descricao,$DataAbertura,$DataFechamento,$Prioridade,$Numero,$Hora)
+            public function __construct($Descricao="",$Setor='',$Problema='',$Arquivo="",$OBS="",$DataAbertura="",$Numero="")
             {
-                $this->Status = $Status;
+                $this->Status = "Aberto";
                 $this->Descricao = $Descricao;
-                $this->DataAbertura = $DataAbertura; 
-                $this->DataFechamento = $DataFechamento; 
-                $this->Prioridade = $Prioridade; 
-                $this->$Numero= $Numero;
-                $this->$Hora= $Hora; 
+                $this->DataAbertura = $DataAbertura;
+                $this->Prioridade = "Normal"; 
+                $this->Setor= $Setor;
+                $this->Problema= $Problema;
+                $this->Arquivo= $Arquivo;
+                $this->OBS= $OBS;
+                $this->Numero= $Numero;
 
+             
             }
 
             public function Encaminhar()
@@ -267,69 +274,59 @@
             {
                 
             }
-
             public function getStatus()
             {
                         return $this->Status;
             }
 
-        
             public function setStatus($Status)
             {
                         $this->Status = $Status;
 
                         return $this;
             }
-
-            
             public function getDescricao()
             {
                         return $this->Descricao;
             }
 
-             function setDescricao($Descricao)
+           
+            public function setDescricao($Descricao)
             {
                         $this->Descricao = $Descricao;
-
                         return $this;
             }
 
-            
-            public function getDataAbertura()
+            public function getDataHoraAbertura()
             {
-                        return $this->DataAbertura;
+                        return $this->DataHoraAbertura;
             }
 
-          
-            public function setDataAbertura($DataAbertura)
+            
+            public function setDataHoraAbertura($DataHoraAbertura)
             {
-                        $this->DataAbertura = $DataAbertura;
+                        $this->DataHoraAbertura = $DataHoraAbertura;
 
                         return $this;
             }
-
             
-            public function getDataFechamento()
+            public function getDataHoraFechamento()
             {
-                        return $this->DataFechamento;
+                        return $this->DataHoraFechamento;
             }
 
-           
-            public function setDataFechamento($DataFechamento)
+            
+            public function setDataHoraFechamento($DataHoraFechamento)
             {
-                        $this->DataFechamento = $DataFechamento;
+                        $this->DataHoraFechamento = $DataHoraFechamento;
 
                         return $this;
             }
-
-            
             public function getPrioridade()
             {
                         return $this->Prioridade;
             }
 
-            
-        
             public function setPrioridade($Prioridade)
             {
                         $this->Prioridade = $Prioridade;
@@ -337,7 +334,6 @@
                         return $this;
             }
 
-            
             public function getNumero()
             {
                         return $this->Numero;
@@ -350,23 +346,55 @@
 
                         return $this;
             }
-
-            
-            public function getHora()
+            public function getArquivo()
             {
-                        return $this->Hora;
+                        return $this->Arquivo;
+            }
+
+          
+            public function setArquivo($Arquivo)
+            {
+                        $this->Arquivo = $Arquivo;
+
+                        return $this;
+            }
+            public function getOBS()
+            {
+                        return $this->OBS;
             }
 
             
-             
-            public function setHora($Hora)
+            public function setOBS($OBS)
             {
-                        $this->Hora = $Hora;
+                        $this->OBS = $OBS;
+
+                        return $this;
+            }
+            
+            public function getSetor()
+            {
+                        return $this->Setor;
+            }
+
+            
+            public function setSetor($Setor)
+            {
+                        $this->Setor = $Setor;
+
+                        return $this;
+            }
+            public function getProblema()
+            {
+                        return $this->Problema;
+            }
+
+            public function setProblema($Problema)
+            {
+                        $this->Problema = $Problema;
 
                         return $this;
             }
         }
-
         //fim classe chamado 
     
         class Problemas
@@ -464,5 +492,8 @@
 
                         return $this;
             }
+
+        
+            
         }
 ?> 
