@@ -205,11 +205,12 @@
 
 
 
-            public function __construct($Nome, $Email,$Telefone ){
+            public function __construct($Codigo="",$Nome="", $Email="",$Telefone="" ){
 
                 $this->Nome = $Nome;
                 $this->Email = $Email; 
                 $this->Telefone = $Telefone; 
+                $this->Codigo=$Codigo;
 
             } 
 
@@ -444,8 +445,9 @@
             Protected $Codigo; 
             Protected $Nome;
             
-            public function __construct($Nome){
+            public function __construct($Codigo="",$Nome=""){
                 $this->Nome = $Nome; 
+                $this->Codigo = $Codigo; 
             } 
 
 
@@ -473,6 +475,16 @@
                      $this->Nome = $Nome;
 
                     return $this;
+            }
+
+            public function Adicionar(){
+
+            }
+            public function Remover($Codigo){
+                
+            }
+            public function Renomear($Codigo){
+                
             }
         }
 

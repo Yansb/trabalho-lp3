@@ -52,16 +52,16 @@
 
 
   <div class="formArea" style=" height: auto;">
-    <form id="box" method="POST" action="#">
+    <form id="box" method="POST" action="../Controller/ControladorProblema.php">
       <h3>Cadastro Problemas </h3>
       <div class="form-row">
         <div class="col-md-30">
           <br>
           <p>
-            Problema<input class="form-control" value="" type="text" id="Problema" name="Problema" size="25px" maxlength="100"
+            Problema<input class="form-control" value="" type="text" id="Problema" name="Nome" size="25px" maxlength="100"
              >
           </p>
-
+          <input type="hidden" id="Acao" name="Acao" value="Adicionar">
           <div>
             <p>
               <a href="#" ><button class="btn btn-info" onclick="sucesso2()">Cadastrar</button></a>
