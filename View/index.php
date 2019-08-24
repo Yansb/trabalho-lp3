@@ -118,7 +118,7 @@
                                                         <input class="btn btn-info" type="reset" value="cancelar">
                                                 </div>
                                         </p>
-                                        <input type="hidden" name="acao" id="acao" value="NovoChamado">
+                                        <input type="hidden" name="Acao" id="Acao" value="NovoChamado">
                                 </form>
                                 <div>
                                         <a href="usuario.php"><button class="btn btn-info"

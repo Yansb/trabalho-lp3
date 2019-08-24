@@ -29,36 +29,38 @@
             <!--Enviar email dizendo que foi aberto-->
             <!--Tem que mandar email toda vez que mudar status do chamado-->
             <div id="interior">
-                <form method="POST" action="">
+                <form method="POST" action="../Controller/ControladorIndex.php">
                     <p>Nome: <input class="form-control" type="text" id="Nome" name="Nome" size="25px" maxlength="100"
                             value="">
                     </p>
-                    <p>Email: <input class="form-control" type="email" id="Email" name="email" size="25px"
+                    <p>CPF:<input class="form-control" type="text" id="CPF" name="CPF" size="25px"
+                                                        maxlength="11" value=""></p>
+                    <p>Email: <input class="form-control" type="email" id="Email" name="Email" size="25px"
                             maxlength="100" value=""></p>
                     <p>Telefone: <input class="form-control" type="text" id="Telefone" name="Telefone" size="25px"
                             maxlength="11" value=""> </p>
 
-                    <p>Software para Instalação<input class="form-control" id="Programa" type="text" name="Software"
+                    <p>Software para Instalação<input class="form-control" id="Software"" type="text" name="Software"
                             size="25px" maxlength="100" value="">
                     </p>
 
                     <p> Data de uso<input type="date" value="" id="data" name="data" size="25px" maxlength="11"> </p>
 
 
-                    <p>Link para Download<input class="form-control" value="" id="link" type="url" name="link"
+                    <p>Link para Download<input class="form-control" value="" id="Link" type="url" name="Link"
                             size="25px" maxlength="100"></p>
 
-                    <p>Plugin Necessário(opcional)<input class="form-control" type="text" name="Plugin" size="25px"
+                    <p>Plugin Necessário(opcional)<input class="form-control" type="text" id="Plugin" name="Plugin" size="25px"
                             maxlength="11"></p>
 
                     <p> Selecione o Laboratório
-                        <select class="custom-select custom-select-lg mb-3" name="Lab" size="0">
+                        <select class="custom-select custom-select-lg mb-3" name="Lab" size="0" id="Lab" name="Lab">
 
                             <option value="Lab1">Laboratório 1</option>
                             <option value="Lab2">Laboratório 2</option>
                         </select>
                     </p>
-
+                    <input type="Hidden" id="Acao" name="Acao" value="AdicionarFT">
 
                     <p> <input class="btn btn-info" type="submit" value="Enviar Chamado" onclick="software()"></p>
                 </form>
