@@ -8,6 +8,9 @@ if($Acao==="Logar"){
     $Senha = $_POST['Senha'];
   
     $Tecnico= new Tecnico("","","","",$Login,$Senha); 
+
+    header('location: ../View/Chamados.php'); 
+    exit;
    
 }
 else{
