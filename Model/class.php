@@ -13,7 +13,7 @@
                 protected $Email;
 
             
-                public function __construct($Nome, $CPF, $Telefone, $Email)
+                public function __construct($Nome="", $CPF="", $Telefone="", $Email="")
                 {
                     $this->Nome = $Nome;
                     $this->CPF = $CPF;
@@ -95,13 +95,15 @@
         class Tecnico extends Usuario{
 
             Protected $Login;  
+            Protected $Senha;
 
 
             
-            public function __construct($Nome,$CPF,$Telefone,$Email,$Login)
+            public function __construct($Nome="",$CPF="",$Telefone="",$Email="",$Login="",$Senha="")
             {
                 parent::__construct($Nome,$CPF,$Telefone,$Email);
                 $this->Login = $Login;
+                $this->Senha = $Senha;
             }
 
             public function getLogin()
@@ -109,10 +111,21 @@
                 return $this->Login;
             }
 
-        
             public function setLogin($Login)
             {
                 $this->Login = $Login;
+
+                return $this;
+            }
+            public function getSenha()
+            {
+                return $this->Senha;
+            }
+
+        
+            public function setSenha($Senha)
+            {
+                $this->Senha = $Senha;
 
                 return $this;
             }
