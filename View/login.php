@@ -51,20 +51,20 @@
         <div class="container">
             <div class="form">
 
-                <form action="Chamados.php" method="POST" class="login">
+                <form action="../Controller/ControladorLogin.php" method="POST" class="login">
                     <div id="usuario">
 
                         <div class="input-field col s6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="login" type="text" required>
+                            <input id="Login" name="Login" type="text" required>
                             <label for="login">Login</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">lock</i>
-                            <input id="senha" type="password" required>
+                            <input id="Senha" name="Senha" type="password" required>
                             <label for="senha">Senha</label>
                         </div>
-
+                            <input type="hidden" id="Acao" name="Acao" value="Logar">
                         <div>
                             <p>
                                 <a><button class="btn btn-info">Login</button></a>
