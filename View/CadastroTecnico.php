@@ -57,7 +57,7 @@
   <br>
   <div class="formTecnico">
 
-    <form method="POST" action="#" class="needs-validation">
+    <form method="POST" action="../Controller/ControladorTecnico.php" class="needs-validation">
       <h2>Cadastro Técnico </h2>
       <br>
       <div class="form-row">
@@ -65,7 +65,7 @@
           <p>
 
             <p>Selecione o Cargo</p>
-            <select class="custom-select custom-select-lg mb-3" name="prioridade" required>
+            <select class="custom-select custom-select-lg mb-3" name="Cargo" required>
               <option value="simples">Simples</option>
               <option value="admin">Gerente</option>
               <option value="admin">Administrador</option>
@@ -79,19 +79,19 @@
             Nome<input class="form-control" id="Nome" type="text" name="Nome" size="20px" maxlength="100">
           </p>
           <p>
-            Login<input class="form-control" id="Login" type="text" name="text" size="20px" maxlength="9">
+            Login<input class="form-control" id="Login" type="text" name="Login" size="20px" maxlength="9">
           </p>
           <p>
-            Email<input class="form-control" id="Email" type="email" name="email" size="20px" maxlength="50">
+            Email<input class="form-control" id="Email" type="email" name="Email" size="20px" maxlength="50">
           </p>
 
           <p>
-            Telefone<input class="form-control" id="Telefone" type="tel" name="tel" size="30px" maxlength="11">
+            Telefone<input class="form-control" id="Telefone" type="tel" name="Telefone" size="30px" maxlength="11">
           </p>
 
 
           <p>Setor</p>
-          <select class="custom-select custom-select-lg mb-3" name="area" required>
+          <select class="custom-select custom-select-lg mb-3" name="Setor" required>
 
             <option value="rh">Recusos Humanos </option>
             <option value="ti">Tecnologia da Informação</option>
@@ -102,7 +102,10 @@
             <option value=">"></option>
 
           </select>
-
+          <p>
+            Senha<input class="form-control" id="Senha" type="password" name="Senha" size="20px" maxlength="9">
+          </p>
+          <input type="hidden" id="Acao" name="Acao" value="Adicionar">
           <div>
             <p>
               <a><button class="btn btn-info" onclick="sucesso1()">Cadastrar</button></a>
