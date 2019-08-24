@@ -96,14 +96,18 @@
 
             Protected $Login;  
             Protected $Senha;
+            Protected $Cargo;
+            Protected $Setor;
 
 
             
-            public function __construct($Nome="",$CPF="",$Telefone="",$Email="",$Login="",$Senha="")
+            public function __construct($Nome="",$CPF="",$Telefone="",$Email="",$Login="",$Senha="", $Cargo="",$Setor="")
             {
                 parent::__construct($Nome,$CPF,$Telefone,$Email);
                 $this->Login = $Login;
                 $this->Senha = $Senha;
+                $this->Cargo =$Cargo;
+                $this->Setor =$Setor; 
             }
 
             public function getLogin()
@@ -128,6 +132,30 @@
                 $this->Senha = $Senha;
 
                 return $this;
+            }
+            public function getCargo()
+            {
+                        return $this->Cargo;
+            }
+
+          
+            public function setCargo($Cargo)
+            {
+                        $this->Cargo = $Cargo;
+
+                        return $this;
+            }
+            public function getSetor()
+            {
+                        return $this->Setor;
+            }
+
+            
+            public function setSetor($Setor)
+            {
+                        $this->Setor = $Setor;
+
+                        return $this;
             }
         }
 
@@ -508,5 +536,9 @@
 
         
             
+            
+
+          
+           
         }
 ?> 
