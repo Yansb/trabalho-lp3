@@ -54,17 +54,14 @@
 
 
   <div class="formArea" style=" height: auto;">
-    <form id="box" method="POST" action="#">
+    <form id="box" method="POST" action="../Controller/ControladorSetor.php">
       <h3>Cadastro Setor </h3>
       <div class="form-row">
         <div class="col-md-30">
           <br>
+          
           <p>
-            Código do Setor<input class="form-control" value="" type="text" id="CodigoSetor" name="CodigoSetor" size="25px"
-              maxlength="100">
-          </p>
-          <p>
-            Nome do Setor<input class="form-control" value="" type="text" id="NomeSetor" name="NomeSetor" size="25px"
+            Nome do Setor<input class="form-control" value="" type="text" id="NomeSetor" name="Nome" size="25px"
               maxlength="100"> </p>
           <p>
             Telefone<input class="form-control" value=""  type="text" id="Telefone" name="Telefone" size="25px" maxlength="100">
@@ -72,7 +69,7 @@
           <p>
             Email<input class="form-control" value="" type="email" id="Email" name="Email" size="25px" maxlength="100">
           </p>
-
+          <input type="hidden" id="Acao" name="Acao" value="Adicionar">
           <div class="botoes">
               <button class="btn btn-info" type="submit" name="validar"  onclick="return valida();"> Cadastrar</button>
               
