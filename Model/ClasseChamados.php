@@ -1,5 +1,6 @@
 <?php 
 
+        include "ClasseChamadosDAO.php";
         class Chamado
         {
             Protected $Status; 
@@ -29,9 +30,15 @@
             
             }
 
-            public function Adicionar()
+            public function Adicionar($Usuario)
             {
-                return true;
+                $Chamado = new ChamadoDAO();
+                return $Chamado->Adicionar($this,$Usuario); 
+            }
+            public function Remover($Chamado)
+            {
+                $Chamado = new ChamadoDAO();
+                return $Chamado->Remover($this); 
             }
             public function Encaminhar()
             {

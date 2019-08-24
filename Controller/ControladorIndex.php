@@ -18,10 +18,10 @@
             $OBS=$_POST["OBS"]; 
         
             $Chamado= new Chamado("" ,$Descricao,$Setor,$Problema,$Arquivo,$OBS,$DataHoraAbertura); 
-            $User= new Usuario($Nome,$CPF,$Telefone,$Email);
-            if($Chamado->Adicionar()){
+            $Usuario= new Usuario($Nome,$CPF,$Telefone,$Email);
+            if($Chamado->Adicionar($Usuario)){
 
-                header('Location: ../View/Index.php');
+                header('Location: ../Model/ClasseChamadosDAO.php');
             
                 
             }
@@ -43,7 +43,7 @@
             $Plugin=$_POST['Plugin'];
         
             $ChamadoSoftware= new ChamadoSoftware("" ,$Descricao,$Setor,"dad","adad","dasda",$DataHoraAbertura,$Link,$Plugin); 
-            $User= new Usuario($Nome,$CPF,$Telefone,$Email);
+            $$Usuario= new Usuario($Nome,$CPF,$Telefone,$Email);
 
             echo "Desc: ".$ChamadoSoftware->getOBS()."<br>";
           
