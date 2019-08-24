@@ -29,9 +29,9 @@
             
             }
 
-            public function Adicionar($Chamado)
+            public function Adicionar()
             {
-
+                return true;
             }
             public function Encaminhar()
             {
