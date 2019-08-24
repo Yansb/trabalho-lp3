@@ -1,5 +1,5 @@
 <?php
-require "../Model/class.php"; 
+require "../Model/ClassUsuarios.php"; 
 $Acao = $_POST['Acao']; 
 
 if($Acao==="Logar"){

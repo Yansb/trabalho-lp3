@@ -1,5 +1,6 @@
 <?php
-        include "../Model/class.php"; 
+        include "../Model/ClasseChamados.php"; 
+        require "../Model/ClassUsuarios.php"; 
 
         $Acao= $_POST['Acao'] ; 
 
@@ -18,6 +19,11 @@
         
             $Chamado= new Chamado("" ,$Descricao,$Setor,$Problema,$Arquivo,$OBS,$DataHoraAbertura); 
             $User= new Usuario($Nome,$CPF,$Telefone,$Email);
+            if(Chamado->Adicionar()){
+
+                header('Location: ../Controller/ControladorIdex.php')
+                alert("Cadastro feito com sucesso");
+            }
 
 
         }
