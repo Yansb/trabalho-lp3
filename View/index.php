@@ -57,21 +57,21 @@
                         <!--Enviar email dizendo que foi aberto-->
                         <!--Tem que mandar email toda vez que mudar status do chamado-->
                         <div id="interior">
-                                <form method="POST" action="">
+                                <form method="POST" action="../Controller/ControladorIndex.php">
                                         <p>Nome: <input class="form-control" type="text" id="Nome" value="" name="Nome"
                                                         size="25px" maxlength="100" value=""></p>
 
                                         <p>CPF:<input class="form-control" type="text" id="CPF" name="CPF" size="25px"
                                                         maxlength="11" value=""></p>
 
-                                        <p> Email: <input class="form-control" type="email" id="Email" name="email"
+                                        <p> Email: <input class="form-control" type="email" id="Email" name="Email"
                                                         size="25px" maxlength="100" value=""></p>
 
-                                        <p>Telefone(opcional): <input class="form-control" type="text" name="Telefone"
+                                        <p>Telefone(opcional): <input class="form-control" type="text" id="Telefone" name="Telefone"
                                                         size="25px" maxlength="11"></p>
 
                                         <p>Setor
-                                                <select class="custom-select custom-select-lg mb-3" name="Equipamento"
+                                                <select class="custom-select custom-select-lg mb-3" name="Setor" id="Setor"
                                                         size="0" required> <br>
                                                         <option value="RH">RH</option>
                                                         <option value="TI">TI</option>
@@ -82,7 +82,7 @@
                                                 </select></p>
                                         <p>
                                                 Problema
-                                                <select class="custom-select custom-select-lg mb-3" name="FazerADM"
+                                                <select class="custom-select custom-select-lg mb-3" name="Problema" id="Problema"
                                                         size="0" required>
                                                         <option value="sla">VAI SER FEITO PELO ADM</option>
                                                         <option value="sla">sla</option>
@@ -94,17 +94,20 @@
                                                 </select>
 
                                         </p>
+
+                                        <p>Descrição: <input class="form-control" type="text" id="Descricao" value="" name="Descricao"
+                                                        size="25px" maxlength="100" value=""></p>
                                         <p>
                                                 Upload de arquivos:
                                                 <input type="hidden" name="MAX_FILE_SIZE" value="4194304">
                                                 <!-- tamanho max de 4mb-->
-                                                <input type="file" name="arquivo">
+                                                <input type="file" name="Arquivo" id="Arquivo">
                                         </p>
 
                                         <p>
                                                 Observação:
-                                                <textarea class="form-control" name="OBS" rows="4" cols="50" size="50px"
-                                                        maxlength="99999" required>Descreva o problema</textarea>
+                                                <textarea class="form-control" name="OBS" id="OBS" rows="4" cols="50" size="50px"
+                                                        maxlength="99999" required>Detalhe do  problema</textarea>
 
                                         </p>
 
@@ -115,11 +118,7 @@
                                                         <input class="btn btn-info" type="reset" value="cancelar">
                                                 </div>
                                         </p>
-
-
-
-
-
+                                        <input type="hidden" name="acao" id="acao" value="NovoChamado">
                                 </form>
                                 <div>
                                         <a href="usuario.php"><button class="btn btn-info"
