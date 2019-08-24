@@ -10,7 +10,8 @@ if($Acao==="Adicionar"){
 
 
     $Setor= new Setor("",$Nome, $Email,$Telefone); 
-    echo $Setor->getEmail(); 
+    header('Location: ../View/cadastroSetor.php');
+    exit; 
 }
 
 
