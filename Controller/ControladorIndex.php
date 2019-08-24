@@ -1,7 +1,7 @@
 <?php
 include "../Model/class.php"; 
 
-$Acao= isset($_POST['acao']) ; 
+$Acao= $_POST['acao'] ; 
 
 if($Acao==="NovoChamado"){
     $Ataul = new DateTime(); 
