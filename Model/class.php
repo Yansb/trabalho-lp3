@@ -289,11 +289,11 @@
             Protected $Problema; 
             
 
-            public function __construct($Descricao="",$Setor='',$Problema='',$Arquivo="",$OBS="",$DataAbertura="",$Numero="")
+            public function __construct($Numero="",$Descricao="",$Setor="",$Problema="",$Arquivo="",$OBS="",$DataHoraAbertura="")
             {
                 $this->Status = "Aberto";
                 $this->Descricao = $Descricao;
-                $this->DataAbertura = $DataAbertura;
+                $this->DataHoraAbertura = $DataHoraAbertura;
                 $this->Prioridade = "Normal"; 
                 $this->Setor= $Setor;
                 $this->Problema= $Problema;
@@ -429,7 +429,7 @@
             {
                         return $this->Problema;
             }
-
+           
             public function setProblema($Problema)
             {
                         $this->Problema = $Problema;
@@ -438,6 +438,47 @@
             }
         }
         //fim classe chamado 
+
+        class ChamadoSoftware extends Chamado {
+    
+            Protected $Link; 
+            Protected $Plugin;
+           
+
+            public function __construct($Numero="",$Descricao="",$Setor="",$Problema="",$Arquivo="",$OBS="",$DataHoraAbertura="",$Link="",$Plugin=""){
+
+                parent:: __construct($Numero="",$Descricao="",$Setor="",$Problema="",$Arquivo="",$OBS="",$DataHoraAbertura=""); 
+
+                $this->Link= $Link;
+                $this->Plugin= $Plugin;
+                $this->Problema= "Instalação de Software"; 
+            }
+
+            public function getLink(){
+
+                return $this->Link;
+            }
+
+            public function setLink($Link){
+
+                $this->Link= $Link;
+                return $this; 
+            }
+            public function getPlugin(){
+                
+                return $this->Plugin;
+            }
+
+            public function setPlugin($Plugin){
+
+                $this->Plugin= $Plugin;
+                return $this; 
+            }
+
+            
+
+        } 
+        //Fim classe ChamadoSoftware
     
         class Problemas
         {
@@ -546,6 +587,10 @@
                         return $this;
             }
 
+            public function Alterar($Descricao){
+
+                $this->setDescricao($Descricao);
+            }
         
             
             
