@@ -35,7 +35,7 @@
                 $Chamado = new ChamadoDAO();
                 return $Chamado->Adicionar($this,$Usuario); 
             }
-            public function Remover($Chamado)
+            public function Remover()
             {
                 $Chamado = new ChamadoDAO();
                 return $Chamado->Remover($this); 
@@ -183,7 +183,7 @@
 
             public function __construct($Numero="",$Descricao="",$Setor="",$Problema="",$Arquivo="",$OBS="",$DataHoraAbertura="",$Link="",$Plugin=""){
 
-                parent:: __construct($Numero="",$Descricao="",$Setor="",$Problema="",$Arquivo="",$OBS="",$DataHoraAbertura=""); 
+                parent:: __construct($Numero,$Descricao,$Setor,$Problema,$Arquivo,$OBS,$DataHoraAbertura); 
 
                 $this->Link= $Link;
                 $this->Plugin= $Plugin;

@@ -1,7 +1,7 @@
 <?php
 
 
-
+        require "classDAO.php";
         
             
         class Setor
@@ -22,6 +22,21 @@
 
             } 
 
+            public function Adicionar(){
+                $Setor= new SetorDAO();
+                return $Setor->Adicionar($this);
+
+            }
+            public function Remover(){
+                $Setor = new SetorDAO();
+                return $Setor->Remover($this);
+                
+            }
+            public function Alterar($Novo){
+                $Setor = new SetorDAO();
+                return $Setor->Alterar($this,$Novo);
+                
+            }
             public function getNome()
             {
                 return $this->Nome;
@@ -63,10 +78,6 @@
                 return $this;
             }
 
-        
-        
-
-            
             public function getTelefone()
             {
                 return $this->Telefone;
@@ -85,7 +96,7 @@
         
        
     
-        class Problemas
+        class Problema
         {
 
             Protected $Codigo; 
@@ -93,10 +104,23 @@
             
             public function __construct($Codigo="",$Nome=""){
                 $this->Nome = $Nome; 
-                $this->Codigo = $Codigo; 
+                $this->Codigo = $Codigo;    
             } 
+            public function Adicionar(){
+                $Prob = new ProblemaDAO();
+                return $Prob->Adicionar($this);
 
-
+            }
+            public function Remover(){
+                $Prob = new ProblemaDAO();
+                return $Prob->Remover($this);
+                
+            }
+            public function Alterar($Novo){
+                $Prob = new ProblemaDAO();
+                return $Prob->Alterar($this,$Novo);
+                
+            }
             public function getCodigo()
             {
                         return $this->Codigo;
@@ -123,15 +147,7 @@
                     return $this;
             }
 
-            public function Adicionar(){
-
-            }
-            public function Remover($Codigo){
-                
-            }
-            public function Renomear($Codigo){
-                
-            }
+           
         }
 
         // Fim class problemas 

@@ -21,11 +21,29 @@
             $Usuario= new Usuario($Nome,$CPF,$Telefone,$Email);
             if($Chamado->Adicionar($Usuario)){
 
+                /// header('Location: ../View/Index.php');
+            
+                
+            }else {
+                echo "FALHA EM REALIZAR O CHAMADO";
+            }
+
+        }
+
+        if($Acao==="RemoverChamado"){
+       
+            $Numero=$_POST["Numero"];
+            
+        
+            $Chamado= new Chamado($Numero); 
+            if($Chamado->Remover()){
+
                 header('Location: ../Model/ClasseChamadosDAO.php');
             
                 
+            }else {
+                echo "FALHA EM Remover O CHAMADO";
             }
-
 
         }
 
@@ -45,10 +63,15 @@
             $ChamadoSoftware= new ChamadoSoftware("" ,$Descricao,$Setor,"dad","adad","dasda",$DataHoraAbertura,$Link,$Plugin); 
             $$Usuario= new Usuario($Nome,$CPF,$Telefone,$Email);
 
-            echo "Desc: ".$ChamadoSoftware->getOBS()."<br>";
-          
+            if($ChamadoSoftware->Adicionar($Usuario)){
 
-        
+                header('Location: ../Model/ClasseChamadosDAO.php');
+            
+                
+            }else {
+                echo "FALHA EM REALIZAR O CHAMADO DE SOFTWARE";
+            }
+
 
         }
 
