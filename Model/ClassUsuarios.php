@@ -106,7 +106,7 @@
 
                     public function Logar(){
                         $Login= new TecnicoDAO();
-                        return $Login->Login($this);
+                        return $Login->Logar($this);
                     }
                     public function getLogin()
                     {

@@ -3,7 +3,7 @@
    include "ConnectionFactory.php";
             class TecnicoDAO{
 
-                public function Logar(){
+                public function Logar($Tecnico){
                     return true; 
                 }
             }
