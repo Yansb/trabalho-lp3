@@ -13,7 +13,7 @@
             try{
                 $Connection= new PDO("mysql:host=$Servername;dbname=$Dbname",$Username,$Password);
 
-                $Connection->setAttribute(PDO::ATTR_ERRMODE PDO::ERRMODE_EXCEPTION);
+                $Connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 return $Connection;
 
