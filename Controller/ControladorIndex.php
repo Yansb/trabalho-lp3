@@ -5,6 +5,7 @@
         $Acao= $_POST['Acao']; 
 
         if($Acao==="NovoChamado"){
+
             $Ataul = new DateTime(); 
             $DataHoraAbertura= $Ataul->format('d-m-Y H:i:s'); 
             $Nome=$_POST["Nome"];
@@ -19,9 +20,10 @@
         
             $Chamado= new Chamado("" ,$Descricao,$Setor,$Problema,$Arquivo,$OBS,$DataHoraAbertura); 
             $Usuario= new Usuario($Nome,$CPF,$Telefone,$Email);
-            if($Chamado->Adicionar($Usuario)){
 
-                /// header('Location: ../View/Index.php');
+            if($Chamado->Adicionar($Usuario)>0){
+
+                //header('Location: ../View/teste.php');
             
                 
             }else {

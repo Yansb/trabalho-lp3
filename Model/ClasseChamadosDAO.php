@@ -9,7 +9,7 @@ class ChamadoDAO{
         //codigo para conetar e incluir no banco
         echo $Usuario->getNome();
         echo $Chamado->getDescricao();
-        return 0; 
+        return 2; 
         
     
     }
