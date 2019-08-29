@@ -1,4 +1,6 @@
 <?php
+
+   include "ConnectionFactory.php";
             class TecnicoDAO{
 
                 public function Logar(){

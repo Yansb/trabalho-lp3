@@ -1,4 +1,7 @@
 <?php
+        include "ConnectionFactory.php";
+
+        
         class ProblemaDAO{
 
             public function Adicionar(){

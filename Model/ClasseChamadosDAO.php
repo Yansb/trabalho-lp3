@@ -1,5 +1,5 @@
 <?php
-
+    include "ConnectionFactory.php";
 
 
 class ChamadoDAO{
