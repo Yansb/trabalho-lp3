@@ -127,6 +127,18 @@
                         return $Tecnico->Remover($this);
                     }
                     
+                    public function Alterar($Novo)){
+
+                        $Tecnico = new TecnicoDAO(; 
+                        return $Tecnico->Alterar($this,$Novo); 
+                    }
+
+                    public function Pesquisar(){
+
+                        $Tecnico = new TecnicoDAO(); 
+                        return $Tecnico->Pesquisar($this); 
+                    }
+
 
                     public function getLogin()
                     {
