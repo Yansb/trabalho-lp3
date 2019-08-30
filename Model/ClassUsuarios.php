@@ -17,7 +17,11 @@
                             
                         }
 
-                        
+                        public function VerificarCPF(){
+
+                            $Usuario = new UsuarioDAO();
+                            $Usuario->VerificarCPF($this);
+                        }
                     
                         public function getNome()
                         {
@@ -105,9 +109,25 @@
                     }
 
                     public function Logar(){
+
                         $Login= new TecnicoDAO();
                         return $Login->Logar($this);
                     }
+
+                    public function Adicionar(){
+
+                        $Tecnico = mew TecnicoDAO();
+                        return $Tecnico->Adicionar($this);
+                    }
+
+
+                    public function Remover(){
+
+                        $Tecnico = mew TecnicoDAO();
+                        return $Tecnico->Remover($this);
+                    }
+                    
+
                     public function getLogin()
                     {
                         return $this->Login;

@@ -40,6 +40,12 @@
                 $Chamado = new ChamadoDAO();
                 return $Chamado->Remover($this); 
             }
+
+            public function Pesquisar(){
+                $Chamado= new ChamadoDAO();
+                return $Chamado->Pesquisar($this); 
+
+            }
             public function Encaminhar()
             {
 
