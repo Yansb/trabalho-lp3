@@ -1,13 +1,14 @@
 
-
+<p>
 Universidade do Estado da Bahia
 Linguagem de Programação III
 Trabalho em grupo 2019.1
 Profa. Ana Patrícia Magalhães 
-
+</p>
+<p>
 Objetivo
 	Desenvolver os conceitos estudados na disciplina em uma aplicação.
-
+</p>
 Organização
 	O trabalho será desenvolvido em grupos de 3 pessoas
 
