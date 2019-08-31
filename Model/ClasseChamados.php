@@ -63,6 +63,27 @@ include "ClasseChamadosDAO.php";
             {
                 
             }
+            public  function PrintTabela()
+            {
+                for($i=0;$i<8;$i++){ 
+                $Print= "
+                    <tr>
+                        <td scope='row'><a href='chamadoAtual.php'> 01</a></td>
+                        <td><a href='chamadoAtual.php'> Máquina não liga </a></td>
+                        <td>Exemplo</td>
+                        <td>Exemplo</td>
+                        <td>Exemplo</td>
+                        <td class='bg-danger'>Exemplo</td>
+                        <td>Exemplo</td>
+                        <td>Exemplo</td>
+                        <td>Exemplo</td>
+                    </tr>
+                    
+                "; 
+                echo $Print;
+                }
+                
+            }
             public function getStatus()
             {
                         return $this->Status;

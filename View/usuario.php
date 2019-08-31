@@ -11,7 +11,10 @@
   <link rel="stylesheet" href="css/MYB.css">
 
   <title>MYB-Consulta</title>
-
+  <?php 
+      include_once "../Model/ClasseChamados.php";
+      include_once "../Model/ClassUsuarios.php";
+   ?>
 
 </head>
 
@@ -106,11 +109,11 @@
 </div>
 
   <br><br><br><br>
-
+<?php  $Usuario = new Usuario("","Matheus Souza"); // teste apagar?> 
   <div>
 
     <div class="chamados">
-      <h1 style="color:rgb(41, 33, 24)">Meus Chamados </h1>
+      <h1 style="color:rgb(41, 33, 24)">Chamados: <?php echo $Usuario->getNome();?> </h1>
       <section>
         <table class="table">
           <thead class="thead-dark">
@@ -127,58 +130,10 @@
 
             </tr>
           </thead>
-          <tr>
-
-            <td scope="row"><a href="ChamadoAtualUsuario.php"> 01</a></td>
-            <td><a href="ChamadoAtualUsuario.php">Máquina não liga </a></td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-            <td class="bg-danger">Exemplo</td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-
-          </tr>
-          <tr>
-
-            <td scope="row"><a href="ChamadoAtualUsuario.php">02</a></td>
-            <td> <a href="ChamadoAtualUsuario.php">Exemplo</a></td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-            <td class="bg-warning">Exemplo</td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-
-          </tr>
-          <tr>
-
-            <td scope="row"><a href="ChamadoAtualUsuario.php">02</a></td>
-            <td> <a href="ChamadoAtualUsuario.php">Exemplo</a></td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-            <td class="bg-danger">Exemplo</td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-
-          </tr>
-          <tr>
-
-            <td scope="row"><a href="ChamadoAtualUsuario.php">02</a></td>
-            <td> <a href="ChamadoAtualUsuario.php">Exemplo</a></td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-            <td class="bg-warning">Exemplo</td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-            <td>Exemplo</td>
-
-          </tr>
+          <?php
+            $Chamado = new Chamado();
+            $Chamado->PrintTabela();
+          ?>
           </tbody>
         </table>
       </section>

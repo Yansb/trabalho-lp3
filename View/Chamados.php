@@ -178,65 +178,23 @@
 
                     </tr>
                 </thead>
-                <tr>
+                <?php
+                    require_once "../Model/ClasseChamados.php"; 
 
-                    <td scope="row"><a href="chamadoAtual.php"> 01</a></td>
-                    <td><a href="chamadoAtual.php"> Máquina não liga </a></td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>
-                    <td class="bg-danger">Exemplo</td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>
-
-                </tr>
-                <tr>
-
-                    <td scope="row"><a href="cchamadoAtual.php">02</a></td>
-                    <td> <a href="chamadoAtual.php">Exemplo</a></td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>
-                    <td class="bg-warning">Exemplo</td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>
-
-                </tr>
-                <tr>
-
-                    <td scope="row"><a href="chamadoAtual.php">02</a></td>
-                    <td> <a href="chamadoAtual.php">Exemplo</a></td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>            
-                    <td>Exemplo</td>
-                    <td class="bg-danger">Exemplo</td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>
-
-                </tr>
-                <tr>
-
-                    <td scope="row"><a href="chamadoAtual.php">02</a></td>
-                    <td> <a href="chamadoAtual.php">Exemplo</a></td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>
-                    <td  class="bg-warning">Exemplo</td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>
-                    <td>Exemplo</td>
-
-                </tr>
+                    $Chamado = new Chamado();
+                     $Chamado->PrintTabela();
+                ?>
+               
                 </tbody>
             </table>
         </section>
-
+       
     </div>
+   
 
-    <footer>
+</body>
+
+<footer>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
@@ -252,10 +210,6 @@
 
 
     </footer>
-
-
-</body>
-
 
 
 </html>
