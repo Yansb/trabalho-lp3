@@ -51,7 +51,7 @@
 
   <div class="pesquisa id=">
 
-    <form action="#" method="POST">
+    <form action="../Controller/ControladorChamados.php" method="POST">
         <!--Javascript aqui para quando eu selecionar um tipo de consulta, preencher a especificação dela -->
 
 
@@ -99,7 +99,7 @@
 
 
         <div class="divBotao">
-            <input class="btn btn-info" type="submit" method="POST" action="" value="Pesquisar">
+            <input class="btn btn-info" type="submit" value="Pesquisar">
         </div>
 
 

@@ -54,7 +54,7 @@
     </nav>
     <div class="pesquisa id=">
 
-        <form action="#" method="POST">
+        <form action="../Controller/ControladorChamados.php" method="post">
             <!--Javascript aqui para quando eu selecionar um tipo de consulta, preencher a especificação dela -->
 
 
@@ -62,7 +62,7 @@
             <div class="divEsquerda">
                 <p>
                     <p>Pesquisar por:</p>
-                    <select class="custom-select custom-select-lg mb-3" id="ids" onchange="mostraOculta('ids');">
+                    <select class="custom-select custom-select-lg mb-3" id="Pesquisar" name="Pesquisar" onchange="mostraOculta('Pesquisar');">
                         <option value="Periodo">Período</option>
                         <option value="Numero">Numero do Chamado</option>
                         <option value="Equipamento">Equipamento</option>
@@ -148,11 +148,9 @@
                 <p>Quantos dias?</p><input class="form-control" type="number" name="Numero" required />
             </div>
 
-
             <div class="divBotao">
-                <input class="btn btn-info" type="submit" method="POST" action="" value="Pesquisar">
+                <input class="btn btn-info" type="submit" value="Pesquisar">
             </div>
-
 
 
         </form>
