@@ -1,7 +1,7 @@
 <?php 
         include "ClassUsuariosDAO.php";
         class Usuario
-                {
+            {
                         protected $Nome;
                         protected $CPF;
                         protected $Telefone;
@@ -116,20 +116,20 @@
 
                     public function Adicionar(){
 
-                        $Tecnico = mew TecnicoDAO();
+                        $Tecnico =new TecnicoDAO();
                         return $Tecnico->Adicionar($this);
                     }
 
 
                     public function Remover(){
 
-                        $Tecnico = mew TecnicoDAO();
+                        $Tecnico = new TecnicoDAO();
                         return $Tecnico->Remover($this);
                     }
                     
-                    public function Alterar($Novo)){
+                    public function Alterar($Novo){
 
-                        $Tecnico = new TecnicoDAO(; 
+                        $Tecnico = new TecnicoDAO(); 
                         return $Tecnico->Alterar($this,$Novo); 
                     }
 
@@ -209,7 +209,7 @@
                         $Usuario= new UsuarioDAO();
                         return $Usuario->Remover($this);
                     }
-                    public function Alterar(){
+                    public function Alterar($Novo){
                         $Usuario= new UsuarioDAO();
                         return $Usuario->Alterar($this);
                     }

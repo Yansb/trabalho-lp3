@@ -1,5 +1,5 @@
 <?php
-        include "ConnectionFactory.php";
+        include_once "ConnectionFactory.php";
 
 
         class ProblemaDAO{

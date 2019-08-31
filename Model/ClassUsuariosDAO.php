@@ -1,8 +1,8 @@
 <?php
 
-   include "ConnectionFactory.php";
+   include_once "ConnectionFactory.php";
 
-            class UsuarioDAO(){
+            class UsuarioDAO{
 
                 public function VerificarCPF($Usuario){
 
@@ -59,21 +59,18 @@
 
             class GerenteDAO extends TecnicoDAO {
 
-                public function Adicionar($GerenteDAO){    
-                    echo $GerenteDAO->getNome()."<br>";
-                    echo $GerenteDAO->getCPF()."<br>";
-                    echo $GerenteDAO->getTelefone()."<br>";
-                    echo $GerenteDAO->getEmail()."<br>";
+                public function Adicionar($Gerente){    
+                    
                     return true;
 
                 }
-                public function Remover($GerenteDAO){
+                public function Remover($Gerente){
 
 
                     return true;
                 }
 
-                public function Alterar($GerenteDAO){
+                public function Alterar($Atual,$Novo){
 
 
                     return true;

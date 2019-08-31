@@ -1,15 +1,11 @@
 <?php
-    include "ConnectionFactory.php";
+    include_once "ConnectionFactory.php";
 
 
 class ChamadoDAO{
 
     public function Adicionar($Chamado,$Usuario){
 
-        //codigo para conetar e incluir no banco
-        echo $Usuario->getNome();
-        echo $Chamado->getDescricao();
-        return 2; 
         
     
     }

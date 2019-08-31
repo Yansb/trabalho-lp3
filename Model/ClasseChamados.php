@@ -1,6 +1,6 @@
 <?php 
 
-        include "ClasseChamadosDAO.php";
+include "ClasseChamadosDAO.php";
         class Chamado
         {
             Protected $Status; 
@@ -44,6 +44,11 @@
             public function Pesquisar(){
                 $Chamado= new ChamadoDAO();
                 return $Chamado->Pesquisar($this); 
+
+            }
+            public function Alterar(){
+                $Chamado= new ChamadoDAO();
+                return $Chamado->Alterar();
 
             }
             public function Encaminhar()

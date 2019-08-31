@@ -1,6 +1,7 @@
 <?php   
 
-    class ConnectionFactory{
+    class ConnectionFactory
+    {
 
         public static function getConnection(){
             $Servername="localhost:3307";
