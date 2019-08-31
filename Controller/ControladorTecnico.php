@@ -16,7 +16,7 @@
                 $Setor= $_POST["Setor"]; 
 
                 $Gerente= new Gerente($CPF,$Nome,$Telefone,$Email,$Login,$Senha,$Cargo,$Setor); 
-                if($Gerente->Adicionar()){
+                if($Gerente->Adicionar()>0){
 
                     //header('location: ../View/CadastroTecnico.php');
                     echo "Adicionado com Sucesso";
@@ -33,7 +33,7 @@
                 $CPF=$_POST['CPF'];
 
                 $Gerente= new $Gerente($CPF);
-                if($Gerente->Remover()){
+                if($Gerente->Remover()>0){
                         echo "REMOVIDO COM SUCESSO";
                 }
                 else{

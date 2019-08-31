@@ -15,7 +15,7 @@
                         $CPF = $Usuario->getCPF(); 
 
                         $SQL->execute();
-                        return $SQL->rowCount();
+                        return $SQL->rowCount(); // acho que nesse caso não é essa função verificar depois 
                     }
 
                     catch(PDOException $Erro){
@@ -39,11 +39,59 @@
                 }
 
                 public function Adicionar($Tecnico){
+                    try{
+                        $Minhaconexao= ConnectionFactory::getconnection();
 
+                        $SQL= $Minhaconexao->prepare(""); // codigo sql
+                        $SQL->bindParam('nome',$Nome); 
+                        $SQL->bindParam('cpf',$CPF); 
+                        $SQL->bindParam('cargo',$Cargo); 
+                        $SQL->bindParam('login',$Login); 
+                        $SQL->bindParam('senha',$Senha);
+                        $SQL->bindParam('email',$Email); 
+                        $SQL->bindParam('setor',$Setor); 
+                        $SQL->bindParam('telefone',$Telefone);  
+
+                        $Nome = $Tecnico->getNome();
+                        $CPF = $Tecnico->getCPF();
+                        $Cargo = $Tecnico->getCargo();
+                        $Email = $Tecnico->getEmail();
+                        $Telefone = $Tecnico->getTelefone();
+                        $Login = $Tecnico->getLogin();
+                        $Senha = $Tecnico->getSenha();
+                        $Setor = $Tecnico->getSetor();
+
+                        $SQL->execute(); 
+
+                        return $SQL->rowCount();
+                  }
+                    catch(PDOException $Erro){
+                        echo "Erro ao adicionar tecnico".$Erro->getmessage(); 
+
+                    }
+                    $Minhaconexao= NULL; 
                 }
 
                 public function Remover($Tecnico){
+                    try{
+                        $Minhaconexao= ConnectionFactory::getconnection();
 
+                        $SQL= $Minhaconexao->prepare(""); // codigo sql
+                        $SQL->bindParam('Codigo',$Codigo); 
+                        
+
+                        $Codigo = $Tecnico->getCodigo();
+                        
+
+                        $SQL->execute(); 
+
+                        return $SQL->rowCount();
+                  }
+                    catch(PDOException $Erro){
+                        echo "Erro ao Remover tecnico".$Erro->getmessage(); 
+
+                    }
+                    $Minhaconexao= NULL; 
                 }
                 public function Alterar($Velho, $Novo){
 

@@ -38,7 +38,7 @@
             
         
             $Chamado= new Chamado($Numero); 
-            if($Chamado->Remover()){
+            if($Chamado->Remover()>0){
 
                 header('Location: ../Model/ClasseChamadosDAO.php');
             
@@ -65,7 +65,7 @@
             $ChamadoSoftware= new ChamadoSoftware("" ,$Descricao,$Setor,"dad","adad","dasda",$DataHoraAbertura,$Link,$Plugin); 
             $$Usuario= new Usuario($Nome,$CPF,$Telefone,$Email);
 
-            if($ChamadoSoftware->Adicionar($Usuario)){
+            if($ChamadoSoftware->Adicionar($Usuario)>0){
 
                 header('Location: ../Model/ClasseChamadosDAO.php');
             
