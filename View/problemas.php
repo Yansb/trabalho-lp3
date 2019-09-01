@@ -74,13 +74,32 @@
       </div>
       <br>
     </form>
-
+    <form action="">
+      <h3>Remover Problemas</h3>
+      <select class="custom-select custom-select-lg mb-3" name="problemas" id="">
+        <option value="">problemacadastrado1</option>
+        <option value="">problemacadastrado2</option>
+        <option value="">problemacadastrado3</option>
+      </select>
+      <p>
+      <button class="btn btn-info">Remover</button>
+      </p>
+      
+    </form>
+    <form action="">
+          <h3>Alterar</h3>
+          <select class="custom-select custom-select-lg mb-3" name="alterar" id="">
+            <option value="">problemacadastrado1</option>
+            <option value="">problemacadastrado2</option>
+            <option value="">problemacadastrado3</option>
+          </select>
+          <p>
+            Novo nome<input class="form-control" value="" type="text" id="" name="Nome" size="25px" maxlength="100">
+          </p>
+          <button class="btn btn-info">Alterar</button>
+    </form>
 
   </div>
-
-
-
-
 
   <footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
