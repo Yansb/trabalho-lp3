@@ -71,17 +71,17 @@
 
 
         <div class="divDireita" id="Numero" style="display:none;">
-            <p>Digite o Numero</p> <input class="form-control" type="number" name="Numero" required />
+            <p>Digite o Numero</p> <input class="form-control" type="number" name="Numero"  />
         </div>
 
         <div class="divDireita" id="Periodo" style="display:none;">
-            <p> Inicia em:</p><input class="form-control" type="date" name="inicio" required>
-            <p>Termina em:</p><input class="form-control" type="date" name="fim" required>
+            <p> Inicia em:</p><input class="form-control" type="date" name="inicio" >
+            <p>Termina em:</p><input class="form-control" type="date" name="fim" >
         </div>
 
         <div  class="divDireita" id="Setor" style="display:none;">
             <p>Selecione o Setor</p>
-                <select class="custom-select custom-select-lg mb-3" name="area" required>
+                <select class="custom-select custom-select-lg mb-3" name="area" >
 
                     <option value="rh">Recusos Humanos </option>
                     <option value="ti">Tecnologia da Informação</option>
@@ -94,7 +94,7 @@
                 </select>
         </div>
         <div class="divDireita" id="Qtdias" style="display:none;">
-            <p>Quantos dias?</p><input class="form-control" type="number" name="Numero" required />
+            <p>Quantos dias?</p><input class="form-control" type="number" name="Numero"  />
         </div>
 
 

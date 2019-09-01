@@ -3,7 +3,7 @@
     $Pesquisar $_POST['Pesquisar'];
 
     if($Pesquisar=="Perido"){
-        echo "FOI"; 
+        echo "FOI";
         
     }
     else{

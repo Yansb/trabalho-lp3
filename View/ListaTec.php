@@ -88,7 +88,7 @@
         </tr>
         <tr>
           <th>078245222</th>
-          <th>Yan Barreto</th>
+          <th>Yan Barreiro</th>
           <th>Coordenador</th>
           <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
           <th> <a href="CadastroTecnico.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>

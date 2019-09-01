@@ -80,25 +80,25 @@
 
 
             <div class="divDireita" id="Numero" style="display:none;">
-                <p>Digite o Numero</p> <input class="form-control" type="number" name="Numero" required />
+                <p>Digite o Numero</p> <input class="form-control" type="number" name="Numero" />
             </div>
 
             <div class="divDireita" id="Periodo" style="display:none;">
-                <p> Inicia em:</p><input class="form-control" type="date" name="inicio" required>
-                <p>Termina em:</p><input class="form-control" type="date" name="fim" required>
+                <p> Inicia em:</p><input class="form-control" type="date" name="inicio" >
+                <p>Termina em:</p><input class="form-control" type="date" name="fim" >
             </div>
 
             <div class="divDireita" id="Equipamento" style="display:none;">
-                <p> Qual Equipamento?</p><input class="form-control" type="text" name="Equipamento" required />
+                <p> Qual Equipamento?</p><input class="form-control" type="text" name="Equipamento" />
 
             </div>
             <div class="divDireita" id="Solicitante" style="display:none;">
-                <p>Digite o Nome</p><input class="form-control" type="text" name="Solicitante" required />
+                <p>Digite o Nome</p><input class="form-control" type="text" name="Solicitante" />
 
             </div>
             <div class="divDireita" id="Estado" style="display:none;">
                 <p>Qual?</p>
-                    <select class="custom-select custom-select-lg mb-3" name="area" required>
+                    <select class="custom-select custom-select-lg mb-3" name="area" >
                         <option value="Aberto">Em Aberto </option>
                         <option value="Atendimento">Em Atendimento</option>
                         <option value="Fechado">Fechado</option>
@@ -110,7 +110,7 @@
             </div>
             <div class="divDireita" id="Prioridade" style="display:none;">
                 <p>Qual?</p>
-                <select class="custom-select custom-select-lg mb-3" name="area" required>
+                <select class="custom-select custom-select-lg mb-3" name="area" >
 
                     <option value="Baixa">Baixa </option>
                     <option value="Consideravel">Considerável</option>
@@ -122,7 +122,7 @@
             </div>
             <div class="divDireita" id="Atendente" style="display:none;">
                 <p>Selecione o Nome</p>
-                <select class="custom-select custom-select-lg mb-3" name="area" required>
+                <select class="custom-select custom-select-lg mb-3" name="area" >
                     <option value="at1">Matheus souza</option>
                     <option value="at2">Caio Bruno </option>
                     <option value="at3">Yan não sei</option>
@@ -132,7 +132,7 @@
             </div>
             <div  class="divDireita" id="Setor" style="display:none;">
                 <p>Selecione o Setor</p>
-                    <select class="custom-select custom-select-lg mb-3" name="area" required>
+                    <select class="custom-select custom-select-lg mb-3" name="area" >
 
                         <option value="rh">Recusos Humanos </option>
                         <option value="ti">Tecnologia da Informação</option>
@@ -145,7 +145,7 @@
                     </select>
             </div>
             <div class="divDireita" id="Qtdias" style="display:none;">
-                <p>Quantos dias?</p><input class="form-control" type="number" name="Numero" required />
+                <p>Quantos dias?</p><input class="form-control" type="number" name="Numero"  />
             </div>
 
             <div class="divBotao">

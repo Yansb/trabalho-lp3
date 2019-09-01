@@ -42,7 +42,7 @@
 
                     catch(PDOException $Erro){
                             echo"Erro ao Remover Problema".$Erro->getmessage();
-                            return
+                            return;
 
                     }
                     $Minhaconexao=NULL; 
