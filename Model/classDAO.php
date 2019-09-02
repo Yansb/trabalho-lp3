@@ -80,7 +80,7 @@
 
             }      
 
-    
+    }
         // Fim class ProblemaDAO
 
         class SetorDAO{
@@ -128,6 +128,7 @@
                     return;
                 }
                 $Minhaconexao= null; 
+            }
             public function Alterar($Velho,$Novo)
             {
                 try{
@@ -137,7 +138,7 @@
                     $SQL->binParam("codigo", $Codigo);
                     $SQL->bindParam("Nome",$Nome);
                     
-                    $Codigo= Velho->getCodigo();
+                    $Codigo= $Velho->getCodigo();
                     $Nome= $Novo->getNome();
                     
                     $SQL->execute();

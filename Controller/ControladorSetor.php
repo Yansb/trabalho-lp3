@@ -9,7 +9,7 @@
             $Email=$_POST['Email'];
 
             $Setor= new Setor("",$Nome, $Email,$Telefone); 
-            if($Setor->Adicionar()){
+            if($Setor->Adicionar()>0){
                 header('Location: ../View/cadastroSetor.php');
             exit; 
 

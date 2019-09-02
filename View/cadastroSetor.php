@@ -79,37 +79,54 @@
      
       <br>
     </form>
-    <form action="">
-      <h3>Remover Problemas</h3>
-      <select class="custom-select custom-select-lg mb-3" name="problemas" id="">
-        <option value="">problemacadastrado1</option>
-        <option value="">problemacadastrado2</option>
-        <option value="">problemacadastrado3</option>
-      </select>
+    <form id="box" method="POST" action="../Controller/ControladorSetor.php">
+      <h3>Remover Setor</h3>
       <p>
-      <button class="btn btn-info">Remover</button>
+        Setor: 
+        <select class="custom-select custom-select-lg mb-3" name="problemas" id="">
+          <option value="">problemacadastrado1</option>
+          <option value="">problemacadastrado2</option>
+          <option value="">problemacadastrado3</option>
+        </select>
+
       </p>
+      
+      <input type="hidden" id="Acao" name="Acao" value="Remover">
+      <p>
+        <div class="botoes">
+            <button class="btn btn-info">Remover</button>
+        </div>
+     </p>
+      
+      
     </form>
 
-    <form action="">
-          <h3>Alterar</h3>
-          <select class="custom-select custom-select-lg mb-3" name="alterar" id="">
-            <option value="">problemacadastrado1</option>
-            <option value="">problemacadastrado2</option>
-            <option value="">problemacadastrado3</option>
-          </select>
+    <form id="box" method="POST" action="../Controller/ControladorSetor.php">
+          <h3>Alterar Setor</h3>
           <p>
-          Selecione o item que gostaria de alterar:
-          <select class="custom-select custom-select-lg mb-3" name="alterar" id="">
-            <option value="">Nome</option>
-            <option value="">Telefone</option>
-            <option value="">Email</option>
-          </select>
+            Setor:
+            <select class="custom-select custom-select-lg mb-3" name="alterar" id="">
+              <option value="">problemacadastrado1</option>
+              <option value="">problemacadastrado2</option>
+              <option value="">problemacadastrado3</option>
+            </select>
+          </p>
+          
+          <p>
+            Gostaria de alterar ?:
+            <select class="custom-select custom-select-lg mb-3" name="alterar" id="">
+              <option value="">Nome</option>
+              <option value="">Telefone</option>
+              <option value="">Email</option>
+            </select>
           </p>
           <p>
-            Novo nome<input class="form-control" value="" type="text" id="" name="Nome" size="25px" maxlength="100">
+            Novo Campo:<input class="form-control" value="" type="text" id="" name="Nome" size="25px" maxlength="100">
           </p>
-          <button class="btn btn-info">Alterar</button>
+          <input type="hidden" id="Acao" name="Acao" value="Alterar">
+          <div class="botoes">
+              <button class="btn btn-info">Alterar</button>
+          </div>
     </form>
         
   </div>

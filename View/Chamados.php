@@ -78,14 +78,13 @@
                 </p>
             </div>
 
-
             <div class="divDireita" id="Numero" style="display:none;">
-                <p>Digite o Numero</p> <input class="form-control" type="number" name="Numero" />
+                <p>Digite o Numero</p> <input class="form-control" type="number" name="Numero" id="Numero"  />
             </div>
 
             <div class="divDireita" id="Periodo" style="display:none;">
-                <p> Inicia em:</p><input class="form-control" type="date" name="inicio" >
-                <p>Termina em:</p><input class="form-control" type="date" name="fim" >
+                <p> Inicia em:</p><input class="form-control" type="date" name="Inicio" id= "Inicio"/>
+                <p>Termina em:</p><input class="form-control" type="date" name="Fim" id= "Fim"/>
             </div>
 
             <div class="divDireita" id="Equipamento" style="display:none;">
@@ -96,9 +95,9 @@
                 <p>Digite o Nome</p><input class="form-control" type="text" name="Solicitante" />
 
             </div>
-            <div class="divDireita" id="Estado" style="display:none;">
+            <div class="divDireita" id="Estado"  style="display:none;">
                 <p>Qual?</p>
-                    <select class="custom-select custom-select-lg mb-3" name="area" >
+                    <select class="custom-select custom-select-lg mb-3"  id= "Estado" name= "Estado">
                         <option value="Aberto">Em Aberto </option>
                         <option value="Atendimento">Em Atendimento</option>
                         <option value="Fechado">Fechado</option>
@@ -106,23 +105,22 @@
                     </select>
               
 
-
             </div>
             <div class="divDireita" id="Prioridade" style="display:none;">
                 <p>Qual?</p>
-                <select class="custom-select custom-select-lg mb-3" name="area" >
+                <select class="custom-select custom-select-lg mb-3" name="Prioridade" >
 
                     <option value="Baixa">Baixa </option>
                     <option value="Consideravel">Considerável</option>
                     <option value="Alta">Alta</option>
-                    <option value="MuitoAlta">Muito Altao</option>
+                    <option value="Muito Alta">Muito Altao</option>
                     <option value=""></option>
                 </select>
 
             </div>
             <div class="divDireita" id="Atendente" style="display:none;">
                 <p>Selecione o Nome</p>
-                <select class="custom-select custom-select-lg mb-3" name="area" >
+                <select class="custom-select custom-select-lg mb-3" name="Atendente" >
                     <option value="at1">Matheus souza</option>
                     <option value="at2">Caio Bruno </option>
                     <option value="at3">Yan não sei</option>
@@ -132,10 +130,10 @@
             </div>
             <div  class="divDireita" id="Setor" style="display:none;">
                 <p>Selecione o Setor</p>
-                    <select class="custom-select custom-select-lg mb-3" name="area" >
+                    <select class="custom-select custom-select-lg mb-3" name="Setor" >
 
-                        <option value="rh">Recusos Humanos </option>
-                        <option value="ti">Tecnologia da Informação</option>
+                        <option value="Recusos Humanos">Recusos Humanos </option>
+                        <option value="Tecnologia da Informação">Tecnologia da Informação</option>
                         <option value="comunicacao">Comunicação</option>
                         <option value=">administrativo">Administrativo</option>
                         <option value=">">Financeiro</option>
@@ -145,12 +143,13 @@
                     </select>
             </div>
             <div class="divDireita" id="Qtdias" style="display:none;">
-                <p>Quantos dias?</p><input class="form-control" type="number" name="Numero"  />
+                <p>Quantos dias?</p><input class="form-control" type="number" name="Qtdias"  />
             </div>
 
             <div class="divBotao">
                 <input class="btn btn-info" type="submit" value="Pesquisar">
             </div>
+
 
 
         </form>

@@ -30,7 +30,7 @@
 
             if($Acao==="Remover"){
 
-                $CPF=$_POST['CPF'];
+                $CPF=$_POST['Tecnico']; // alterar depois, feito para testar
 
                 $Gerente= new $Gerente($CPF);
                 if($Gerente->Remover()>0){

@@ -106,7 +106,7 @@
             Senha<input class="form-control" id="Senha" type="password" name="Senha" size="20px" maxlength="9">
           </p>
           <input type="hidden" id="Acao" name="Acao" value="Adicionar">
-          <div>
+          <div class="botoes">
             <p>
               <a><button class="btn btn-info" onclick="sucesso1()">Cadastrar</button></a>
             </p>
@@ -119,42 +119,60 @@
 
     </form>
     
-      <form action="">
+      <form method="POST" action="../Controller/ControladorTecnico.php" class="needs-validation">
         <div class="form-row">
           <div class="col-md-30">
-            <h3>Remover Problemas</h3>
-            <select class="custom-select custom-select-lg mb-3" name="problemas" id="">
-              <option value="">problemacadastrado1</option>
-              <option value="">problemacadastrado2</option>
-              <option value="">problemacadastrado3</option>
-            </select>
-            <p>
-            <button class="btn btn-info">Remover</button>
-            </p>
+            <h3>Remover Tecnico</h3>
+              <p>
+                Tecnico: 
+                <select class="custom-select custom-select-lg mb-3" name="Tecnico" id="Tecnico">
+                  <option value="A">problemacadastrado1</option>
+                  <option value="B">problemacadastrado2</option>
+                  <option value="C">problemacadastrado3</option>
+                </select>
+          </p>
+            <input type="hidden" id="Acao" name="Acao" value="Remover">
+          
+             <div class="botoes">
+                 <button class="btn btn-info">Remover</button>
+             </div>
+           
+            
           </div>
         </div>
       </form>
 
     <div>
-      <form action="">
-            <h3>Alterar</h3>
-            <select class="custom-select custom-select-lg mb-3" name="alterar" id="">
-              <option value="">problemacadastrado1</option>
-              <option value="">problemacadastrado2</option>
-              <option value="">problemacadastrado3</option>
-            </select>
+      <form method="POST" action="../Controller/ControladorTecnico.php" class="needs-validation">
+            <h3>Alterar Tecnico </h3>
             <p>
-            Selecione o item que gostaria de alterar:
-            <select class="custom-select custom-select-lg mb-3" name="alterar" id="">
-              <option value="">Nome</option>
-              <option value="">Telefone</option>
-              <option value="">Email</option>
-            </select>
+              Técnico: 
+              <select class="custom-select custom-select-lg mb-3" name="alterar" id="">
+                <option value="">problemacadastrado1</option>
+                <option value="">problemacadastrado2</option>
+                <option value="">problemacadastrado3</option>
+              </select>
+            </p>
+            
+            <p>
+             Gostaria de alterar ?:
+             <p>
+                <select class="custom-select custom-select-lg mb-3" name="alterar" id="">
+                  <option value="">Nome</option>
+                  <option value="">Telefone</option>
+                  <option value="">Email</option>
+                </select>
+             </p>
+            
             </p>
             <p>
-              Novo nome<input class="form-control" value="" type="text" id="" name="Nome" size="25px" maxlength="100">
+              Novo Campo<input class="form-control" value="" type="text" id="" name="Nome" size="25px" maxlength="100">
             </p>
-            <button class="btn btn-info">Alterar</button>
+            <input type="hidden" id="Acao" name="Acao" value="Alterar">
+            <div class="botoes">
+                <button class="btn btn-info">Alterar</button>
+            </div>
+            
       </form>
     </div>
   </div>
