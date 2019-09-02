@@ -1,0 +1,1 @@
+select * from historico_de_alteracao
