@@ -79,13 +79,39 @@
 
             public function Alterar(){
 
+
+
                 
             }
 
-           
 
+            public function Pesquisar($Chamado,$Tipo){
+
+
+            try{
+                $Minhaconexao = ConnectionFactory::getconnection(); 
+                if($Tipo===Periodo){
+                    $SQL= $Minhaconexao->prepare("");
+                    $SQL->bindParam("incio",$Inicio);
+                    $SQL->bindParam("Fim",$Fim);
+                    $Inicio= $Chamado->getDataHoraAbertura(); 
+                    $Fim= $Chamado->getDataHoraFechamento(); 
+
+                    $SQL->execute(); 
+                    return true; 
+                    // falta o return com dados 
+                }
             
+
+            }
+            catch(PDOExcepetion $Erro){
+                Echo $Erro->getmessage(); 
+            }
+            $Minhaconexao= NULL; 
+            
+
         }
+    }    
 
 // Fim ChamadoDAo
 

@@ -9,10 +9,16 @@
     if($Pesquisar=="Periodo"){
     
 
-      $Inicio= $_POST['Inicio']; 
-      $Termina = $_POST['Fim']; 
-      echo $Inicio;
-      echo $Termina;
+    
+     $Chamado->setDataHoraAbertura($_POST['Inicio']);
+     $Chamado->setDataHoraFechamento($_POST['Fim']); 
+
+        if($Chamado->Pesquisar($Pesquisar)){
+                echo "FOi"; 
+        }else{
+            Echo "não foi"; 
+        }
+        
     }
     else{
         if($Pesquisar=="Numero"){   
@@ -69,9 +75,3 @@
             }
         }
     }
-
-    
-
-
-
-?>

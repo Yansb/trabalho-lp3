@@ -41,9 +41,9 @@ include "ClasseChamadosDAO.php";
                 return $Chamado->Remover($this); 
             }
 
-            public function Pesquisar(){
+            public function Pesquisar($Tipo){
                 $Chamado= new ChamadoDAO();
-                return $Chamado->Pesquisar($this); 
+                return $Chamado->Pesquisar($this,$Tipo); 
 
             }
             public function Alterar(){
