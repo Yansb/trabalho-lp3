@@ -22,50 +22,83 @@
     }
     else{
         if($Pesquisar=="Numero"){   
-       $Chamado->setNumero( $_POST['Numero']); 
-            echo $Chamado->getNumero(); 
+            $Chamado->setNumero( $_POST['Numero']); 
+            if($Chamado->Pesquisar($Pesquisar)){
+
+            }else{
+
+            }
 
         }
         else{
             if($Pesquisar=="Equipamento"){
              
-               
-                $Chamado->setEquipamento($_POST['Equipamento']); 
-                echo $Chamado->getEquipamento(); 
+                $Chamado->setEquipamento($_POST['Equipamento']);
+
+                if($Chamado->Pesquisar($Pesquisar)){
+
+                }else{
+
+                }
+             
                
             }
             else{
                 if($Pesquisar=="Setor"){
 
                    $Chamado->setSetor($_POST['Setor']);
-                   echo $Chamado->getSetor();
+                  if($Chamado->Pesquisar($Pesquisar)){
+
+                  }else{
+
+                  }
 
                    
                 }else{
                     if($Pesquisar=="Solicitante"){
                         $Solicitante = $_POST['Solicitante']; 
-                        echo $Solicitante;
+                        if($Chamado->Pesquisar($Pesquisar)){
+
+                        }else{
+      
+                        }
                     }
                     else{
                         if($Pesquisar=="Estado"){
                         
                             $a = $_POST['Estado'];
-                            echo $a; 
+                            if($Chamado->Pesquisar($Pesquisar)){
+
+                            }else{
+          
+                            }
                         }
                         else{
                             if($Pesquisar=="Prioridade"){
                                 $Prioridade= $_POST['Prioridade'];
-                                echo $Prioridade; 
+                                if($Chamado->Pesquisar($Pesquisar)){
+
+                                }else{
+              
+                                }
                             }
                             else{
                                 if($Pesquisar=="Atendente"){
                                     $Atendente = $_POST['Atendente']; 
-                                    echo $Atendente; 
+                                    if($Chamado->Pesquisar($Pesquisar)){
+
+                                    }else{
+                  
+                                    }
                                 }
                                 else{
 
                                     $QtdDias= $_POST['Qtdias']; 
-                                    echo $QtdDias;
+                                    if($Chamado->Pesquisar($Pesquisar)){
+
+                                    }else{
+                  
+                                    }
                                     // quantidade de dias 
                                 }
                             }
