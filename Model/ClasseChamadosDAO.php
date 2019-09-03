@@ -136,6 +136,31 @@ class ChamadoDAO
         }
         $Minhaconexao = NULL;
     }
+
+    public function BuscarTodos(){
+        try{
+            $Minhaconexao = ConnectionFactory::getconnection(); 
+
+            $SQL= $Minhaconexao->prepare("select * from myb1.chamado"); 
+            $SQL->execute(); 
+            $SQL->setFetchMode(PDO::FETCH_ASSOC); 
+            $vet = array();
+            $i; 
+            
+            while($linha= $SQL->fetch(PDO::FETCH_ASSOC)){
+
+                $vet[$i]= array($linha[''],$linha[''],$linha['']); // continuar 
+                $i++; 
+
+            }
+                return $vet; 
+        }catch(PDOException $Erro ){
+
+            echo $Erro->getmessage(); 
+            return 0; 
+        }
+        $Minhaconexao=NULL; 
+    }
 }    
 
 // Fim ChamadoDAo

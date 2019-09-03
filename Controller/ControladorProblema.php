@@ -7,8 +7,9 @@
 
             $Nome=$_POST['Nome'];
             $Problema= new Problema("",$Nome);
-            if($Problema->Adicionar()){
-                header('Location: ../View/problemas.php');
+            if($Problema->Adicionar()>0){
+                echo "cadastrado com sucesso"; 
+                //header('Location: ../View/problemas.php');
                 exit; 
 
             }else{
@@ -21,8 +22,9 @@
 
             $Codigo=$_POST['Codigo'];
             $Problema= new Problema($Codigo);
-            if($Problema->Remover()){
-                header('Location: ../View/problemas.php');
+            if($Problema->Remover()>0){
+                Echo "removido com sucesso"; 
+               // header('Location: ../View/problemas.php');
                 exit; 
 
             }else{

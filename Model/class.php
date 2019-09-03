@@ -37,6 +37,23 @@
                 return $Setor->Alterar($this,$Novo);
                 
             }
+
+            public function BuscarTodos(){
+                $Setor= new SetorDAO(); 
+                return $Setor->BuscarTodos(); 
+            }
+            public function Select(){
+                $Resultado = $this->BuscarTodos(); 
+                $quant = Count(Resultado);
+
+                echo "<select class='custom-select custom-select-lg mb-3' name='problemas' id=''>";
+                for($i=0;$i<$quant;$i++){ 
+
+                echo "<option value= '".$Resultado[$i][0]."'>".$Resultado[$i][1]."</option>"; 
+                }
+                 echo "</select>";
+
+            }
             public function getNome()
             {
                 return $this->Nome;
@@ -120,6 +137,22 @@
                 $Prob = new ProblemaDAO();
                 return $Prob->Alterar($this,$Novo);
                 
+            }
+            public function BuscarTodos(){
+                $Prob = new ProblemaDAO();
+                return $Prob->BuscarTodos(); 
+            } 
+
+            public function Select(){
+               $Resultado= $this->BuscarTodos(); 
+               $quant= count($Resultado);
+
+               echo "<select class='custom-select custom-select-lg mb-3' name='problemas' id=''>";
+               for($i=0;$i<$quant;$i++){ 
+                echo "<option value= '".$Resultado[$i][0]."'>".$Resultado[$i][1]."</option>"; 
+                }
+                 echo "</select>";
+      
             }
             public function getCodigo()
             {

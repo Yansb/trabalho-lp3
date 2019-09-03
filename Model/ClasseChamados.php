@@ -46,11 +46,19 @@ include "ClasseChamadosDAO.php";
                 return $Chamado->Pesquisar($this,$Tipo); 
 
             }
-            public function Alterar(){
+            public function Alterar()
+            {
                 $Chamado= new ChamadoDAO();
                 return $Chamado->Alterar();
 
             }
+
+            Public function BuscarTodos()
+            {
+                $Chamado= new ChamadoDAO(); 
+                return $Chamado->BuscarTodos(); 
+            }
+            
             public function Encaminhar()
             {
 
@@ -65,7 +73,9 @@ include "ClasseChamadosDAO.php";
             }
             public  function PrintTabela()
             {
-                for($i=0;$i<8;$i++){ 
+                $Resultado = $this->BuscarTodos(); 
+                $quant = Count($Resultado); 
+                for($i=0;$i<$Resultado;$i++){ 
                 $Print= "
                     <tr>
                         <td scope='row'><a href='chamadoAtual.php'> 01</a></td>
