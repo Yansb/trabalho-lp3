@@ -8,7 +8,7 @@
                 $Senha = $_POST['Senha'];
             
                 $Tecnico= new Tecnico("","","","",$Login,$Senha); 
-                if($Tecnico->Logar()){
+                if($Tecnico->Logar()>1){
                     header('location: ../View/Chamados.php'); 
                 exit;
                 }

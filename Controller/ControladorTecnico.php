@@ -39,7 +39,8 @@
                             //header('location: ../View/CadastroTecnico.php');
                     }
                     else{
-                        echo "ERRO AO REMOVER";
+                        echo "ERRO AO REMOVER"; 
+                       
                     }
                 }
             }

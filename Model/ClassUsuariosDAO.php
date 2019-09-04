@@ -10,7 +10,7 @@
 
                         $Minhaconexao = ConnectionFactory::getconnection();
 
-                        $SQL = $Minhaconexao->prepare(); // codigo sql 
+                        $SQL = $Minhaconexao->prepare("select *from myb1.usuario where cpf=:cpf"); // codigo sql 
                         $SQL->bindParam('cpf',$CPF); 
                         $CPF = $Usuario->getCPF(); 
 
@@ -35,7 +35,25 @@
             class TecnicoDAO extends UsuarioDAO{
 
                 public function Logar($Tecnico){
-                    return true; 
+                        try{
+                            $Minhaconexao = ConnectionFactory::getconnection();
+
+                            $SQL = $Minhaconexao->prepare("select *from myb1.funcionario where login=:login and senha=:senha");
+                            $SQL->bindParam("login", $Login);
+                            $SQL->bindParam("senha", $Senha);
+
+                            $Login = $Tecnico->getLogin();
+                            $Senha = $Tecnico->getSenha(); 
+                            $SQL->execute(); 
+
+                            // continuar 
+                            
+                        }catch(PDOException $Erro){
+
+                            echo $Erro->getmessage(); 
+                        }
+                        $Minhaconexao = null; 
+
                 }
 
                 public function Adicionar($Tecnico){
