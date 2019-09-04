@@ -13,32 +13,36 @@
                 $Senha = $_POST['Senha'];
                 $Email = $_POST['Email'];
                 $Telefone= $_POST["Telefone"];
-                $Setor= $_POST["Setor"]; 
+                $CodSetor= $_POST["Codigo"]; 
+          
 
-                $Gerente= new Gerente($CPF,$Nome,$Telefone,$Email,$Login,$Senha,$Cargo,$Setor); 
-                if($Gerente->Adicionar()>0){
+                $Tecnico= new Tecnico($CPF,$Nome,$Telefone,$Email,$Login,$Senha,$Cargo,$CodSetor); 
+               if($Tecnico->Adicionar()>0){
 
-                    //header('location: ../View/CadastroTecnico.php');
-                    echo "Adicionado com Sucesso";
+                    header('location: ../View/CadastroTecnico.php');
+                  
 
                 }
                 else{
                     echo "ERRO AO ADD";
                 }
-                
-            }
+            
+            }else{
+                if($Acao==="Remover"){
 
-            if($Acao==="Remover"){
+                    $CPF=$_POST['CPF']; // alterar depois, feito para testar
+    
+                    $Tecnico= new $Tecnico($CPF);
 
-                $CPF=$_POST['Tecnico']; // alterar depois, feito para testar
-
-                $Gerente= new $Gerente($CPF);
-                if($Gerente->Remover()>0){
-                        echo "REMOVIDO COM SUCESSO";
+                    if($Tecnico->Remover()>0){
+                            echo "REMOVIDO COM SUCESSO";
+                            //header('location: ../View/CadastroTecnico.php');
+                    }
+                    else{
+                        echo "ERRO AO REMOVER";
+                    }
                 }
-                else{
-                    echo "ERRO AO REMOVER";
-                }
             }
+            
 
 ?>

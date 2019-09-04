@@ -42,15 +42,17 @@
                     try{
                         $Minhaconexao= ConnectionFactory::getconnection();
 
-                        $SQL= $Minhaconexao->prepare(""); // codigo sql
-                        $SQL->bindParam('nome',$Nome); 
+                        $SQL= $Minhaconexao->prepare("Insert into myb1.funcionario(cpf,nome,cargo,login,senha,telefone,email,codigo) values (:cpf,:nome,:cargo,:login,:senha,:telefone,:email,:setor)");// codigo sql
+                                                      
                         $SQL->bindParam('cpf',$CPF); 
+                        $SQL->bindParam('nome',$Nome); 
                         $SQL->bindParam('cargo',$Cargo); 
                         $SQL->bindParam('login',$Login); 
                         $SQL->bindParam('senha',$Senha);
+                        $SQL->bindParam('telefone',$Telefone); 
                         $SQL->bindParam('email',$Email); 
                         $SQL->bindParam('setor',$Setor); 
-                        $SQL->bindParam('telefone',$Telefone);  
+                      
 
                         $Nome = $Tecnico->getNome();
                         $CPF = $Tecnico->getCPF();
@@ -60,6 +62,7 @@
                         $Login = $Tecnico->getLogin();
                         $Senha = $Tecnico->getSenha();
                         $Setor = $Tecnico->getSetor();
+                       
 
                         $SQL->execute(); 
 
@@ -76,29 +79,50 @@
                     try{
                         $Minhaconexao= ConnectionFactory::getconnection();
 
-                        $SQL= $Minhaconexao->prepare(""); // codigo sql
-                        $SQL->bindParam('Codigo',$Codigo); 
-                        
-
-                        $Codigo = $Tecnico->getCodigo();
-                        
-
+                        $SQL= $Minhaconexao->prepare("delete from myb1.funcionario where cpf = :cpf"); // codigo sql
+                        $SQL->bindParam('cpf',$CPF); 
+                    
+                        $CPF = $Tecnico->getCPF();
+    
                         $SQL->execute(); 
 
                         return $SQL->rowCount();
-                  }
-                    catch(PDOException $Erro){
+
+                  }catch(PDOException $Erro){
                         echo "Erro ao Remover tecnico".$Erro->getmessage(); 
 
                     }
                     $Minhaconexao= NULL; 
                 }
+                
                 public function Alterar($Velho, $Novo){
 
                 }
 
                 public function Pesquisar(){
                     
+                }
+
+                public function BuscarTodos(){
+                    try{
+                        $Minhaconexao= connectionFactory::getconnection(); 
+
+                        $SQL= $Minhaconexao->prepare("select * from myb1.funcionario");
+                        $SQL->execute(); 
+                        $SQL->setFetchMode(PDO::FETCH_ASSOC);
+                        $vet= array();
+                        $i =0;
+
+                        while($linha = $SQL->fetch(PDO::FETCH_ASSOC)){
+                            $vet[$i]= array($linha["cpf"],$linha["nome"],$linha["cargo"],$linha["login"],$linha["senha"],$linha["telefone"],$linha["email"],$linha["codigo"]);
+                            $i ++; 
+                        }
+                        return $vet;
+
+                   }catch(PDOException $Erro){
+                        Echo $Erro->getmessage();
+                    }
+                    $Minhaconexao= null; 
                 }
             }
 

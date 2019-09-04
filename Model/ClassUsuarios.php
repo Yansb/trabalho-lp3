@@ -106,6 +106,7 @@
                         $this->Senha = $Senha;
                         $this->Cargo =$Cargo;
                         $this->Setor =$Setor; 
+                        $this->Login =$Login; 
                     }
 
                     public function Logar(){
@@ -139,6 +140,23 @@
                         return $Tecnico->Pesquisar($this); 
                     }
 
+                    public function BuscarTodos(){
+                        $Tecnico = new TecnicoDAO();
+                        return $Tecnico->BuscarTodos(); 
+                    }
+
+                    public function Select(){
+                        $Resultado = $this->BuscarTodos(); 
+                        $quant = Count($Resultado);
+        
+                        echo "<select class='custom-select custom-select-lg mb-3' name='CPF' id='CPF'>";
+                        for($i=0;$i<$quant;$i++){ 
+        
+                        echo "<option value='".$Resultado[$i][0]."'>".$Resultado[$i][1]."</option>"; 
+                        }
+                         echo "</select>";
+        
+                    }
 
                     public function getLogin()
                     {
@@ -200,20 +218,7 @@
                         parent:: __construct($CPF,$Nome,$Telefone,$Email,$Login,$Senha, $Cargo,$Setor); 
                     }
 
-                    public function Adicionar(){
-                       
-                        $Gerente= new GerenteDAO();
-                       return $Gerente->Adicionar($this);
-                     }
-                    public function Remover(){
-                        $Usuario= new UsuarioDAO();
-                        return $Usuario->Remover($this);
-                    }
-                    public function Alterar($Novo){
-                        $Usuario= new UsuarioDAO();
-                        return $Usuario->Alterar($this);
-                    }
-
+                
 
 
                     Public function CadastrarSetor(){
