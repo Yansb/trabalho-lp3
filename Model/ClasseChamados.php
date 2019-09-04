@@ -73,9 +73,9 @@ include "ClasseChamadosDAO.php";
             }
             public  function PrintTabela()
             {
-                $Resultado = $this->BuscarTodos(); 
-                $quant = Count($Resultado); 
-                for($i=0;$i<$Resultado;$i++){ 
+               // $Resultado = $this->BuscarTodos(); 
+                //$quant = Count($Resultado); 
+                for($i=0;$i<8;$i++){ 
                 $Print= "
                     <tr>
                         <td scope='row'><a href='chamadoAtual.php'> 01</a></td>

@@ -8,7 +8,10 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/MYB.css">
-
+  <?php 
+    require_once '../Model/class.php';
+    $Problema = new Problema(); 
+  ?>
 </head>
 
 
@@ -76,11 +79,9 @@
     </form>
     <form action="">
       <h3>Remover Problemas</h3>
-      <select class="custom-select custom-select-lg mb-3" name="problemas" id="">
-        <option value="">problemacadastrado1</option>
-        <option value="">problemacadastrado2</option>
-        <option value="">problemacadastrado3</option>
-      </select>
+        <?php 
+          $Problema->select(); 
+        ?>
       <p>
       <button class="btn btn-info">Remover</button>
       </p>
@@ -88,11 +89,9 @@
     </form>
     <form action="">
           <h3>Alterar</h3>
-          <select class="custom-select custom-select-lg mb-3" name="alterar" id="">
-            <option value="">problemacadastrado1</option>
-            <option value="">problemacadastrado2</option>
-            <option value="">problemacadastrado3</option>
-          </select>
+          <?php 
+          $Problema->select(); 
+          ?>
           <p>
             Novo nome<input class="form-control" value="" type="text" id="" name="Nome" size="25px" maxlength="100">
           </p>

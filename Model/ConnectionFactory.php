@@ -4,10 +4,10 @@
     {
 
         public static function getConnection(){
-            $Servername="localhost:3307";
-            $Username="";
-            $Password="";
-            $Dbname="";
+            $Servername="localhost:3306";
+            $Username="root";
+            $Password="152418";
+            $Dbname="myb1";
 
             // colocar as informaçoes de acordo com as do servidor; 
 

@@ -10,7 +10,10 @@
 
             $Setor= new Setor("",$Nome, $Email,$Telefone); 
             if($Setor->Adicionar()>0){
-                header('Location: ../View/cadastroSetor.php');
+                
+                //header('Location: ../View/cadastroSetor.php');
+                echo"status();"; 
+               
             exit; 
 
             }else{
@@ -22,7 +25,7 @@
             $Codigo=$_POST['Codigo'];
             
             $Setor= new Setor($Codigo); 
-            if($Setor->Remover()){
+            if($Setor->Remover()>0){
                 header('Location: ../View/cadastroSetor.php');
             exit; 
 
@@ -33,10 +36,12 @@
 
         if($Acao==="Alterar"){
             $Codigo= $_POST['Codigo'];
+            $Campo = $_POST['Campo'];
             $Novo= $_POST['Novo'];
             
-            $Setor= new Setor($Codigo); 
-            if($Setor->Alterar($Novo)){
+            $Setor= new Setor($Codigo);
+            
+            if($Setor->Alterar($Campo,$Novo)>0){
                 header('Location: ../View/cadastroSetor.php');
             exit; 
 

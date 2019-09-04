@@ -108,14 +108,14 @@ class SetorDAO
         try {
             $Minhaconexao = ConnectionFactory::getconnection();
 
-            $SQL = $Minhaconexao->prepare(""); // códgio sql para adicionar setor
+            $SQL = $Minhaconexao->prepare("insert into myb1.setor (email, telefone, nome) values (:email,:telefone,:nome);"); // códgio sql para adicionar setor
             $SQL->bindParam("nome", $Nome);
             $SQL->bindParam("email", $Email);
             $SQL->bindParam("telefone", $Telefone);
 
-            $Nome = $Setor->Nome();
-            $Email = $Setor->Email();
-            $Telefone = $Setor->Telefone();
+            $Nome = $Setor->getNome();
+            $Email = $Setor->getEmail();
+            $Telefone = $Setor->getTelefone();
             $SQL->execute();
             return $SQL->rowCount();
         } catch (PDOException $Erro) {
@@ -127,33 +127,43 @@ class SetorDAO
 
     public function Remover($Setor)
     {
+        echo $Setor->getCodigo() . "<br>";
         try {
             $Minhaconexao = ConnectionFactory::getconnection();
 
-            $SQL = $Minhaconexao->prepare(""); // codigo sql 
-            $SQL - bindParam("codigo", $Codigo);
-            $Codigo = $Setor->Codigo();
+            $SQL = $Minhaconexao->prepare("delete from myb1.setor where codigo=:codigo"); // codigo sql 
+            $SQL->bindParam("codigo", $Codigo);
+            $Codigo = $Setor->getCodigo();
 
             $SQL->execute();
 
-            return $SQL->rowount();
+            return $SQL->rowCount();
         } catch (PDOException $Erro) {
             echo "Erro ao Remover Setor <br>" . $Erro->getmessage();
             return;
         }
         $Minhaconexao = null;
     }
-    public function Alterar($Velho, $Novo)
+    public function Alterar($Setor, $Campo, $Novo)
     {
         try {
             $Minhaconexao = ConnectionFactory::getconnection();
+            if($Campo==telefone){
+                $SQL = $Minhaconexao->prepare("update myb1.setor set telefone=:novo where codigo=:codigo");
+            }else{
+                if($Campo===email){
+                    $SQL = $Minhaconexao->prepare("update myb1.setor set email=:novo where codigo=:codigo");
+                }else{
+                    $SQL = $Minhaconexao->prepare("update myb1.setor set nome=:novo where codigo=:codigo");
+                }
+            }
+             // codigo sql
+            $SQL->bindParam("codigo", $Codigo);
+            $SQL->bindParam("novo", $Novo1);
 
-            $SQL = $Minhaconexao->prepare(""); // codigo sql
-            $SQL->binParam("codigo", $Codigo);
-            $SQL->bindParam("Nome", $Nome);
+            $Codigo = $Setor->getCodigo();
+            $Novo1 = $Novo;   
 
-            $Codigo = $Velho->getCodigo();
-            $Nome = $Novo->getNome();
 
             $SQL->execute();
 
@@ -169,29 +179,28 @@ class SetorDAO
     { }
 
 
-    public function BuscarTodos(){
-        try{
-            $Minhaconexao = ConectionFactory:::getconnection(); 
+    public function BuscarTodos()
+    {
+        try {
+            $Minhaconexao = ConnectionFactory::getconnection();
 
             $SQL = $Minhaconexao->prepare("select * from myb1.setor");
 
-            $SQL->execute(); 
-            $SQL->setFetchMode(PDO::FETCH_ASSOC); 
-            $vet= array();
-            $i=0; 
+            $SQL->execute();
+            $SQL->setFetchMode(PDO::FETCH_ASSOC);
+            $vet = array();
+            $i = 0;
 
-            while($linha=$SQL->fetch(PDO::FETCH_ASSOC)){
-                $vet[$i]= array($linha['nome do campo'],$linha['nome do campo'],$linha['nome do campo'],$linha['nome do campo'],$linha['nome do campo']); //continuar com o banco 
-                $i++; 
+            while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+                $vet[$i] = array($linha['codigo'], $linha['email'], $linha['telefone'], $linha['nome']); //continuar com o banco 
+                $i++;
             }
-            return $vet; 
+            return $vet;
+        } catch (PDOException $Erro) {
 
-        }catch(PDOException $Erro){
-
-            Echo->$Erro->getmessage(); 
-            return 0; 
-
+            echo $Erro->getmessage();
+            return 0;
         }
-        $Minhaconexao= null; 
+        $Minhaconexao = null;
     }
 }

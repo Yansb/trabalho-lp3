@@ -32,9 +32,9 @@
                 return $Setor->Remover($this);
                 
             }
-            public function Alterar($Novo){
+            public function Alterar($Campo,$Novo){
                 $Setor = new SetorDAO();
-                return $Setor->Alterar($this,$Novo);
+                return $Setor->Alterar($this,$Campo,$Novo);
                 
             }
 
@@ -44,12 +44,12 @@
             }
             public function Select(){
                 $Resultado = $this->BuscarTodos(); 
-                $quant = Count(Resultado);
+                $quant = Count($Resultado);
 
-                echo "<select class='custom-select custom-select-lg mb-3' name='problemas' id=''>";
+                echo "<select class='custom-select custom-select-lg mb-3' name='Codigo' id='Codigo'>";
                 for($i=0;$i<$quant;$i++){ 
 
-                echo "<option value= '".$Resultado[$i][0]."'>".$Resultado[$i][1]."</option>"; 
+                echo "<option value='".$Resultado[$i][0]."'>".$Resultado[$i][3]."</option>"; 
                 }
                  echo "</select>";
 

@@ -25,7 +25,13 @@ function valida() {
     }
 }
 
-
+function status(valor){
+    if(valor===1){
+        alert("Cadastrado com Sucesso");
+    }else{
+        alert("Erro ao Cadastrar");
+    }
+}
 
 function mostraOculta(opc) {
 
