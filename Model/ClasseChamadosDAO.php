@@ -143,7 +143,7 @@ class ChamadoDAO
             $i = 0; 
             where($linha = $SQL->fetch(PDO::FETCH_ASSOC))
             {
-                $vet[$i] = array($linha['numero'],$linha['descricao'],$linha['atendente'],$linha['solicitante'],$linha['setor'],$linha['situacao'],$linha['prioridade'],$linha['abertura']);
+               //$vet[$i] = array($linha['numero'],$linha['descricao'],$linha['atendente'],$linha['solicitante'],$linha['setor'],$linha['situacao'],$linha['prioridade'],$linha['abertura']);
                 $i++; 
             }
             return $vet; 
