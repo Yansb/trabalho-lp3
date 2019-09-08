@@ -147,7 +147,7 @@
                $Resultado= $this->BuscarTodos(); 
                $quant= count($Resultado);
 
-               echo "<select class='custom-select custom-select-lg mb-3' name='problemas' id=''>";
+               echo "<select class='custom-select custom-select-lg mb-3' name='problemas' id='problemas'>";
                for($i=0;$i<$quant;$i++){ 
                 echo "<option value= '".$Resultado[$i][0]."'>".$Resultado[$i][1]."</option>"; 
                 }

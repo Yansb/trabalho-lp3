@@ -14,11 +14,20 @@
                         $SQL->bindParam('cpf',$CPF); 
                         $CPF = $Usuario->getCPF(); 
 
-                        $SQL->execute();
-                        return $SQL->rowCount(); // acho que nesse caso não é essa função verificar depois 
-                    }
+                    $SQL->execute();
+                    $SQL->setFetchMode(PDO::FETCH_ASSOC);
+                        $Resultado=0; 
+                        $i =0;
 
-                    catch(PDOException $Erro){
+                        while($linha = $SQL->fetch(PDO::FETCH_ASSOC)){
+                            $Resultado=$linha["cpf"];
+                            $i ++; 
+                        }
+            
+                     return $Resultado; 
+
+
+                    }catch(PDOException $Erro){
 
                         Echo "Erro ao verificar CPF ".$Erro->getmessage(); 
                         
@@ -27,6 +36,32 @@
                     
                     $Minhaconexao=null;
                 } 
+                 public function Inserir($Usuario){
+                     try{
+                         $Minhaconexao = ConnectionFactory::getConnection();
+
+                        $SQL = $Minhaconexao->prepare("insert into myb1.usuario(cpf,nome,email,telefone) values (:cpf,:nome,:email,:telefone)");
+                        $SQL->bindParam('cpf',$CPF); 
+                        $SQL->bindParam('nome',$Nome); 
+                        $SQL->bindParam('email',$Email); 
+                        $SQL->bindParam('telefone',$Telefone); 
+                        $CPF = $Usuario->getCPF(); 
+                        $Nome = $Usuario->getNome();
+                        $Email = $Usuario->getEmail();
+                        $Telefone = $Usuario->getTelefone(); 
+
+                        $SQL->execute();
+                        
+                        return $SQL->rowCount(); 
+
+
+
+                     }catch(PDOException $Erro){
+                        echo $Erro; 
+
+                     }
+                     $Minhaconexao= Null; 
+                 }
             }
 
             // fim classe UsuarioDAO
@@ -38,13 +73,25 @@
                         try{
                             $Minhaconexao = ConnectionFactory::getconnection();
 
-                            $SQL = $Minhaconexao->prepare("select *from myb1.funcionario where login=:login and senha=:senha");
+                            $SQL = $Minhaconexao->prepare("select f.nome, f.cargo, s.nome as setor from myb1.funcionario f inner join myb1.setor s on f.codigo = s.codigo where f.login=:login and senha=:senha");
                             $SQL->bindParam("login", $Login);
                             $SQL->bindParam("senha", $Senha);
 
                             $Login = $Tecnico->getLogin();
                             $Senha = $Tecnico->getSenha(); 
-                            $SQL->execute(); 
+                            $SQL->execute();
+                            $SQL->setFetchMode(PDO::FETCH_ASSOC); 
+                            $vet= array();
+                            $i=0; 
+
+                        while($linha= $SQL->fetch(PDO::FETCH_ASSOC))
+                        {
+                            $vet[$i] = array($linha['nome'],$linha['cargo'],$linha['setor']);
+                            $i++; 
+                        }
+                        return $vet; 
+  
+
 
                             // continuar 
                             
@@ -169,7 +216,3 @@
             }
 
             //Fim classe
-
-
-
-?>

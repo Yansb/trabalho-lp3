@@ -32,11 +32,11 @@
 
                     $CPF=$_POST['CPF']; // alterar depois, feito para testar
     
-                    $Tecnico= new $Tecnico($CPF);
+                    $Tecnico= new Tecnico($CPF);
 
                     if($Tecnico->Remover()>0){
-                            echo "REMOVIDO COM SUCESSO";
-                            //header('location: ../View/CadastroTecnico.php');
+                            
+                            header('location: ../View/CadastroTecnico.php');
                     }
                     else{
                         echo "ERRO AO REMOVER"; 

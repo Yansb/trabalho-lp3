@@ -7,29 +7,41 @@ $Acao = $_POST['Acao'];
 if ($Acao === "NovoChamado") {
 
     $Atual = new DateTime();
-    $DataHoraAbertura = $Atual->format('d-m-Y H:i:s');
+    $DataHoraAbertura = $Atual->format('Y-m-d H:i:s');
     $Nome = $_POST["Nome"];
     $CPF = $_POST["CPF"];
     $Email = $_POST["Email"];
     $Telefone = $_POST["Telefone"];
-    $Setor = $_POST["Setor"];
-    $Problema = $_POST["Problema"];
-    $Arquivo = isset($_POST["Arquivo"]);
+    $Setor = $_POST["Codigo"];
+    $Problema = $_POST["problemas"];
+    if (isset($_POST["Arquivo"])) {
+        $Arquivo = $_POST["Arquivo"];
+    }
     $Descricao = $_POST['Descricao'];
     $OBS = $_POST["OBS"];
-
-    $Chamado = new Chamado("", $Descricao, $Setor, $Problema, $Arquivo, $OBS, $DataHoraAbertura);
-    $Usuario = new Usuario($Nome, $CPF, $Telefone, $Email);
-
-    if ($Chamado->Adicionar($Usuario) > 0) {
-
-        //header('Location: ../View/teste.php');
-
-
+    if (isset($_POST["Tombo"])) {
+        $Tombo = $_POST["Tombo"];
     } else {
-        echo "FALHA EM REALIZAR O CHAMADO";
+        $Tombo = "nao";
     }
+    echo $Arquivo;
+    $Usuario = new Usuario($CPF, $Nome, $Telefone, $Email);
+    if ($Usuario->Inserir() > 0) {
+
+        $Chamado = new Chamado("", $Descricao, "Em Aberto", $Setor, $Problema, "Normal", $Arquivo, $OBS, $DataHoraAbertura, null, $Usuario->getCPF(), $Tombo, null);
+
+        if ($Chamado->Adicionar() > 0) {
+            session_start();
+            $_SESSION["Usuario"] = $Usuario;
+            header('Location: ../View/usuario.php');
+        } else {
+            echo "FALHA EM REALIZAR O CHAMADO";
+        }
+    }
+} else {
+    echo "erro ao inserir ";
 }
+
 
 if ($Acao === "RemoverChamado") {
 

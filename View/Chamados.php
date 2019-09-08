@@ -7,25 +7,27 @@
 
     <title>MYB-Chamados</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/MYB.css">
+    <?php
+    require_once "../Model/ClasseChamados.php";
+    require_once "../Model/ClassUsuarios.php";
+    session_start(); 
+    ?>
 
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="btn btn-info btn-lg">Menu</div>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -79,12 +81,12 @@
             </div>
 
             <div class="divDireita" id="Numero" style="display:none;">
-                <p>Digite o Numero</p> <input class="form-control" type="number" name="Numero" id="Numero"  />
+                <p>Digite o Numero</p> <input class="form-control" type="number" name="Numero" id="Numero" />
             </div>
 
             <div class="divDireita" id="Periodo" style="display:none;">
-                <p> Inicia em:</p><input class="form-control" type="date" name="Inicio" id= "Inicio"/>
-                <p>Termina em:</p><input class="form-control" type="date" name="Fim" id= "Fim"/>
+                <p> Inicia em:</p><input class="form-control" type="date" name="Inicio" id="Inicio" />
+                <p>Termina em:</p><input class="form-control" type="date" name="Fim" id="Fim" />
             </div>
 
             <div class="divDireita" id="Equipamento" style="display:none;">
@@ -95,20 +97,20 @@
                 <p>Digite o Nome</p><input class="form-control" type="text" name="Solicitante" />
 
             </div>
-            <div class="divDireita" id="Estado"  style="display:none;">
+            <div class="divDireita" id="Estado" style="display:none;">
                 <p>Qual?</p>
-                    <select class="custom-select custom-select-lg mb-3"  id= "Estado" name= "Estado">
-                        <option value="Aberto">Em Aberto </option>
-                        <option value="Atendimento">Em Atendimento</option>
-                        <option value="Fechado">Fechado</option>
-                        <option value=""></option>
-                    </select>
-              
+                <select class="custom-select custom-select-lg mb-3" id="Estado" name="Estado">
+                    <option value="Aberto">Em Aberto </option>
+                    <option value="Atendimento">Em Atendimento</option>
+                    <option value="Fechado">Fechado</option>
+                    <option value=""></option>
+                </select>
+
 
             </div>
             <div class="divDireita" id="Prioridade" style="display:none;">
                 <p>Qual?</p>
-                <select class="custom-select custom-select-lg mb-3" name="Prioridade" >
+                <select class="custom-select custom-select-lg mb-3" name="Prioridade">
 
                     <option value="Baixa">Baixa </option>
                     <option value="Consideravel">Considerável</option>
@@ -120,7 +122,7 @@
             </div>
             <div class="divDireita" id="Atendente" style="display:none;">
                 <p>Selecione o Nome</p>
-                <select class="custom-select custom-select-lg mb-3" name="Atendente" >
+                <select class="custom-select custom-select-lg mb-3" name="Atendente">
                     <option value="at1">Matheus souza</option>
                     <option value="at2">Caio Bruno </option>
                     <option value="at3">Yan não sei</option>
@@ -128,22 +130,22 @@
                 </select>
 
             </div>
-            <div  class="divDireita" id="Setor" style="display:none;">
+            <div class="divDireita" id="Setor" style="display:none;">
                 <p>Selecione o Setor</p>
-                    <select class="custom-select custom-select-lg mb-3" name="Setor" >
+                <select class="custom-select custom-select-lg mb-3" name="Setor">
 
-                        <option value="Recusos Humanos">Recusos Humanos </option>
-                        <option value="Tecnologia da Informação">Tecnologia da Informação</option>
-                        <option value="comunicacao">Comunicação</option>
-                        <option value=">administrativo">Administrativo</option>
-                        <option value=">">Financeiro</option>
-                        <option value=">">Acadêmico</option>
-                        <option value=">"></option>
+                    <option value="Recusos Humanos">Recusos Humanos </option>
+                    <option value="Tecnologia da Informação">Tecnologia da Informação</option>
+                    <option value="comunicacao">Comunicação</option>
+                    <option value=">administrativo">Administrativo</option>
+                    <option value=">">Financeiro</option>
+                    <option value=">">Acadêmico</option>
+                    <option value=">"></option>
 
-                    </select>
+                </select>
             </div>
             <div class="divDireita" id="Qtdias" style="display:none;">
-                <p>Quantos dias?</p><input class="form-control" type="number" name="Qtdias"  />
+                <p>Quantos dias?</p><input class="form-control" type="number" name="Qtdias" />
             </div>
 
             <div class="divBotao">
@@ -160,7 +162,7 @@
     <br><br><br><br><br>
     <div class="chamados">
         <section>
-            <table class="table" >
+            <table class="table">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Numero chamado</th>
@@ -170,43 +172,41 @@
                         <th scope="col">Setor</th>
                         <th scope="col">Situação</th>
                         <th scope="col">Prioridade</th>
-                        <th  scope="col">Data e Hora</th>
+                        <th scope="col">Abertura</th>
                         <th scope="col">Quantidade de dias </th>
 
                     </tr>
                 </thead>
                 <?php
-                    require_once "../Model/ClasseChamados.php"; 
+              
+                $_SESSION["Tecnico"]->getSetor();
 
-                    $Chamado = new Chamado();
-                     $Chamado->PrintTabela();
+      
+                $Chamado = new Chamado();
+                //$Chamado->setSetor($_SESSION["Tecnico"]->getSetor()); 
+                //$Chamado->PrintTabela("Setor");
+  
                 ?>
-               
+
                 </tbody>
             </table>
         </section>
-       
+
     </div>
-   
+
 
 </body>
 
 <footer>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-        <script src="js/validacao.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/validacao.js"></script>
 
 
 
 
-    </footer>
+</footer>
 
 
 </html>

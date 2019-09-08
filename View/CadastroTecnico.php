@@ -11,7 +11,9 @@
   <link rel="stylesheet" href="css/MYB.css">
   <?php
   require_once '../Model/class.php';
+  require_once '../Model/classUsuarios.php';
   $Setor = new Setor();
+  $Tecnico = new Tecnico(); 
   ?>
 </head>
 
@@ -118,11 +120,9 @@
           <h3>Remover Tecnico</h3>
           <p>
             Tecnico:
-            <select class="custom-select custom-select-lg mb-3" name="Tecnico" id="Tecnico">
-              <option value="A">problemacadastrado1</option>
-              <option value="B">problemacadastrado2</option>
-              <option value="C">problemacadastrado3</option>
-            </select>
+            <?php
+              $Tecnico->Select(); 
+            ?>
           </p>
           <input type="hidden" id="Acao" name="Acao" value="Remover">
 
@@ -140,11 +140,9 @@
         <h3>Alterar Tecnico </h3>
         <p>
           Técnico:
-          <select class="custom-select custom-select-lg mb-3" name="alterar" id="">
-            <option value="">problemacadastrado1</option>
-            <option value="">problemacadastrado2</option>
-            <option value="">problemacadastrado3</option>
-          </select>
+          <?php
+              $Tecnico->Select(); 
+            ?>
         </p>
 
         <p>
@@ -154,6 +152,9 @@
               <option value="">Nome</option>
               <option value="">Telefone</option>
               <option value="">Email</option>
+              <option value="">Cargo</option>
+              <option value="">Login</option>
+              <option value="">Senha</option>
             </select>
           </p>
 

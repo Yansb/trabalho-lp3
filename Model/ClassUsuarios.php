@@ -7,7 +7,6 @@
                         protected $Telefone;
                         protected $Email;
 
-                    
                         public function __construct( $CPF="",$Nome="", $Telefone="", $Email="")
                         {
                             $this->Nome = $Nome;
@@ -20,7 +19,18 @@
                         public function VerificarCPF(){
 
                             $Usuario = new UsuarioDAO();
-                            $Usuario->VerificarCPF($this);
+                         
+                            return $Usuario->VerificarCPF($this);
+                        }
+                        public function Inserir(){
+                                 
+                            if($this->VerificarCPF()!=0){
+                                return 1; 
+                            }else{
+                                $Usuario = new UsuarioDAO();
+                                return $Usuario->Inserir($this); 
+                            }
+                            
                         }
                     
                         public function getNome()
@@ -112,7 +122,7 @@
                     public function Logar(){
 
                         $Login= new TecnicoDAO();
-                        return $Login->Logar($this);
+                     return ($Login->Logar($this));
                     }
 
                     public function Adicionar(){

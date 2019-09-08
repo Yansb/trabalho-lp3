@@ -109,11 +109,14 @@
 </div>
 
   <br><br><br><br>
-<?php  $Usuario = new Usuario("","Matheus Souza"); // teste apagar?> 
+ 
+        
+<?php     session_start();
+  ?> 
   <div>
 
     <div class="chamados">
-      <h1 style="color:rgb(41, 33, 24)">Chamados: <?php echo $Usuario->getNome();?> </h1>
+      <h1 style="color:rgb(41, 33, 24)">Chamados: <?php echo $_SESSION["Usuario"]->getNome(); ?> </h1>
       <section>
         <table class="table">
           <thead class="thead-dark">
@@ -121,18 +124,18 @@
               <th scope="col">Numero chamado</th>
               <th scope="col">Descrição</th>
               <th scope="col">Atendente</th>
-              <th scope="col">Solicitante</th>
               <th scope="col">Setor</th>
               <th scope="col">Situação</th>
               <th scope="col">Prioridade</th>
-              <th scope="col">Data e Hora</th>
+              <th scope="col">Abertura</th>
               <th scope="col">Quantidade de dias </th>
 
             </tr>
           </thead>
           <?php
             $Chamado = new Chamado();
-            $Chamado->PrintTabela();
+            $Chamado->PrintUserTabela($_SESSION["Usuario"]); 
+          
           ?>
           </tbody>
         </table>

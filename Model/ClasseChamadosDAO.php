@@ -5,37 +5,36 @@ include_once "ConnectionFactory.php";
 class ChamadoDAO
 {
 
-    public function Adicionar($Chamado, $Usuario)
+    public function Adicionar($Chamado)
     {
         try {
             $Minhaconexao = ConnectionFactory::getconnection();
 
-            $SQL = $Minhaconexao->prepare(""); // codigo sql 
+            $SQL = $Minhaconexao->prepare("insert into myb1.chamado(abertura,tombo_patrimonio,estado,arquivo,descricao,id_problema,cpf_usuario,codigo_setor,obs,prioridade) values (:abertura,:tombo,:status,:arquivo,:descricao,:problema,:cpf,:setor,:obs,:prioridade)"); // codigo sql 
+            $SQL->bindParam('tombo',$Tombo);
             $SQL->bindParam('status', $Status);
+            $SQL->bindParam('cpf',$CPF);
             $SQL->bindParam('descricao', $Descricao);
-            $SQL->bindParam('datahoraabertura', $DataHoraAbertura);
+            $SQL->bindParam('abertura', $Abertura);
             $SQL->bindParam('prioridade', $Prioridade);
             $SQL->bindParam('arquivo', $Arquivo);
             $SQL->bindParam('obs', $OBS);
             $SQL->bindParam('setor', $Setor);
             $SQL->bindParam('problema', $Problema);
-            $SQL->bindParam('nome', $Nome);
-            $SQL->bindParam('cpf', $CPF);
-            $SQL->bindParam('telefone', $Telefone);
-            $SQL->bindParam('email', $Email);
+            
 
+   
+            $Tombo = $Chamado->getTombo(); 
             $Status = $Chamado->getStatus();
+            $CPF = $Chamado->getSolicitante(); 
             $Descricao = $Chamado->getDescricao();
-            $DataHoraAbertura = $Chamado->getDataHoraAbertura();
+            $Abertura = $Chamado->getDataHoraAbertura();
             $Prioridade = $Chamado->getPrioridade();
             $Arquivo = $Chamado->getArquivo();
             $OBS = $Chamado->getOBS();
             $Setor = $Chamado->getSetor();
-            $Problema = $Chamado->getChamado();
-            $Nome = $Usuario->getCPF();
-            $CPF = $Usuario->getCPF();
-            $Telefone = $Usuario->getTelefone();
-            $Email = $Usuario->getEmail();
+            $Problema = $Chamado->getProblema();
+            
 
             $SQL->execute();
 
@@ -87,17 +86,24 @@ class ChamadoDAO
                 $Fim = $Chamado->getDataHoraFechamento();
 
                 // falta o return com dados 
-            } else {
+            }else {
                 if ($Tipo === "Numero") {
                     $SQL = $Minhaconexao->prepare("");
                     $SQL->bindParam("numero", $Numero);
                     $Numero = $Chamado->getNumero();
                 } else {
                     if ($Tipo === "Setor") {
-                        $SQL = $Minhaconexao->prepare("");
-                        $SQL->bindParam("setor", $Setor);
+                        
+                        $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante ,s.nome as setor,c.estado as situacao,c.prioridade,c.abertura
+                        from myb1.chamado c left join myb1.funcionario f on c.cpf_funcionario = f.cpf
+                        inner join myb1.setor s on c.codigo_setor= s.codigo 
+                        inner join myb1.usuario u on c.cpf_usuario = u.cpf
+                        where s.nome =:setor ");
+                        $SQL->bindParam("setor",$Setor);
                         $Setor = $Chamado->getSetor();
-                    } else {
+                      
+                
+                    }else {
                         if ($Tipo === "Solicitante") {
                             $SQL = $Minhaconexao->prepare("");
                             $SQL->bindParam("Solicitante",$Solicitante); 
@@ -128,9 +134,19 @@ class ChamadoDAO
                         }
                     }
                 }
-                $SQL->execute();
-                return true;
+        
+               
             }
+            $SQL->execute(); 
+            $SQL->setFetchMode(PDO::FETCH_ASSOC); 
+            $vet = array();
+            $i = 0; 
+            where($linha = $SQL->fetch(PDO::FETCH_ASSOC))
+            {
+                $vet[$i] = array($linha['numero'],$linha['descricao'],$linha['atendente'],$linha['solicitante'],$linha['setor'],$linha['situacao'],$linha['prioridade'],$linha['abertura']);
+                $i++; 
+            }
+            return $vet; 
         } catch (PDOExcepetion $Erro) {
             echo $Erro->getmessage();
         }
@@ -145,7 +161,7 @@ class ChamadoDAO
             $SQL->execute(); 
             $SQL->setFetchMode(PDO::FETCH_ASSOC); 
             $vet = array();
-            $i; 
+            $i=0; 
             
             while($linha= $SQL->fetch(PDO::FETCH_ASSOC)){
 
@@ -160,6 +176,36 @@ class ChamadoDAO
             return 0; 
         }
         $Minhaconexao=NULL; 
+    }
+
+    public function BuscarUsuario($Usuario){
+        try{
+            $Minhaconexao= ConnectionFactory::getConnection(); 
+            $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante, s.nome as setor, c.estado as situacao, c.prioridade, c.abertura
+            from myb1.chamado c inner join myb1.usuario u on c.cpf_usuario = u.cpf 
+            inner join myb1.setor s on c.codigo_setor = s.codigo
+            left join myb1.funcionario f on f.cpf= c.cpf_funcionario 
+            where c.estado = 'Em Aberto' and c.cpf_usuario =:cpf" ); 
+            $SQL->bindParam('cpf',$CPF);
+            $CPF= $Usuario->getCPF(); 
+
+            $SQL->execute(); 
+            $SQL->setFetchMode(PDO::FETCH_ASSOC); 
+            $vet = array();
+            $i = 0; 
+
+            while($linha= $SQL->fetch(PDO::FETCH_ASSOC))
+            {
+              $vet[$i]= array($linha['numero'], $linha['descricao'],$linha['atendente'],$linha['solicitante'],$linha['setor'],$linha['situacao'],$linha['prioridade'],$linha['abertura']); 
+              $i++;  
+            }
+            return $vet; 
+
+
+        }catch(PDOException $Erro){
+            echo $Erro; 
+        }
+        $Minhaconexao= null; 
     }
 }    
 
