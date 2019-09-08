@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: myb1
+-- Host: localhost    Database: myb1
 -- ------------------------------------------------------
 -- Server version	8.0.17
 
@@ -16,7 +16,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `chamado` 
+-- Table structure for table `chamado`
 --
 
 DROP TABLE IF EXISTS `chamado`;
@@ -55,7 +55,7 @@ CREATE TABLE `chamado` (
 
 LOCK TABLES `chamado` WRITE;
 /*!40000 ALTER TABLE `chamado` DISABLE KEYS */;
-INSERT INTO `chamado` VALUES (1,'2019-09-08 00:48:29','sim','Em Aberto','','Máquina quiemada ',3,697596326,1,NULL,NULL,'muita treta vixe ','Normal'),(2,'2019-09-08 00:50:47','sim','Em Aberto','','Máquina linda',2,697596326,13,NULL,NULL,'pouca treta ','Normal'),(3,'2019-09-08 01:08:36','sim','Fechado','','Máquina linda',2,697596326,13,NULL,NULL,'pouca treta ','Normal'),(13,'2019-09-08 03:16:05','sim','Em Aberto','','teste ',2,69759635,1,NULL,NULL,'Detalhe do  problema','Normal'),(14,'2019-09-08 03:24:48','sim','Em Aberto','','Máquina quiemada ',2,69759635,13,NULL,NULL,'Detalhe do  problema','Normal'),(15,'2019-09-08 03:25:46','sim','Em Aberto','','Máquina não liga',3,69649635,1,NULL,NULL,'Detalhe do  problema','Normal'),(16,'2019-09-08 03:26:28','sim','Em Aberto','','Máquina fudeu ',1,69649635,13,NULL,NULL,'Detalhe do  problema','Normal');
+INSERT INTO `chamado` VALUES (1,'2019-09-08 00:48:29','sim','Em Aberto','','Máquina quiemada ',3,697596326,1,NULL,NULL,'muita treta vixe ','Normal'),(2,'2019-09-08 00:50:47','sim','Em Aberto','','Máquina linda',2,697596326,13,NULL,NULL,'pouca treta ','Normal'),(3,'2019-09-08 01:08:36','sim','Fechado','','Máquina linda',2,697596326,13,NULL,NULL,'pouca treta ','Normal'),(4,'2019-09-08 03:26:31','sim','Em Aberto',NULL,'Máquina queimada',4,69759635,2,NULL,NULL,'Sem Detalhes','Alta'),(5,'2019-09-08 03:26:29','sim','Em Aberto',NULL,'Máquina lenta',5,697596326,3,NULL,NULL,'Sem Detalhes','Baixa'),(6,'2019-09-08 03:26:30','sim','Em Aberto',NULL,'Máquina sem cabo',6,69759635,5,NULL,NULL,'Detalhes do Problema','Normal'),(13,'2019-09-08 03:16:05','sim','Em Aberto','','teste ',2,69759635,1,NULL,NULL,'Detalhe do  problema','Normal'),(14,'2019-09-08 03:24:48','sim','Em Aberto','','Máquina quiemada ',2,69759635,13,NULL,NULL,'Detalhe do  problema','Normal'),(15,'2019-09-08 03:25:46','sim','Em Aberto','','Máquina não liga',3,69649635,1,NULL,NULL,'Detalhe do  problema','Normal'),(16,'2019-09-08 03:26:28','sim','Em Aberto','','Máquina fudeu ',1,69649635,13,NULL,NULL,'Detalhe do  problema','Normal');
 /*!40000 ALTER TABLE `chamado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (71254136,'matheus souza dos santos ','admin','m santos ','564522112','71920645124','silva@lima.com',13),(456456456,'matheus ','admin','msantos','152418','71920645124','m@1524418.cm',1);
+INSERT INTO `funcionario` VALUES (456456,'caio','gerente','caio','12345679','7177777777','caio.b@gmail.com',4),(71254136,'matheus souza dos santos ','admin','m santos ','564522112','71920645124','silva@lima.com',13),(423456456,'joao','técnico','joao','12345678','7188888888','j.oao@gmail.com',3),(456456456,'matheus ','admin','msantos','152418','71920645124','m@1524418.cm',1),(456523456,'yan','admin','yansb','12345676','71992731090','yansb@gmail.com',2);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,6 +115,7 @@ CREATE TABLE `historico_alteracao` (
 
 LOCK TABLES `historico_alteracao` WRITE;
 /*!40000 ALTER TABLE `historico_alteracao` DISABLE KEYS */;
+INSERT INTO `historico_alteracao` VALUES (1,'2019','Feita alteração',4),(2,'2019','Alteração feita',5),(3,'2019','Status mudado',6);
 /*!40000 ALTER TABLE `historico_alteracao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +130,7 @@ CREATE TABLE `problema` (
   `idproblema` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   PRIMARY KEY (`idproblema`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,7 +139,7 @@ CREATE TABLE `problema` (
 
 LOCK TABLES `problema` WRITE;
 /*!40000 ALTER TABLE `problema` DISABLE KEYS */;
-INSERT INTO `problema` VALUES (1,'problema '),(2,'problema 2'),(3,'problema 3 ');
+INSERT INTO `problema` VALUES (1,'problema '),(2,'problema 2'),(3,'problema 3 '),(4,'Ar condicionado sem funcionar'),(5,'SQL workbench não conecta'),(6,'Luz queimada');
 /*!40000 ALTER TABLE `problema` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,7 +165,7 @@ CREATE TABLE `setor` (
 
 LOCK TABLES `setor` WRITE;
 /*!40000 ALTER TABLE `setor` DISABLE KEYS */;
-INSERT INTO `setor` VALUES (1,'Setor@financeiro.com','7172152418','Financeiro'),(13,'matheus@asas.com','3333333','adm1');
+INSERT INTO `setor` VALUES (1,'Setor@financeiro.com','7172152418','Financeiro'),(2,'rh@setor.com','7199999999','Recursos Humanos'),(3,'ti@setor.com','7199999999','Tecnologia da Informação'),(4,'comunicacao@setor.com','7199999999','Comunicação'),(5,'adm@setor.com','7188888888','Administrativo'),(6,'financeiro@setor.com','717777777','Financeiro'),(7,'academica@setor.com','716666666','Academica'),(13,'matheus@asas.com','3333333','adm1');
 /*!40000 ALTER TABLE `setor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,7 +185,7 @@ CREATE TABLE `software` (
   PRIMARY KEY (`idsoftware`),
   KEY `num_chamado_idx` (`num_chamado`),
   CONSTRAINT `num_chamado` FOREIGN KEY (`num_chamado`) REFERENCES `chamado` (`numero_chamado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,6 +194,7 @@ CREATE TABLE `software` (
 
 LOCK TABLES `software` WRITE;
 /*!40000 ALTER TABLE `software` DISABLE KEYS */;
+INSERT INTO `software` VALUES (1,'1','https://www.google.com/',3,NULL),(2,'2','https://www.google.com/',4,NULL),(3,'1','https://www.google.com/',5,NULL);
 /*!40000 ALTER TABLE `software` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -218,7 +220,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (69649635,'matheus tsila','m@1524418','7192065445'),(69759635,'matheus teste ','asdasd@asdasd.com','71920645124'),(697596325,'caio bruno','bruno@pittar','71920645124'),(697596326,'caio bruno 4','bruno@pittar','71920645124'),(697596354,'matheus santos ','matheus@hotmail.com3','78423665'),(697596951,'M SOUZA','m@as','5444');
+INSERT INTO `usuario` VALUES (69649635,'matheus tsila','m@1524418','7192065445'),(69759635,'matheus teste ','asdasd@asdasd.com','71920645124'),(697596325,'caio bruno','bruno@pittar','71920645124'),(697596326,'caio bruno 4','bruno@pittar','71920645124'),(697596354,'matheus santos ','matheus@hotmail.com3','78423665'),(697596751,'Maria','maria@gmail.com','71920645124'),(697596951,'M SOUZA','m@as','5444'),(697596952,'Yan Santana','yansbarreiro@gmail.com','71920645124'),(697596961,'João','joao@gmail.com','71920645124');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -231,4 +233,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-08 13:56:00
+-- Dump completed on 2019-09-08 18:30:48
