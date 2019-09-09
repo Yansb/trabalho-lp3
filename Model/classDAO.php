@@ -1,5 +1,6 @@
 <?php
-require "ConnectionFactory.php";
+
+require_once "ConnectionFactory.php";
 
 
 class ProblemaDAO
@@ -55,7 +56,7 @@ class ProblemaDAO
 
             $SQL = $Minhaconexao->prepare(""); // codigo sql para alterar; 
             $SQL->bindParam("codigo", $Codigo);
-            $SQL->binParam("nome", $Nome);
+            $SQL->binParam("nome",$Nome);
             $Nome = $Novo->getNome();
             $Codigo = $Velho->getCodigo();
 

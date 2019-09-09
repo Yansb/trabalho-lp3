@@ -69,8 +69,8 @@
 
             <p>Selecione o Cargo</p>
             <select class="custom-select custom-select-lg mb-3" name="Cargo" required>
-              <option value="simples">Simples</option>
-              <option value="admin">Gerente</option>
+              <option value="Tecnico">Técnico</option>
+              <option value="Gerente">Gerente</option>
               <option value="admin">Administrador</option>
             </select>
           </p>

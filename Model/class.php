@@ -1,7 +1,7 @@
 <?php
 
 
-        require "classDAO.php";
+        require_once "classDAO.php";
         
             
         class Setor
