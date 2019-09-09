@@ -61,7 +61,7 @@ class ChamadoDAO
 
             return $SQL->rowcount();
         } catch (PDOException $Erro) {
-            echo "erro ao Remover chamado" . $Erro->getmessage();
+            echo "erro ao Remover chamado".$Erro->getmessage();
             return;
         }
 
@@ -98,7 +98,7 @@ class ChamadoDAO
                         from myb1.chamado c left join myb1.funcionario f on c.cpf_funcionario = f.cpf
                         inner join myb1.setor s on c.codigo_setor= s.codigo 
                         inner join myb1.usuario u on c.cpf_usuario = u.cpf
-                        where s.nome =:setor ");
+                        where s.nome =:setor and c.estado ='Em Aberto'");
                         $SQL->bindParam("setor",$Setor);
                         $Setor = $Chamado->getSetor();
                       
@@ -107,7 +107,7 @@ class ChamadoDAO
                         if ($Tipo === "Solicitante") {
                             $SQL = $Minhaconexao->prepare("");
                             $SQL->bindParam("Solicitante",$Solicitante); 
-                            //$Solicitante = $Chamado->getSolicitante(); 
+                            $Solicitante = $Chamado->getSolicitante(); 
                         } else {
                             if ($Tipo === "Estado") {
                                 $SQL = $Minhaconexao->prepare("");
@@ -127,7 +127,7 @@ class ChamadoDAO
                                         $SQL = $Minhaconexao->prepare("");
                                         //$SQL->bindParam("qtds", $Qtds);
                                         //$Qtds= $Chamado->getQtds();
-                                        // qtd dias
+                                        // qtd dias;
                                     }
                                 }
                             }
@@ -139,11 +139,12 @@ class ChamadoDAO
             }
             $SQL->execute(); 
             $SQL->setFetchMode(PDO::FETCH_ASSOC); 
-            $vet = array();
+            $vet= array();
             $i = 0; 
-            where($linha = $SQL->fetch(PDO::FETCH_ASSOC))
+            
+            while($linha = $SQL->fetch(PDO::FETCH_ASSOC))
             {
-               //$vet[$i] = array($linha['numero'],$linha['descricao'],$linha['atendente'],$linha['solicitante'],$linha['setor'],$linha['situacao'],$linha['prioridade'],$linha['abertura']);
+               $vet[$i] = array($linha['numero'],$linha['descricao'],$linha['atendente'],$linha['solicitante'],$linha['setor'],$linha['situacao'],$linha['prioridade'],$linha['abertura']);
                 $i++; 
             }
             return $vet; 

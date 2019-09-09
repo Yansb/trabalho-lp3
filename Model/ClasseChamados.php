@@ -90,22 +90,20 @@ include "ClasseChamadosDAO.php";
             {
                 $Resultado = $this->Pesquisar($Tipo); 
                 $quant = Count($Resultado); 
-                for($i=0;$i<8;$i++){ 
-                $Print= "
-                    <tr>
-                        <td scope='row'><a href='chamadoAtual.php'> 01</a></td>
-                        <td><a href='chamadoAtual.php'> Máquina não liga </a></td>
-                        <td>Exemplo</td>
-                        <td>Exemplo</td>
-                        <td>Exemplo</td>
-                        <td class='bg-danger'>Exemplo</td>
-                        <td>Exemplo</td>
-                        <td>Exemplo</td>
-                        <td>Exemplo</td>
-                    </tr>
-                    
-                "; 
-                echo $Print;
+                for($i=0;$i<$quant;$i++){ 
+                
+                    echo "<tr>"; 
+                    echo "<td scope='row'><a href='chamadoAtual.php'>".$Resultado[$i][0]."</a></td>";
+                    echo "<td><a href='chamadoAtual.php'>".$Resultado[$i][1]." </a></td>"; 
+                    echo"<td>".$Resultado[$i][2]."</td>";
+                    echo"<td>".$Resultado[$i][5]."</td>";  
+                    echo"<td>".$Resultado[$i][4]."</td>";  
+                    echo"<td class='bg-danger'>".$Resultado[$i][5]."</td>"; 
+                    echo"<td>".$Resultado[$i][6]."</td>";  
+                    echo"<td>".$Resultado[$i][7]."</td>"; 
+                    echo"<td>tem que fazer</td>";  
+                   echo "</tr>"; 
+          
                 }
                 
             }

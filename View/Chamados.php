@@ -183,8 +183,8 @@
 
       
                 $Chamado = new Chamado();
-                //$Chamado->setSetor($_SESSION["Tecnico"]->getSetor()); 
-                //$Chamado->PrintTabela("Setor");
+                $Chamado->setSetor($_SESSION["Tecnico"]->getSetor()); 
+                $Chamado->PrintTabela("Setor");
   
                 ?>
 
