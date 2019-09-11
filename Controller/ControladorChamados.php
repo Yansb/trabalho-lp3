@@ -1,110 +1,89 @@
-<?php 
-    include_once '../Model/ClasseChamados.php';
+<?php
+        include_once '../Model/ClasseChamados.php';
+        session_start();
+        if (isset($_POST['Pesquisar'])) {
+            $Pesquisar = $_POST['Pesquisar'];
 
-    $Pesquisar= $_POST['Pesquisar'];
-    
-    $Chamado = new Chamado();
-            
+            $Chamado = new Chamado();
 
-    if($Pesquisar=="Periodo"){
-    
 
-    
-     $Chamado->setDataHoraAbertura($_POST['Inicio']);
-     $Chamado->setDataHoraFechamento($_POST['Fim']); 
+            if ($Pesquisar == "Periodo") {
 
-        if($Chamado->Pesquisar($Pesquisar)){
-                echo "FOi"; 
-        }else{
-            Echo "não foi"; 
-        }
-        
-    }
-    else{
-        if($Pesquisar=="Numero"){   
-            $Chamado->setNumero( $_POST['Numero']); 
-            if($Chamado->Pesquisar($Pesquisar)){
 
-            }else{
 
-            }
+                $Chamado->setDataHoraAbertura($_POST['Inicio']);
+                $Chamado->setDataHoraFechamento($_POST['Fim']);
 
-        }
-        else{
-            if($Pesquisar=="Equipamento"){
-             
-                $Chamado->setEquipamento($_POST['Equipamento']);
-
-                if($Chamado->Pesquisar($Pesquisar)){
-
-                }else{
-
+                if ($Chamado->Pesquisar($Pesquisar)) {
+                    echo "FOi";
+                } else {
+                    echo "não foi";
                 }
-             
-               
-            }
-            else{
-                if($Pesquisar=="Setor"){
+            } else {
+                if ($Pesquisar == "Numero") {
+                    $Chamado->setNumero($_POST['Numero']);
+                    if ($Chamado->Pesquisar($Pesquisar)) { } else { }
+                } else {
+                    if ($Pesquisar == "Equipamento") {
 
-                   $Chamado->setSetor($_POST['Setor']);
-                  if($Chamado->Pesquisar($Pesquisar)){
+                        $Chamado->setEquipamento($_POST['Equipamento']);
 
-                  }else{
+                        if ($Chamado->Pesquisar($Pesquisar)) { } else { }
+                    } else {
+                        if ($Pesquisar == "Setor") {
 
-                  }
+                            $Chamado->setSetor($_POST['Setor']);
+                            if ($Chamado->Pesquisar($Pesquisar)) { } else { }
+                        } else {
+                            if ($Pesquisar == "Solicitante") {
+                                $Solicitante = $_POST['Solicitante'];
+                                if ($Chamado->Pesquisar($Pesquisar)) { } else { }
+                            } else {
+                                if ($Pesquisar == "Estado") {
 
-                   
-                }else{
-                    if($Pesquisar=="Solicitante"){
-                        $Solicitante = $_POST['Solicitante']; 
-                        if($Chamado->Pesquisar($Pesquisar)){
+                                    $a = $_POST['Estado'];
+                                    if ($Chamado->Pesquisar($Pesquisar)) { } else { }
+                                } else {
+                                    if ($Pesquisar == "Prioridade") {
+                                        $Prioridade = $_POST['Prioridade'];
+                                        if ($Chamado->Pesquisar($Pesquisar)) { } else { }
+                                    } else {
+                                        if ($Pesquisar == "Atendente") {
+                                            $Atendente = $_POST['Atendente'];
+                                            if ($Chamado->Pesquisar($Pesquisar)) { } else { }
+                                        } else {
 
-                        }else{
-      
+                                            $QtdDias = $_POST['Qtdias'];
+                                            if ($Chamado->Pesquisar($Pesquisar)) { } else { }
+                                            // quantidade de dias 
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
-                    else{
-                        if($Pesquisar=="Estado"){
-                        
-                            $a = $_POST['Estado'];
-                            if($Chamado->Pesquisar($Pesquisar)){
-
-                            }else{
-          
-                            }
-                        }
-                        else{
-                            if($Pesquisar=="Prioridade"){
-                                $Prioridade= $_POST['Prioridade'];
-                                if($Chamado->Pesquisar($Pesquisar)){
-
-                                }else{
-              
-                                }
-                            }
-                            else{
-                                if($Pesquisar=="Atendente"){
-                                    $Atendente = $_POST['Atendente']; 
-                                    if($Chamado->Pesquisar($Pesquisar)){
-
-                                    }else{
-                  
-                                    }
-                                }
-                                else{
-
-                                    $QtdDias= $_POST['Qtdias']; 
-                                    if($Chamado->Pesquisar($Pesquisar)){
-
-                                    }else{
-                  
-                                    }
-                                    // quantidade de dias 
-                                }
-                            }
-                        }
-                    }   
-                }   
+                }
             }
+        }else{
+            if(isset($_GET['Acao'])){
+                $Acao =$_GET['Acao']; 
+                if($Acao==="Busca"){
+
+                    $Chamado = new Chamado($_GET['Numero']);
+                  if($Chamado->Pesquisar("Numero")){
+                    $_SESSION['Chamado']= $Chamado; 
+   
+                   header('location: ../View/chamadoAtual.php'); 
+
+                  }
+                    
+                    
+
+
+
+                }
+
+            }
+
         }
-    }
+

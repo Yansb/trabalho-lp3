@@ -86,27 +86,7 @@ include "ClasseChamadosDAO.php";
             {
                 
             }
-            public  function PrintTabela($Tipo)
-            {
-                $Resultado = $this->Pesquisar($Tipo); 
-                $quant = Count($Resultado); 
-                for($i=0;$i<$quant;$i++){ 
-                
-                    echo "<tr>"; 
-                    echo "<td scope='row'><a href='chamadoAtual.php'>".$Resultado[$i][0]."</a></td>";
-                    echo "<td><a href='chamadoAtual.php'>".$Resultado[$i][1]." </a></td>"; 
-                    echo"<td>".$Resultado[$i][2]."</td>";
-                    echo"<td>".$Resultado[$i][5]."</td>";  
-                    echo"<td>".$Resultado[$i][4]."</td>";  
-                    echo"<td class='bg-danger'>".$Resultado[$i][5]."</td>"; 
-                    echo"<td>".$Resultado[$i][6]."</td>";  
-                    echo"<td>".$Resultado[$i][7]."</td>"; 
-                    echo"<td>tem que fazer</td>";  
-                   echo "</tr>"; 
           
-                }
-                
-            }
             public  function PrintUserTabela($Usuario)
             {
            

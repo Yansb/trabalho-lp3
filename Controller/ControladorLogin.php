@@ -1,5 +1,7 @@
 <?php
 require "../Model/ClassUsuarios.php";
+require_once"../Model/ClasseChamados.php";
+session_start();
 $Acao = $_POST['Acao'];
 
 if ($Acao === "Logar") {
@@ -14,8 +16,13 @@ if ($Acao === "Logar") {
         $Tecnico->setCargo($Resultado[0][1]);
         $Tecnico->setSetor($Resultado[0][2]);
 
-    session_start();
+        $Chamado = new Chamado();
+        $Chamado->setSetor($Tecnico->getSetor());
+        $ResuPesquia= $Chamado->Pesquisar("Setor");
+
+        $_SESSION["ResuPesquia"]= $ResuPesquia; 
          $_SESSION["Tecnico"]= $Tecnico; 
+         
         header('location: ../View/Chamados.php'); 
         exit;
     } else {
