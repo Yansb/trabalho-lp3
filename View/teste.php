@@ -9,13 +9,18 @@
   <?php require_once '../Model/ClassUsuarios.php';  ?>
   <body>
 
-  <?php 
+
+     
+
   
-  $teste= new Tecnico();
-  $teste->BuscarTodos(); 
-  $teste->select(); 
+
+<FORM name=formsenha>
+<INPUT type=password name=senha>
+<INPUT type=button value=Acessar onclick="acesso()">
+</FORM>
+ 
   
-  ?>
+
       
   </body>
 </html>

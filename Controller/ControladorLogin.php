@@ -22,11 +22,14 @@ if ($Acao === "Logar") {
 
         $_SESSION["ResuPesquia"]= $ResuPesquia; 
          $_SESSION["Tecnico"]= $Tecnico; 
-         
-        header('location: ../View/Chamados.php'); 
+         if($Tecnico->getCargo()==="Admin")
+                 header('location: ../View/ListaTec.php'); 
+            else
+                header('location: ../View/Chamados.php'); 
         exit;
     } else {
-
-        echo "Falha no Logoin";
+        unset ($_SESSION['Login']);
+        unset ($_SESSION['Senha']);
+        header('location:../View/login.php');
     }
 }

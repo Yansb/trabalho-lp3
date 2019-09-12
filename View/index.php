@@ -80,16 +80,14 @@
                                         </p>
 
                                         <p>Descrição: <input class="form-control" type="text" id="Descricao" value="" name="Descricao" size="25px" maxlength="100" value=""></p>
-                                        <p> Tombo Patrimonial?   <br>
-                                                <input type="checkbox" name="Tombo" value="sim">
-                                        </p>
+
                                         <p>
                                                 Upload de arquivos:
                                                 <input type="hidden" name="MAX_FILE_SIZE" value="4194304">
                                                 <!-- tamanho max de 4mb-->
                                                 <input type="file" name="Arquivo" id="Arquivo">
                                         </p>
-                                       
+
                                         <p>
                                                 Observação:
                                                 <textarea class="form-control" name="OBS" id="OBS" rows="4" cols="50" size="50px" maxlength="99999" required>Detalhe do  problema</textarea>
@@ -105,7 +103,7 @@
                                         <input type="hidden" name="Acao" id="Acao" value="NovoChamado">
                                 </form>
                                 <div>
-                                        <a href="usuario.php"><button class="btn btn-info" onclick="pedecpf()">consulta</button></a>
+                                        <a href="../Controller/ControladorIndex.php?Acao=Consulta"><button class="btn btn-info" >consulta</button></a>
                                         <a href="Software.php"><button class="btn btn-info">Sofware de
                                                         Instalação</button></a>
 

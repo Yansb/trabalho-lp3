@@ -11,6 +11,15 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/MYB.css">
+  <?php 
+     
+     require_once "function.php";
+     session_start(); 
+
+    
+   
+  
+  ?>
 
 </head>
 
@@ -31,11 +40,7 @@
             <div class="btn btn-info btn-lg">Menu</div>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="Chamados.php">Chamados</a>
-            <a class="dropdown-item" href="cadastroSetor.php">Cadastro Setor</a>
-            <a class="dropdown-item" href="CadastroTecnico.php">Cadastro Técnico</a>
-            <a class="dropdown-item" href="problemas.php">Cadastro Problemas</a>
-            <a class="dropdown-item" href="relatorios.php">Relatórios</a>
+          <?php Menu($_SESSION['Tecnico']->getCargo()); ?>
           </div>
         </li>
         <li>
@@ -64,6 +69,7 @@
       <table class="table">
         <thead class="thead-dark">
           <tr>
+     
             <th>Login</th>
             <th>Nome</th>
             <th>Cargo</th>
@@ -71,40 +77,14 @@
             <th>Cadastrar</th>
           </tr>
         </thead>
-        <tr>
-          <th>078245685</th>
-          <th>Carlos Almeida</th>
-          <th>Técnico da Acadêmica</th>
-          <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="CadastroTecnico.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
-
-        </tr>
-        <tr>
-          <th>078245621</th>
-          <th>Matheus souza</th>
-          <th>Técnico de Informática</th>
-          <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="CadastroTecnico.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
-        </tr>
-        <tr>
-          <th>078245222</th>
-          <th>Yan Barreiro</th>
-          <th>Coordenador</th>
-          <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="CadastroTecnico.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
-        </tr>
-        <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
+         <?php Tabela("Perfis");?>
         </thead>
         <tbody></tbody>
       </table>
     </section>
 
   </div>
-
+  <br><br><br>  <br><br><br>  <br><br><br>  <br><br><br>
   <div class="ajusteTable" style="  margin-top: 30%; width: 50%; left: 27%;">
     <section class="chamados">
       <h1 style="color:rgb(41, 33, 24)">Tabela de Setores </h1>
@@ -119,82 +99,32 @@
             <th>Cadastrar</th>
           </tr>
         </thead>
-        <tr>
-          <th>15</th>
-          <th>Financeiro</th>
-          <th>Exemple</th>
-          <th>Exemple</th>
-          <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="cadastroSetor.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
-
-        </tr>
-        <tr>
-          <th>16</th>
-          <th>Acadêmico</th>
-          <th>Exemple</th>
-          <th>Exemple</th>
-          <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="cadastroSetor.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a>
-
-        </tr>
-        <tr>
-          <th>17</th>
-          <th>Comunicação</th>
-          <th>Exemple</th>
-          <th>Exemple</th>
-          <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="cadastroSetor.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a> 
-        </tr>
-        <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
+        <?php Tabela("Setores");?>
         </thead>
         <tbody></tbody>
       </table>
     </section>
 
   </div>
-
+  <br><br><br>  <br><br><br>  <br><br><br>  <br><br><br>
 
   <div class="ajusteTable" style="  margin-top: 60%; margin-bottom: 35%">
     <section class="chamados">
       <h1 style="color:rgb(41, 33, 24)">Tabela de Problemas </h1>
       <table class="table">
-        <thead class="thead-dark">
-          <tr>
+      <thead class="thead-dark">
+      <tr>
             <th>Código</th>
             <th>Nome</th>
             <th>Delete</th>
-            <th>Cadastrar</th>
+            <th>Adicionar</th>
+            
           </tr>
+        
         </thead>
-        <tr>
-          <th>07</th>
-          <th>Exemple</th>
-          <th> <button class="btn btn-info" type="submit" name="validar">Excluir</button></th>
-          <th> <a href="problemas.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a> 
-
-        </tr>
-        <tr>
-          <th>08</th>
-          <th>Exemple</th>
-          <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="problemas.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a> >
-        </tr>
-        <tr>
-          <th>02</th>
-          <th>Exemple</th>
-
-          <th> <button class="btn btn-info" type="submit" name="validar"> Excluir</button></th>
-          <th> <a href="problemas.php"> <button class="btn btn-info" type="submit" name="validar"> ADD</button></th></a> 
-        </tr>
-        <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
+           
+        <thead >
+        <?php Tabela("Problemas");?>
         </thead>
         <tbody></tbody>
       </table>

@@ -26,7 +26,7 @@ class ProblemaDAO
         $Minhaconexao = null;
     }
 
-    public function Remover($Poblema)
+    public function Remover($Problema)
     {
         try {
 
@@ -47,18 +47,18 @@ class ProblemaDAO
 
         return;
     }
-    public function Alterar($Velho, $Novo)
+    public function Alterar($Problema)
     {
 
         try {
 
             $Minhaconexao = ConnectionFactory::getconnection();
 
-            $SQL = $Minhaconexao->prepare(""); // codigo sql para alterar; 
+            $SQL = $Minhaconexao->prepare("update myb1.problema set nome=:nome where idproblema=:codigo"); // codigo sql para alterar; 
             $SQL->bindParam("codigo", $Codigo);
-            $SQL->binParam("nome",$Nome);
-            $Nome = $Novo->getNome();
-            $Codigo = $Velho->getCodigo();
+            $SQL->bindParam("nome",$Nome);
+            $Nome = $Problema->getNome();
+            $Codigo = $Problema->getCodigo();
 
             $SQL->execute();
 
@@ -145,7 +145,7 @@ class SetorDAO
         }
         $Minhaconexao = null;
     }
-    public function Alterar($Setor, $Campo, $Novo)
+    public function Alterar($Setor,$Campo,$Novo)
     {
         try {
             $Minhaconexao = ConnectionFactory::getconnection();
@@ -159,8 +159,8 @@ class SetorDAO
                 }
             }
              // codigo sql
-            $SQL->bindParam("codigo", $Codigo);
-            $SQL->bindParam("novo", $Novo1);
+            $SQL->bindParam("codigo",$Codigo);
+            $SQL->bindParam("novo",$Novo1);
 
             $Codigo = $Setor->getCodigo();
             $Novo1 = $Novo;   

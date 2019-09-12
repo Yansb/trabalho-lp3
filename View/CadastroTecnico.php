@@ -71,7 +71,7 @@
             <select class="custom-select custom-select-lg mb-3" name="Cargo" required>
               <option value="Tecnico">Técnico</option>
               <option value="Gerente">Gerente</option>
-              <option value="admin">Administrador</option>
+              <option value="Admin">Administrador</option>
             </select>
           </p>
           <p>
@@ -103,7 +103,7 @@
           <input type="hidden" id="Acao" name="Acao" value="Adicionar">
           <div class="botoes">
             <p>
-              <a><button class="btn btn-info" onclick="sucesso1()">Cadastrar</button></a>
+              <a><button class="btn btn-info" >Cadastrar</button></a>
             </p>
 
           </div>

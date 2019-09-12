@@ -8,8 +8,10 @@
             $Nome=$_POST['Nome'];
             $Problema= new Problema("",$Nome);
             if($Problema->Adicionar()>0){
-                echo "cadastrado com sucesso"; 
-                //header('Location: ../View/problemas.php');
+            echo "<script type='text/javascript'>";
+            echo "window.alert('Hi There, I am the Alert Box!')</script>";
+
+                header('Location: ../View/problemas.php');
                 exit; 
 
             }else{
@@ -20,11 +22,11 @@
 
         if($Acao==="Remover"){
 
-            $Codigo=$_POST['Codigo'];
+            $Codigo=$_POST['Problema'];
             $Problema= new Problema($Codigo);
             if($Problema->Remover()>0){
                 Echo "removido com sucesso"; 
-               // header('Location: ../View/problemas.php');
+                header('Location: ../View/problemas.php');
                 exit; 
 
             }else{
@@ -34,9 +36,11 @@
         }
         if($Acao==="Alterar"){
 
-            $Codigo=$_POST['Codigo'];
-            $Problema= new Problema($Codigo);
-            if($Problema->Alterar($Novo)){
+            $Codigo=$_POST['Problema'];
+            $Novo= $_POST['Novo'];
+            $Problema= new Problema($Codigo,$Novo);
+          
+            if($Problema->Alterar()){
                 header('Location: ../View/problemas.php');
                 exit; 
 

@@ -133,9 +133,9 @@
                 return $Prob->Remover($this);
                 
             }
-            public function Alterar($Novo){
+            public function Alterar(){
                 $Prob = new ProblemaDAO();
-                return $Prob->Alterar($this,$Novo);
+                return $Prob->Alterar($this);
                 
             }
             public function BuscarTodos(){
@@ -147,7 +147,7 @@
                $Resultado= $this->BuscarTodos(); 
                $quant= count($Resultado);
 
-               echo "<select class='custom-select custom-select-lg mb-3' name='problemas' id='problemas'>";
+               echo "<select class='custom-select custom-select-lg mb-3' name='Problema' id='Problema'>";
                for($i=0;$i<$quant;$i++){ 
                 echo "<option value= '".$Resultado[$i][0]."'>".$Resultado[$i][1]."</option>"; 
                 }
