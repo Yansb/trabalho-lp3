@@ -61,16 +61,16 @@
           <br>
 
           <p>
-            Nome do Setor<input class="form-control" value="" type="text" id="NomeSetor" name="Nome" size="25px" maxlength="100"> </p>
+            Nome do Setor<input class="form-control" value="" type="text" id="NomeSetor" name="Nome" size="25px" maxlength="100" required> </p>
           <p>
-            Telefone<input class="form-control" value="" type="text" id="Telefone" name="Telefone" size="25px" maxlength="100">
+            Telefone<input class="form-control" value="" type="text" id="Telefone" name="Telefone" size="25px" maxlength="100"required>
           </p>
           <p>
-            Email<input class="form-control" value="" type="email" id="Email" name="Email" size="25px" maxlength="100">
+            Email<input class="form-control" value="" type="email" id="Email" name="Email" size="25px" maxlength="100"required>
           </p>
           <input type="hidden" id="Acao" name="Acao" value="Adicionar">
           <div class="botoes">
-            <button class="btn btn-info" type="submit" name="validar" onclick="return valida();"> Cadastrar</button>
+            <button class="btn btn-info" type="submit" name="validar" > Cadastrar</button>
 
           </div>
         </div>

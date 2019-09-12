@@ -1,4 +1,4 @@
-function valida() {
+/*function valida() {
     var NomeSetor = document.getElementById('NomeSetor');
     var Telefone = document.getElementById('Telefone');
     var CodigoSetor = document.getElementById('CodigoSetor');
@@ -23,7 +23,7 @@ function valida() {
         }
 
     }
-}
+}*/
 
 function status(valor){
     if(valor===1){
@@ -132,7 +132,7 @@ function mostraOculta(opc) {
 
 }*/
 
-function pedesenha() {
+/*function pedesenha() {
     do {
 
         nome = prompt("Digite a sua senha");
@@ -272,4 +272,4 @@ function finalizar(){
     }else{
         alert('Processado com sucesso')
     }
-}
+}*/

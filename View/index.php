@@ -59,11 +59,11 @@
                         <!--Tem que mandar email toda vez que mudar status do chamado-->
                         <div id="interior">
                                 <form method="POST" action="../Controller/ControladorIndex.php">
-                                        <p>Nome: <input class="form-control" type="text" id="Nome" value="" name="Nome" size="25px" maxlength="100" value=""></p>
+                                        <p>Nome: <input class="form-control" type="text" id="Nome" value="" name="Nome" size="25px" maxlength="100" value=""required></p>
 
-                                        <p>CPF:<input class="form-control" type="text" id="CPF" name="CPF" size="25px" maxlength="11" value=""></p>
+                                        <p>CPF:<input class="form-control" type="text" id="CPF" name="CPF" size="25px" maxlength="11" value=""required></p>
 
-                                        <p> Email: <input class="form-control" type="email" id="Email" name="Email" size="25px" maxlength="100" value=""></p>
+                                        <p> Email: <input class="form-control" type="email" id="Email" name="Email" size="25px" maxlength="100" value=""required></p>
 
                                         <p>Telefone(opcional): <input class="form-control" type="text" id="Telefone" name="Telefone" size="25px" maxlength="11"></p>
 
@@ -79,7 +79,7 @@
 
                                         </p>
 
-                                        <p>Descrição: <input class="form-control" type="text" id="Descricao" value="" name="Descricao" size="25px" maxlength="100" value=""></p>
+                                        <p>Descrição: <input class="form-control" type="text" id="Descricao" value="" name="Descricao" size="25px" maxlength="100" value=""required></p>
 
                                         <p>
                                                 Upload de arquivos:
@@ -96,7 +96,7 @@
 
                                         <p>
                                                 <div>
-                                                        <input class="btn btn-info" type="submit" value="Enviar Chamado" onclick="cadastropedido()">
+                                                        <input class="btn btn-info" type="submit" value="Enviar Chamado" >
                                                         <input class="btn btn-info" type="reset" value="cancelar">
                                                 </div>
                                         </p>

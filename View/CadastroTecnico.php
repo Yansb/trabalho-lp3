@@ -75,21 +75,21 @@
             </select>
           </p>
           <p>
-            CPF<input class="form-control" id="CPF" type="text" name="CPF" size="20px" maxlength="9">
+            CPF<input class="form-control" id="CPF" type="text" name="CPF" size="20px" maxlength="9"required>
           </p>
 
           <p>
-            Nome<input class="form-control" id="Nome" type="text" name="Nome" size="20px" maxlength="100">
+            Nome<input class="form-control" id="Nome" type="text" name="Nome" size="20px" maxlength="100"required>
           </p>
           <p>
-            Login<input class="form-control" id="Login" type="text" name="Login" size="20px" maxlength="9">
+            Login<input class="form-control" id="Login" type="text" name="Login" size="20px" maxlength="9"required>
           </p>
           <p>
-            Email<input class="form-control" id="Email" type="email" name="Email" size="20px" maxlength="50">
+            Email<input class="form-control" id="Email" type="email" name="Email" size="20px" maxlength="50"required>
           </p>
 
           <p>
-            Telefone<input class="form-control" id="Telefone" type="tel" name="Telefone" size="30px" maxlength="11">
+            Telefone<input class="form-control" id="Telefone" type="tel" name="Telefone" size="30px" maxlength="11"required>
           </p>
 
 
@@ -98,7 +98,7 @@
           $Setor->Select();
           ?>
           <p>
-            Senha<input class="form-control" id="Senha" type="password" name="Senha" size="20px" maxlength="9">
+            Senha<input class="form-control" id="Senha" type="password" name="Senha" size="20px" maxlength="9"required>
           </p>
           <input type="hidden" id="Acao" name="Acao" value="Adicionar">
           <div class="botoes">

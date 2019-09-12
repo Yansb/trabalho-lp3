@@ -58,12 +58,12 @@
         <div class="col-md-30">
           <br>
           <p>
-            Problema<input class="form-control" value="" type="text" id="Problema" name="Nome" size="25px" maxlength="100">
+            Problema<input class="form-control" value="" type="text" id="Problema" name="Nome" size="25px" maxlength="100"required>
           </p>
           <input type="hidden" id="Acao" name="Acao" value="Adicionar">
           <div>
             <p>
-              <a href="#"><button class="btn btn-info" onclick="sucesso2()">Cadastrar</button></a>
+              <a href="#"><button class="btn btn-info">Cadastrar</button></a>
             </p>
 
           </div>
