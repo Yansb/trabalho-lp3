@@ -155,19 +155,7 @@
                         return $Tecnico->BuscarTodos(); 
                     }
 
-                    public function Select(){
-                        $Resultado = $this->BuscarTodos(); 
-                        $quant = Count($Resultado);
-        
-                        echo "<select class='custom-select custom-select-lg mb-3' name='CPF' id='CPF'>";
-                        for($i=0;$i<$quant;$i++){ 
-        
-                        echo "<option value='".$Resultado[$i][0]."'>".$Resultado[$i][1]."</option>"; 
-                        }
-                         echo "</select>";
-        
-                    }
-
+                  
                     public function getLogin()
                     {
                         return $this->Login;

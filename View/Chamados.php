@@ -61,6 +61,7 @@
                 <p>
                     <p>Pesquisar por:</p>
                     <select class="custom-select custom-select-lg mb-3" id="Pesquisar" name="Pesquisar" onchange="mostraOculta('Pesquisar');">
+                        <option value=""></option>
                         <option value="Periodo">Período</option>
                         <option value="Numero">Numero do Chamado</option>
                         <option value="Equipamento">Equipamento</option>
@@ -70,7 +71,7 @@
                         <option value="Prioridade">Prioridade</option>
                         <option value="Atendente">Atendente</option>
                         <option value="Qtdias">Quantidade de dias</option>
-                        <option value=""></option>
+                       
 
                     </select>
                 </p>
@@ -118,27 +119,16 @@
             </div>
             <div class="divDireita" id="Atendente" style="display:none;">
                 <p>Selecione o Nome</p>
-                <select class="custom-select custom-select-lg mb-3" name="Atendente">
-                    <option value="at1">Matheus souza</option>
-                    <option value="at2">Caio Bruno </option>
-                    <option value="at3">Yan não sei</option>
-                    <option value=""></option>
-                </select>
+
+                <?php  Select("Tecnico");?>
 
             </div>
             <div class="divDireita" id="Setor" style="display:none;">
                 <p>Selecione o Setor</p>
-                <select class="custom-select custom-select-lg mb-3" name="Setor">
+              
 
-                    <option value="Recusos Humanos">Recusos Humanos </option>
-                    <option value="Tecnologia da Informação">Tecnologia da Informação</option>
-                    <option value="comunicacao">Comunicação</option>
-                    <option value=">administrativo">Administrativo</option>
-                    <option value=">">Financeiro</option>
-                    <option value=">">Acadêmico</option>
-                    <option value=">"></option>
+                <?php  Select("Setor"); ?>
 
-                </select>
             </div>
             <div class="divDireita" id="Qtdias" style="display:none;">
                 <p>Quantos dias?</p><input class="form-control" type="number" name="Qtdias" />

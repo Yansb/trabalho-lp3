@@ -42,18 +42,7 @@
                 $Setor= new SetorDAO(); 
                 return $Setor->BuscarTodos(); 
             }
-            public function Select(){
-                $Resultado = $this->BuscarTodos(); 
-                $quant = Count($Resultado);
-
-                echo "<select class='custom-select custom-select-lg mb-3' name='Codigo' id='Codigo'>";
-                for($i=0;$i<$quant;$i++){ 
-
-                echo "<option value='".$Resultado[$i][0]."'>".$Resultado[$i][3]."</option>"; 
-                }
-                 echo "</select>";
-
-            }
+           
             public function getNome()
             {
                 return $this->Nome;
