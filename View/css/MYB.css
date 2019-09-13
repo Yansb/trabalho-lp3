@@ -221,6 +221,14 @@ th{
     margin: 10px;
 }
 
+#conter-campo-form{
+    width: 400px;
+    border: 2px solid grey;
+    background-color: #d7d9dd;
+    padding: 50px;
+    margin: 10px;
+}
+
 #form{
     flex-direction: column;
     flex-wrap: wrap;
