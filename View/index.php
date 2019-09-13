@@ -58,62 +58,74 @@
                         <!--Enviar email dizendo que foi aberto-->
                         <!--Tem que mandar email toda vez que mudar status do chamado-->
                         <div id="interior">
-                                <form method="POST" action="../Controller/ControladorIndex.php">
-                                        <p>Nome: <input class="form-control" type="text" id="Nome" value="" name="Nome" size="25px" maxlength="100" value=""required></p>
-
-                                        <p>CPF:<input class="form-control" type="text" id="CPF" name="CPF" size="25px" maxlength="11" value=""required></p>
-
-                                        <p> Email: <input class="form-control" type="email" id="Email" name="Email" size="25px" maxlength="100" value=""required></p>
-
-                                        <p>Telefone(opcional): <input class="form-control" type="text" id="Telefone" name="Telefone" size="25px" maxlength="11"></p>
-
-                                        <p>Setor
-                                                <?php
-                                              Select("Setor");
-                                                ?></p>
-                                        <p>
-                                                Problema
-                                                <?php
-                                                $Problema->Select();
-                                                ?>
-
-                                        </p>
-
-                                        <p>Descrição: <input class="form-control" type="text" id="Descricao" value="" name="Descricao" size="25px" maxlength="100" value=""required></p>
-
-                                        <p>
-                                                Upload de arquivos:
-                                                <input type="hidden" name="MAX_FILE_SIZE" value="4194304">
-                                                <!-- tamanho max de 4mb-->
-                                                <input type="file" name="Arquivo" id="Arquivo">
-                                        </p>
-
-                                        <p>
-                                                Observação:
-                                                <textarea class="form-control" name="OBS" id="OBS" rows="4" cols="50" size="50px" maxlength="99999" required>Detalhe do  problema</textarea>
-
-                                        </p>
-
-                                        <p>
-                                                <div>
-                                                        <input class="btn btn-info" type="submit" value="Enviar Chamado" >
-                                                        <input class="btn btn-info" type="reset" value="cancelar">
-                                                </div>
-                                        </p>
-                                        <input type="hidden" name="Acao" id="Acao" value="NovoChamado">
-                                </form>
                                 <div>
-                                        <a href="../Controller/ControladorIndex.php?Acao=Consulta"><button class="btn btn-info" >consulta</button></a>
-                                        <a href="Software.php"><button class="btn btn-info">Sofware de
-                                                        Instalação</button></a>
+                                        <form method="POST" action="../Controller/ControladorIndex.php">
+                                                <p>Nome: <input class="form-control" type="text" id="Nome" value="" name="Nome" size="25px" maxlength="100" value="" required></p>
+
+                                                <p>CPF:<input class="form-control" type="text" id="CPF" name="CPF" size="25px" maxlength="11" value="" required></p>
+
+                                                <p> Email: <input class="form-control" type="email" id="Email" name="Email" size="25px" maxlength="100" value="" required></p>
+
+                                                <p>Telefone(opcional): <input class="form-control" type="text" id="Telefone" name="Telefone" size="25px" maxlength="11"></p>
+
+                                                <p>Setor
+                                                        <?php
+                                                        Select("Setor");
+                                                        ?></p>
+                                                <p>
+                                                        Problema
+                                                        <?php
+                                                        $Problema->Select();
+                                                        ?>
+
+                                                </p>
+
+                                                <p>Descrição: <input class="form-control" type="text" id="Descricao" value="" name="Descricao" size="25px" maxlength="100" value="" required></p>
+
+                                                <p>
+                                                        Upload de arquivos:
+                                                        <input type="hidden" name="MAX_FILE_SIZE" value="4194304">
+                                                        <!-- tamanho max de 4mb-->
+                                                        <input type="file" name="Arquivo" id="Arquivo">
+                                                </p>
+
+                                                <p>
+                                                        Observação:
+                                                        <textarea class="form-control" name="OBS" id="OBS" rows="4" cols="50" size="50px" maxlength="99999" required>Detalhe do  problema</textarea>
+
+                                                </p>
+
+                                                <p>
+                                                        <div>
+                                                                <input class="btn btn-info" type="submit" value="Enviar Chamado">
+                                                                <input class="btn btn-info" type="reset" value="cancelar">
+                                                        </div>
+                                                </p>
+                                                <input type="hidden" name="Acao" id="Acao" value="NovoChamado">
+                                        </form>
+                                        <div>
+                                                <button id="consulta" class="btn btn-info" aria-controls="consulta">Consulta</button>
+
+
+                                                <a href="Software.php"><button class="btn btn-info">Sofware de
+                                                                Instalação</button></a>
+
+                                        </div>
+
+
 
                                 </div>
-
-
-
                         </div>
         </div>
-
+        <div class="conter-item-validar" id="consulta-form" style="display:none;">
+                <form method="POST" action="">
+                        <p>Insira seu CPF: </p> <input class="form-control" type="consulta" name="consulta" />
+                </form>
+                <p>
+                        <a href=""><button id="consultar" class="btn btn-info" aria-controls="consultar">Consultar</button></a>
+                        <button id="voltar-form" class="btn btn-info" aria-controls="voltar-form">Voltar</button>
+                </p>
+        </div>
 
 </body>
 
@@ -122,6 +134,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="js/validacao.js"></script>
+        <script src="js/esconder.js"></script>
 
 </footer>
 

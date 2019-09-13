@@ -54,3 +54,12 @@ $("#Atender").click(function () {
     $("#form-finalizar").hide();
     $("#form-atender").hide();
 });
+$("#consulta").click(function () {
+    $("#consulta-form").show();
+    $("#exterior").hide();
+});
+
+$("#voltar-form").click(function(){
+    $("#exterior").show();
+    $("#consulta-form").hide();
+});
