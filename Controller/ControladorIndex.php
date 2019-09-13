@@ -88,10 +88,7 @@ if (isset($_POST['Acao'])) {
        
         if( $Acao=$_GET["Acao"]==="Consulta"){
      
-            $nome = readline("Digite seu nome: ");
-            readline_add_history($nome);
-            echo "Olá, ".$nome.". ";
-            
+          header('Location: ../View/usuario.php'); 
 
             
 
