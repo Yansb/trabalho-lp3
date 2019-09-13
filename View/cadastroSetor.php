@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/MYB.css">
   <?php
-  require_once '../Model/class.php';
+  require_once 'function.php';
   $Setor = new Setor();
   ?>
 </head>
@@ -88,7 +88,7 @@
       <p>
         Setor:
         <?php
-        $Setor->Select();
+            Select("Setor");
         ?>
 
         <div class="botoes">
@@ -105,7 +105,7 @@
       <p>
         Setor:
         <?php
-        $Setor->Select();
+             Select("Setor");
         ?>
       </p>
 

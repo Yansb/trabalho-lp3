@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/MYB.css">
   <?php
-  require_once '../Model/class.php';
-  require_once '../Model/classUsuarios.php';
+  require_once 'function.php';
+
   $Setor = new Setor();
   $Tecnico = new Tecnico(); 
   ?>
@@ -95,7 +95,7 @@
 
           <p>Setor</p>
           <?php
-          $Setor->Select();
+         Select("Setor");
           ?>
           <p>
             Senha<input class="form-control" id="Senha" type="password" name="Senha" size="20px" maxlength="9"required>
@@ -121,7 +121,7 @@
           <p>
             Tecnico:
             <?php
-              $Tecnico->Select(); 
+                Select("Tecnico"); 
             ?>
           </p>
           <input type="hidden" id="Acao" name="Acao" value="Remover">
@@ -141,7 +141,7 @@
         <p>
           Técnico:
           <?php
-              $Tecnico->Select(); 
+              Select("Tecnico"); 
             ?>
         </p>
 

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/MYB.css">
   <?php
-  require_once '../Model/class.php';
+  require_once 'function.php';
   $Problema = new Problema();
   ?>
 </head>
@@ -77,7 +77,7 @@
     <form action="../Controller/ControladorProblema.php" method="post">
         <h3>Remover Problemas</h3>
         <?php
-        $Problema->select();
+             $Problema->select();
         ?>
         <input type="hidden" id="Acao" name="Acao" value="Remover">
         <p>
