@@ -12,13 +12,10 @@
     <?php
 require_once "function.php";
 
-
-
     session_start();
 
-    $Tecnico = new Tecnico();
-    $Usuario   = new Usuario();
     $Chamado = $_SESSION['Chamado'];
+    $Usuario  =  $_SESSION['Usuario'];
 
     ?>
 
@@ -79,7 +76,7 @@ require_once "function.php";
                 <div class=" itens">
                     <div class="arrumar">
                     <p>Descrição <input class="form-control" type="text" name="defeito" size="25px" maxlength="100" value=" <?php echo $Chamado->getDescricao(); ?>" readonly="readonly"></p>
-                        <p>Solicitante <input class="form-control" type="text" name="Nome" value="xd" size="25px" maxlength="100" readonly="readonly">
+                        <p>Solicitante <input class="form-control" type="text" name="Nome" size="25px" maxlength="100" value=" <?php echo $Usuario->getNome(); ?>" readonly="readonly">
                         </p>
                         <p>Setor <input class="form-control" type="text" name="setor" size="25px" maxlength="100" value=" <?php echo $Chamado->getSetor(); ?>" readonly="readonly" ></p>
                         <p>
@@ -93,8 +90,7 @@ require_once "function.php";
                         <p>Data de Abertura <input class="form-control" type="text" name="data" size="25px" maxlength="100" value=" <?php echo $Chamado->getDataHoraAbertura(); ?>" readonly="readonly"></p>
                         <p> Técnico Responsável <input class="form-control" type="text" name="data" size="25px" maxlength="100" value=" <?php echo $Chamado->getTecnico(); ?>" readonly="readonly"></p>
                         <p>
-                            Observações <textarea name="OBS" rows="4" cols="50" size="50px" maxlength="99999" value=" <?php echo $Chamado->getOBS();?>" readonly="readonly">
-                        </textarea>
+                            Observações <textarea name="OBS" rows="4" cols="50" size="50px" maxlength="99999"  readonly="readonly"><?php echo $Chamado->getOBS();?></textarea>
                         </p>
                     </div>
                 </div>
@@ -103,8 +99,8 @@ require_once "function.php";
 
                 <form>
                 <p>Número do chamado <input class="form-control" type="text" name="chamado" value=" <?php echo $Chamado->getNumero(); ?>" size="25px" maxlength="100" readonly="readonly"></p>
-                    <p>Email <input class="form-control" type="email" name="email" size="25px" maxlength="100" readonly="readonly"></p>
-                    <p>Telefone do cliente <input class="form-control" type="text" name="Telefone" size="25px" maxlength="100" readonly="readonly"></p>
+                    <p>Email <input class="form-control" type="email" name="email" size="25px" maxlength="100" value=" <?php echo $Usuario->getEmail(); ?>" readonly="readonly"></p>
+                    <p>Telefone do cliente <input class="form-control" type="text" name="Telefone" size="25px" maxlength="100" value=" <?php echo $Usuario->getTelefone(); ?>" readonly="readonly"></p>
                     <p>Problema <input class="form-control" type="text" name="defeito" size="25px" maxlength="100" value=" <?php  echo $Chamado->getProblema(); ?>" readonly="readonly"></p>
                     <p> Data Fechamento <input class="form-control" type="text" name="defeito" size="25px" maxlength="100" value=" <?php echo $Chamado->getDataHoraFechamento(); ?>" readonly="readonly"></p>
                     <p><a class="form-control" href="imagem que vai estar no banco ">Ver imagem </a></p>

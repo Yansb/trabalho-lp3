@@ -73,7 +73,7 @@
                 
                 <p>Situação <input class="form-control" type="text" name="informe" size="25px" maxlength="100"></p>
           
-                <p>Data de Abertura  <inpkut  class="form-control" type="text" name="data" size="25px" maxlength="100"></p>
+                <p>Data de Abertura  <input  class="form-control" type="text" name="data" size="25px" maxlength="100"></p>
                 <p> Técnico Responsável  <input  class="form-control" type="text" name="data" size="25px" maxlength="100"></p>
                 <p>
                      Observações <textarea name="OBS" rows="4" cols="50" size="50px" maxlength="99999" required>

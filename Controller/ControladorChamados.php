@@ -1,5 +1,6 @@
 <?php
         include_once '../Model/ClasseChamados.php';
+        include_once '../Model/ClassUsuarios.php';
         session_start();
         if (isset($_POST['Pesquisar'])) {
             $Pesquisar = $_POST['Pesquisar'];
@@ -65,26 +66,28 @@
                 }
             }
         }else{
-            if(isset($_GET['Acao'])){
-                $Acao =$_GET['Acao']; 
-                if($Acao==="Busca"){
-
+            if (isset($_GET['Acao'])) {
+                $Acao = $_GET['Acao'];
+                if ($Acao === "Busca") {
+        
                     $Chamado = new Chamado($_GET['Numero']);
-                  if($Chamado->Pesquisar("Numero")){
-                     // $Usuario = new Usuario($Chamado->getSolicitante()); 
-                     // $Usuario->Buscar();
-                    $_SESSION['Chamado']= $Chamado; 
-   
-                   header('location: ../View/chamadoAtual.php'); 
-
-                  }
-                    
-                    
-
-
-
+        
+                    if ($Chamado->Pesquisar("Numero")) {
+                        $_SESSION['Chamado'] = $Chamado;
+                   
+                        $Usuario = new Usuario();
+                        $Usuario->setCPF($Chamado->getSolicitante());
+                      
+                        $Usuario->VerificarCPF();
+                       
+                            
+                          $_SESSION['Usuario']=$Usuario;
+        
+        
+                          header('location: ../View/chamadoAtual.php');
+                        
+                    }
                 }
-
             }
 
         }

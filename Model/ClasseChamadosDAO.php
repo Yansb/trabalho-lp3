@@ -88,11 +88,13 @@ class ChamadoDAO
                 // falta o return com dados 
             } else {
                 if ($Tipo === "Numero") {
-                    $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, c.obs, f.nome as atendente, u.cpf as solicitante, u.email,u.telefone, s.nome as setor, c.estado as situacao, c.prioridade, c.abertura, c.fim
+                    $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, c.obs,p.nome as problema, f.nome as atendente, u.cpf as solicitante, u.email,u.telefone, s.nome as setor, c.estado as situacao, c.prioridade, c.abertura, c.fim
                     from myb1.chamado c inner join myb1.usuario u on c.cpf_usuario = u.cpf 
+                    inner join myb1.problema p on c.id_problema = p.idproblema 
                     inner join myb1.setor s on c.codigo_setor = s.codigo
                     left join myb1.funcionario f on f.cpf= c.cpf_funcionario 
                     where c.numero_chamado =:numero");
+                    
                     $SQL->bindParam("numero", $Numero);
                     $Numero = $Chamado->getNumero();
 
@@ -111,6 +113,7 @@ class ChamadoDAO
                        $Chamado->setPrioridade($linha['prioridade']);
                        $Chamado->setDataHoraAbertura($linha['abertura']);
                        $Chamado->setDataHoraFechamento($linha['fim']);
+                       $Chamado->setProblema($linha['problema']);
                     }
                     return true;
                 } else {

@@ -17,11 +17,15 @@
                     $SQL->execute();
                     $SQL->setFetchMode(PDO::FETCH_ASSOC);
                         $Resultado=0; 
-                        $i =0;
+              
 
                         while($linha = $SQL->fetch(PDO::FETCH_ASSOC)){
+                      
                             $Resultado=$linha["cpf"];
-                            $i ++; 
+                            $Usuario->setCPF($Resultado);
+                            $Usuario->setNome($linha["nome"]);
+                            $Usuario->setEmail($linha["email"]);
+                            $Usuario->setTelefone($linha["telefone"]); 
                         }
             
                      return $Resultado; 
