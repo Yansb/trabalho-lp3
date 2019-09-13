@@ -68,9 +68,66 @@ class ChamadoDAO
         $Minhaconexao = null;
     }
 
-    public function Alterar()
-    { }
+    public function VerificarAtendente($Chamado)
+    {
+        try {
+            $Minhaconexao = ConnectionFactory::getConnection();
+            $SQL = $Minhaconexao->prepare("SELECT cpf_funcionario as tecnico from Chamado where cpf_funcionario =:cpf");
 
+            $SQL->bindParam("cpf", $CPF);
+            $CPF = $Chamado->getTecnico();
+            $Resultado = 0;
+            $SQL->execute();
+            $SQL->setFetchMode(PDO::FETCH_ASSOC);
+            while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+                $Resultado = $linha["tecnico"];
+            }
+            return $Resultado;
+        } catch (PDOException $Erro) {
+            echo $Erro->getMessage();
+        }
+        $Minhaconexao = NULL;
+    }
+
+    public function Atender($Chamado)
+    {
+        try {
+            $Minhaconexao = ConnectionFactory::getConnection();
+            $SQL = $Minhaconexao->prepare("update myb1.chamado set cpf_funcionario = :cpf where numero_chamado = :numero");
+
+            $SQL->bindParam("cpf", $CPF);
+            $SQL->bindParam("numero", $Numero);
+            $CPF = $Chamado->getTecnico();
+            $Numero = $Chamado->getNumero();
+            $SQL->execute();
+
+            return $SQL->rowCount();
+        } catch (PDOException $Erro) {
+            echo $Erro->getMessage();
+        }
+        $Minhaconexao = NULL;
+    }
+
+    public function Encaminhar($Chamado)
+    {
+        try {
+            $Minhaconexao = ConnectionFactory::getConnection();
+            $SQL = $Minhaconexao->prepare("update myb1.chamado set cpf_funcionario = :cpf , codigo_setor= :setor where numero_chamado = :numero");
+
+            $SQL->bindParam("cpf", $CPF);
+            $SQL->bindParam("numero", $Numero);
+            $SQL->bindParam("setor", $Setor);
+            $CPF = $Chamado->getTecnico();
+            $Numero = $Chamado->getNumero();
+            $Setor  = $Chamado->getSetor();
+            $SQL->execute();
+
+            return $SQL->rowCount();
+        } catch (PDOException $Erro) {
+            echo $Erro->getMessage();
+        }
+        $Minhaconexao = NULL;
+    }
 
     public function Pesquisar($Chamado, $Tipo)
     {
@@ -94,26 +151,26 @@ class ChamadoDAO
                     inner join myb1.setor s on c.codigo_setor = s.codigo
                     left join myb1.funcionario f on f.cpf= c.cpf_funcionario 
                     where c.numero_chamado =:numero");
-                    
+
                     $SQL->bindParam("numero", $Numero);
                     $Numero = $Chamado->getNumero();
 
                     $SQL->execute();
                     $SQL->setFetchMode(PDO::FETCH_ASSOC);
-                  
+
 
                     while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
-                       $Chamado->setNumero($linha['numero']);
-                       $Chamado->setDescricao($linha['descricao']);
-                       $Chamado->setOBS($linha['obs']);
-                       $Chamado->setTecnico($linha['atendente']);
-                       $Chamado->setSolicitante($linha['solicitante']);
-                       $Chamado->setSetor($linha['setor']);
-                       $Chamado->setStatus($linha['situacao']);
-                       $Chamado->setPrioridade($linha['prioridade']);
-                       $Chamado->setDataHoraAbertura($linha['abertura']);
-                       $Chamado->setDataHoraFechamento($linha['fim']);
-                       $Chamado->setProblema($linha['problema']);
+                        $Chamado->setNumero($linha['numero']);
+                        $Chamado->setDescricao($linha['descricao']);
+                        $Chamado->setOBS($linha['obs']);
+                        $Chamado->setTecnico($linha['atendente']);
+                        $Chamado->setSolicitante($linha['solicitante']);
+                        $Chamado->setSetor($linha['setor']);
+                        $Chamado->setStatus($linha['situacao']);
+                        $Chamado->setPrioridade($linha['prioridade']);
+                        $Chamado->setDataHoraAbertura($linha['abertura']);
+                        $Chamado->setDataHoraFechamento($linha['fim']);
+                        $Chamado->setProblema($linha['problema']);
                     }
                     return true;
                 } else {
@@ -227,6 +284,36 @@ class ChamadoDAO
         }
         $Minhaconexao = null;
     }
-}    
+}
 
 // Fim ChamadoDAo
+
+class HistoricoChamadoDAO
+{
+
+    public function Adicionar($Historico)
+    {
+        try {
+            $Minhaconexao = ConnectionFactory::getconnection();
+
+            $SQL = $Minhaconexao->prepare("insert into myb1.historico (datahora,descricao,numero_chamado) values (:datahora,:descricao,:numero)"); // codigo sql
+
+            $SQL->bindParam("descricao", $Descricao);
+            $SQL->bindParam("datahora", $DataHora);
+            $SQL->bindParam("numero", $Numero);
+            $Descricao = $Historico->getDescricao();
+            $DataHora = $Historico->getDataHora();
+            $Numero = $Historico->getChamado();
+            $SQL->execute();
+
+            return $SQL->rowCount();
+        } catch (PDOException $Erro) {
+
+            echo "Erro ao adicionar Historico" . $Erro->getmessage();
+            return 0;
+        }
+        $Minhaconexao = null;
+    }
+}
+
+// Fim HistoricoChamado

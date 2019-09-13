@@ -111,7 +111,7 @@
                         try{
                             $Minhaconexao = ConnectionFactory::getconnection();
 
-                            $SQL = $Minhaconexao->prepare("select f.nome, f.cargo, s.nome as setor from myb1.funcionario f inner join myb1.setor s on f.codigo = s.codigo where f.login=:login and senha=:senha");
+                            $SQL = $Minhaconexao->prepare("select f.nome, f.cargo, s.nome as setor, f.cpf from myb1.funcionario f inner join myb1.setor s on f.codigo = s.codigo where f.login=:login and senha=:senha");
                             $SQL->bindParam("login", $Login);
                             $SQL->bindParam("senha", $Senha);
 
@@ -124,7 +124,7 @@
 
                         while($linha= $SQL->fetch(PDO::FETCH_ASSOC))
                         {
-                            $vet[$i] = array($linha['nome'],$linha['cargo'],$linha['setor']);
+                            $vet[$i] = array($linha['nome'],$linha['cargo'],$linha['setor'],$linha['cpf']);
                             $i++; 
                         }
                         return $vet; 

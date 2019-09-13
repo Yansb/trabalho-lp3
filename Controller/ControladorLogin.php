@@ -15,6 +15,7 @@ if ($Acao === "Logar") {
         $Tecnico->setNome($Resultado[0][0]);
         $Tecnico->setCargo($Resultado[0][1]);
         $Tecnico->setSetor($Resultado[0][2]);
+        $Tecnico->setCPF($Resultado[0][3]);
 
         $Chamado = new Chamado();
         $Chamado->setSetor($Tecnico->getSetor());

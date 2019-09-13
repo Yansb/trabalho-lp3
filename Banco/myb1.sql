@@ -55,7 +55,7 @@ CREATE TABLE `chamado` (
 
 LOCK TABLES `chamado` WRITE;
 /*!40000 ALTER TABLE `chamado` DISABLE KEYS */;
-INSERT INTO `chamado` VALUES (1,'2019-09-08 00:48:29','sim','Em Aberto','','Máquina quiemada ',3,697596326,1,456456,NULL,'muita treta vixe ','Normal'),(2,'2019-09-08 00:50:47','sim','Em Aberto','','Máquina linda',2,697596326,13,NULL,NULL,'pouca treta ','Normal'),(3,'2019-09-08 01:08:36','sim','Fechado','','Máquina linda',2,697596326,13,NULL,NULL,'pouca treta ','Normal'),(4,'2019-09-08 03:26:31','sim','Em Aberto',NULL,'Máquina queimada',4,69759635,2,NULL,NULL,'Sem Detalhes','Alta'),(5,'2019-09-08 03:26:29','sim','Em Aberto',NULL,'Máquina lenta',5,697596326,3,NULL,NULL,'Sem Detalhes','Baixa'),(6,'2019-09-08 03:26:30','sim','Em Aberto',NULL,'Máquina sem cabo',6,69759635,5,NULL,NULL,'Detalhes do Problema','Normal'),(13,'2019-09-08 03:16:05','sim','Em Aberto','','teste ',2,69759635,1,NULL,NULL,'Detalhe do  problema','Normal'),(14,'2019-09-08 03:24:48','sim','Em Aberto','','Máquina quiemada ',2,69759635,13,NULL,NULL,'Detalhe do  problema','Normal'),(15,'2019-09-08 03:25:46','sim','Em Aberto','','Máquina não liga',3,69649635,1,NULL,NULL,'Detalhe do  problema','Normal'),(16,'2019-09-08 03:26:28','sim','Em Aberto','','Máquina fudeu ',1,69649635,13,NULL,NULL,'Detalhe do  problema','Normal');
+INSERT INTO `chamado` VALUES (1,'2019-09-08 00:48:29','sim','Em Aberto','','Máquina quiemada ',3,697596326,3,15241882,NULL,'muita treta vixe ','Normal'),(2,'2019-09-08 00:50:47','sim','Em Aberto','','Máquina linda',2,697596326,13,4545454,NULL,'pouca treta ','Normal'),(3,'2019-09-08 01:08:36','sim','Fechado','','Máquina linda',2,697596326,13,NULL,NULL,'pouca treta ','Normal'),(4,'2019-09-08 03:26:31','sim','Em Aberto',NULL,'Máquina queimada',4,69759635,2,NULL,NULL,'Sem Detalhes','Alta'),(5,'2019-09-08 03:26:29','sim','Em Aberto',NULL,'Máquina lenta',5,697596326,3,NULL,NULL,'Sem Detalhes','Baixa'),(6,'2019-09-08 03:26:30','sim','Em Aberto',NULL,'Máquina sem cabo',6,69759635,5,NULL,NULL,'Detalhes do Problema','Normal'),(13,'2019-09-08 03:16:05','sim','Em Aberto','','teste ',2,69759635,1,15241882,NULL,'Detalhe do  problema','Normal'),(14,'2019-09-08 03:24:48','sim','Em Aberto','','Máquina quiemada ',2,69759635,13,NULL,NULL,'Detalhe do  problema','Normal'),(15,'2019-09-08 03:25:46','sim','Em Aberto','','Máquina não liga',3,69649635,1,15241882,NULL,'Detalhe do  problema','Normal'),(16,'2019-09-08 03:26:28','sim','Em Aberto','','Máquina fudeu ',1,69649635,13,NULL,NULL,'Detalhe do  problema','Normal');
 /*!40000 ALTER TABLE `chamado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,31 +92,31 @@ INSERT INTO `funcionario` VALUES (456456,'caio','gerente','caio','12345679','717
 UNLOCK TABLES;
 
 --
--- Table structure for table `historico_alteracao`
+-- Table structure for table `historico`
 --
 
-DROP TABLE IF EXISTS `historico_alteracao`;
+DROP TABLE IF EXISTS `historico`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `historico_alteracao` (
-  `idhistorico_alteracao` int(11) NOT NULL,
-  `periodo` varchar(45) NOT NULL,
-  `descrição` varchar(45) NOT NULL,
+CREATE TABLE `historico` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `DataHora` varchar(45) NOT NULL,
+  `descricao` varchar(45) NOT NULL,
   `numero_chamado` int(11) NOT NULL,
-  PRIMARY KEY (`idhistorico_alteracao`),
+  PRIMARY KEY (`id`),
   KEY `numer_chamado_idx` (`numero_chamado`),
   CONSTRAINT `numer_chamado` FOREIGN KEY (`numero_chamado`) REFERENCES `chamado` (`numero_chamado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `historico_alteracao`
+-- Dumping data for table `historico`
 --
 
-LOCK TABLES `historico_alteracao` WRITE;
-/*!40000 ALTER TABLE `historico_alteracao` DISABLE KEYS */;
-INSERT INTO `historico_alteracao` VALUES (1,'2019','Feita alteração',4),(2,'2019','Alteração feita',5),(3,'2019','Status mudado',6);
-/*!40000 ALTER TABLE `historico_alteracao` ENABLE KEYS */;
+LOCK TABLES `historico` WRITE;
+/*!40000 ALTER TABLE `historico` DISABLE KEYS */;
+INSERT INTO `historico` VALUES (1,'2019','Feita alteração',4),(2,'2019','Alteração feita',5),(3,'2019','Status mudado',6),(4,'13-09-2019 11:00:38','bahia',5);
+/*!40000 ALTER TABLE `historico` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -241,4 +241,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-12 21:51:33
+-- Dump completed on 2019-09-13  6:03:31

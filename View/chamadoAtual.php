@@ -13,9 +13,11 @@
 require_once "function.php";
 
     session_start();
-
+    
+    $Tecnico = $_SESSION['Tecnico'];
     $Chamado = $_SESSION['Chamado'];
     $Usuario  =  $_SESSION['Usuario'];
+    
 
     ?>
 
@@ -71,7 +73,7 @@ require_once "function.php";
             <h2>Descrição do Chamado </h2>
         </div>
         <div id="form-chamado">
-            <form method="POST" action="">
+            <form method="POST" action="../Controller/ControladorChamadoAtual.php">
 
                 <div class=" itens">
                     <div class="arrumar">
@@ -113,35 +115,30 @@ require_once "function.php";
 
 
 
+           
             <div class="ChatProcessamento">
-                <img src="img/avatar.png" alt="Matheus" style="width:10%;">
-                <p style="margin-top:3%">foi detectado que a fonte está queimada </p>
-                <span class="time-right">11:00</span>
-            </div>
-
-            <div class="ChatProcessamento">
-                <img src="img/avatar.png" alt="Matheus" class="right" style="width:10%;">
-                <p style="margin-top:3%">Fonte em falta aguardando a compra </p>
-                <span class="time-left">11:50</span>
-            </div>
-
-            <div class="ChatProcessamento">
-                <img src="img/avatar.png" alt="Matheus" style="width:10%;">
-                <p style="margin-top:3%">Fonte Trocada e testada e equipamento testado </p>
+                <img src="img/avatar.png" alt="Matheus" style="width:5%;">Matheus
+                <p style="margin-left:8%">Fonte Trocada e testada e equipamento testado </p>
                 <span class="time-right">13:02</span>
             </div>
 
             <div class="ChatProcessamento" style="border:0; margin-left:40%">
+            <form method="POST" action="../Controller/ControladorChamadoAtual.php">
                 <p>
                     <h5 style="color:rgb(14, 7, 7) ">Novo Processamento </h5>
-                    <textarea name="OBS" id="process" rows="4" value="" cols="50" size="50px" maxlength="99999" required></textarea>
+                    <textarea name="Descricao" id="process" rows="4" value="" cols="50" size="50px" maxlength="99999" required></textarea>
+                    <input type="Hidden" name="Acao" value = "Historico">
+                    <input type="Hidden" name="Numero" value = "<?php echo $Chamado->getNumero(); ?>">
+
                 </p>
-                <input class="btn btn-info" type="submit" method="POST" action="" value="Processar" onclick="processamento()">
+                <input class="btn btn-info" type="submit"  value="Processar" ">
+            </form>
             </div>
 
         </div>
 
         <div id="form-encaminhar" style="display: none; ">
+        <form method="POST" action="../Controller/ControladorChamadoAtual.php">
 
             <div class=" itens">
                 <div class="arrumar">
@@ -157,7 +154,9 @@ require_once "function.php";
                     <?php
                         Select("Setor");
                     ?>
-                    <input class="btn btn-info" type="submit" method="POST" action="" value="Encaminhar">
+                     <input type="Hidden" name="Numero" value=" <?php echo $Chamado->getNumero(); ?>">
+                    <input type="Hidden" name="Acao" value ="Encaminhar">
+                    <input class="btn btn-info" type="submit" method="POST" alue="Encaminhar">
 
 
 
@@ -167,7 +166,7 @@ require_once "function.php";
         </div>
         <div id="form-tombamento" style="display: none">
 
-            <form method="POST" action="">
+            <form method="POST" action="../Controller/ControladorChamadoAtual.php">
                 <div class=" itens">
                     <div class="arrumar">
                         <p>
@@ -188,7 +187,7 @@ require_once "function.php";
         </div>
 
         <div id="form-finalizar" style="display: none">
-            <form method="POST" action=""></form>
+            <form method="POST" action="../Controller/ControladorChamadoAtual.php?>"></form>
             <div class=" itens">
                 <div class="arrumar">
 
@@ -242,7 +241,7 @@ require_once "function.php";
                 <a class="list-group-item list-group-item-action" id="Encaminhar" data-toggle="list" href="#" role="tab" aria-controls="Encaminhar">Encaminhar</a>
                 <a class="list-group-item list-group-item-action" id="Tombamento" data-toggle="list" href="#" role="tab" aria-controls="Tombamento">Tombo de Patrimônio</a>
                 <a class="list-group-item list-group-item-action" id="Finalizar" data-toggle="list" href="#" role="tab" aria-controls="Finalizar">Finalizar</a>
-                <a class="list-group-item list-group-item-action" id="Atender" data-toggle="list" href="#" role="tab" aria-controls="Atender">Atender</a>
+                <a class="list-group-item list-group-item-action" id="Atender"  href="../Controller/ControladorChamadoAtual.php?Acao=Atender&Numero=<?php echo $Chamado->getNumero(); ?>&Tecnico=<?php echo $Tecnico->getCPF();?>" role="tab" aria-controls="Atender">Atender</a>
                 <a class="list-group-item list-group-item-action" id="Retornar" href="Chamados.php" role="tab" aria-controls="Retornar">Retornar</a>
 
             </div>

@@ -76,15 +76,23 @@ include "ClasseChamadosDAO.php";
             
             public function Encaminhar()
             {
-
+                    $Chamado = new ChamadoDAO();
+                    return $Chamado->Encaminhar($this);
             }
             public function Atender()
             {
+                $Chamado = new ChamadoDAO();
                 
+                return $Chamado->Atender($this);
             }
             public function Finalizar()
             {
                 
+            }
+
+            public function VerificarAtendente(){
+                  $Chamado = new ChamadoDAO();
+                  return $Chamado->VerificarAtendente($this);
             }
           
             public  function PrintUserTabela($Usuario)
@@ -311,42 +319,30 @@ include "ClasseChamadosDAO.php";
 //Fim classe ChamadoSoftware
 
         class HistoricoChamado{
-            Protected $Data;
-            Protected $Hora;
+            Protected $DataHora;
             Protected $Descricao; 
+            Protected $Codigo;
+            Protected $Chamado; 
 
-            public function __construct($Data,$Hora,$Descricao){
-                $this->Data= $Data; 
-                $this->Hora = $Hora; 
-                $this->$Descricao = $Descricao; 
+            public function __construct($DataHora="",$Descricao="" ,$Codigo="", $Chamado=""){
+                $this->DataHora= $DataHora; 
+                $this->Descricao = $Descricao; 
+                $this->Codigo= $Codigo; 
+                $this->Chamado = $Chamado; 
 
 
             }
 
 
-            public function getData()
+            public function getDataHora()
             {
-                        return $this->Data;
-            }
-
-            
-            public function setData($Data)
-            {
-                        $this->Data = $Data;
-
-                        return $this;
-            }
-
-        
-            public function getHora()
-            {
-                        return $this->Hora;
+                        return $this->DataHora;
             }
 
             
-            public function setHora($Hora)
+            public function setDataHora($Data)
             {
-                        $this->Hora = $Hora;
+                        $this->Data = $DataHora;
 
                         return $this;
             }
@@ -365,11 +361,43 @@ include "ClasseChamadosDAO.php";
                         return $this;
             }
 
-            public function Alterar($Descricao){
+            public function Alterar(){
+                $Historico = new HistoricoChamadoDAO(); 
+                return $Historico->Alterar($this);
+            }
 
-                $this->setDescricao($Descricao);
+            public function Adicionar(){
+                $Historico = new HistoricoChamadoDAO(); 
+                return $Historico->Adicionar($this);
             }
   
+
+        
+            public function getCodigo()
+            {
+                        return $this->Codigo;
+            }
+
+            public function setCodigo($Codigo)
+            {
+                        $this->Codigo = $Codigo;
+
+                        return $this;
+            }
+
+          
+            public function getChamado()
+            {
+                        return $this->Chamado;
+            }
+
+        
+            public function setChamado($Chamado)
+            {
+                        $this->Chamado = $Chamado;
+
+                        return $this;
+            }
         }
 
 ?>
