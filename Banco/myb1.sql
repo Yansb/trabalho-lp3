@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: myb1
+-- Host: 127.0.0.1    Database: myb1
 -- ------------------------------------------------------
 -- Server version	8.0.17
 
@@ -55,7 +55,7 @@ CREATE TABLE `chamado` (
 
 LOCK TABLES `chamado` WRITE;
 /*!40000 ALTER TABLE `chamado` DISABLE KEYS */;
-INSERT INTO `chamado` VALUES (1,'2019-09-08 00:48:29','sim','Em Aberto','','Máquina quiemada ',3,697596326,1,NULL,NULL,'muita treta vixe ','Normal'),(2,'2019-09-08 00:50:47','sim','Em Aberto','','Máquina linda',2,697596326,13,NULL,NULL,'pouca treta ','Normal'),(3,'2019-09-08 01:08:36','sim','Fechado','','Máquina linda',2,697596326,13,NULL,NULL,'pouca treta ','Normal'),(4,'2019-09-08 03:26:31','sim','Em Aberto',NULL,'Máquina queimada',4,69759635,2,NULL,NULL,'Sem Detalhes','Alta'),(5,'2019-09-08 03:26:29','sim','Em Aberto',NULL,'Máquina lenta',5,697596326,3,NULL,NULL,'Sem Detalhes','Baixa'),(6,'2019-09-08 03:26:30','sim','Em Aberto',NULL,'Máquina sem cabo',6,69759635,5,NULL,NULL,'Detalhes do Problema','Normal'),(13,'2019-09-08 03:16:05','sim','Em Aberto','','teste ',2,69759635,1,NULL,NULL,'Detalhe do  problema','Normal'),(14,'2019-09-08 03:24:48','sim','Em Aberto','','Máquina quiemada ',2,69759635,13,NULL,NULL,'Detalhe do  problema','Normal'),(15,'2019-09-08 03:25:46','sim','Em Aberto','','Máquina não liga',3,69649635,1,NULL,NULL,'Detalhe do  problema','Normal'),(16,'2019-09-08 03:26:28','sim','Em Aberto','','Máquina fudeu ',1,69649635,13,NULL,NULL,'Detalhe do  problema','Normal');
+INSERT INTO `chamado` VALUES (1,'2019-09-08 00:48:29','sim','Em Aberto','','Máquina quiemada ',3,697596326,1,456456,NULL,'muita treta vixe ','Normal'),(2,'2019-09-08 00:50:47','sim','Em Aberto','','Máquina linda',2,697596326,13,NULL,NULL,'pouca treta ','Normal'),(3,'2019-09-08 01:08:36','sim','Fechado','','Máquina linda',2,697596326,13,NULL,NULL,'pouca treta ','Normal'),(4,'2019-09-08 03:26:31','sim','Em Aberto',NULL,'Máquina queimada',4,69759635,2,NULL,NULL,'Sem Detalhes','Alta'),(5,'2019-09-08 03:26:29','sim','Em Aberto',NULL,'Máquina lenta',5,697596326,3,NULL,NULL,'Sem Detalhes','Baixa'),(6,'2019-09-08 03:26:30','sim','Em Aberto',NULL,'Máquina sem cabo',6,69759635,5,NULL,NULL,'Detalhes do Problema','Normal'),(13,'2019-09-08 03:16:05','sim','Em Aberto','','teste ',2,69759635,1,NULL,NULL,'Detalhe do  problema','Normal'),(14,'2019-09-08 03:24:48','sim','Em Aberto','','Máquina quiemada ',2,69759635,13,NULL,NULL,'Detalhe do  problema','Normal'),(15,'2019-09-08 03:25:46','sim','Em Aberto','','Máquina não liga',3,69649635,1,NULL,NULL,'Detalhe do  problema','Normal'),(16,'2019-09-08 03:26:28','sim','Em Aberto','','Máquina fudeu ',1,69649635,13,NULL,NULL,'Detalhe do  problema','Normal');
 /*!40000 ALTER TABLE `chamado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (456456,'caio','gerente','caio','12345679','7177777777','caio.b@gmail.com',4),(71254136,'matheus souza dos santos ','admin','m santos ','564522112','71920645124','silva@lima.com',13),(423456456,'joao','técnico','joao','12345678','7188888888','j.oao@gmail.com',3),(456456456,'matheus ','admin','msantos','152418','71920645124','m@1524418.cm',1),(456523456,'yan','admin','yansb','12345676','71992731090','yansb@gmail.com',2);
+INSERT INTO `funcionario` VALUES (456456,'caio','gerente','caio','12345679','7177777777','caio.b@gmail.com',4),(4545454,'admin','Admin','admin','admin','4554544','admin@admin',3),(15241882,'gerente','Gerente','gerente','gerente','15424','gerente@gerente.com',1),(69649635,'Tecnico','Tecnico','tecnico','tecnico','7124155','tecnico@tecnio.com',3),(71254136,'matheus souza dos santos ','admin','m santos ','564522112','71920645124','silva@lima.com',13),(423456456,'joao','técnico','joao','12345678','7188888888','j.oao@gmail.com',3),(456456456,'matheus ','admin','msantos','152418','71920645124','m@1524418.cm',1),(456523456,'yan','admin','yansb','12345676','71992731090','yansb@gmail.com',2);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,7 +130,7 @@ CREATE TABLE `problema` (
   `idproblema` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   PRIMARY KEY (`idproblema`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -139,7 +139,7 @@ CREATE TABLE `problema` (
 
 LOCK TABLES `problema` WRITE;
 /*!40000 ALTER TABLE `problema` DISABLE KEYS */;
-INSERT INTO `problema` VALUES (1,'problema '),(2,'problema 2'),(3,'problema 3 '),(4,'Ar condicionado sem funcionar'),(5,'SQL workbench não conecta'),(6,'Luz queimada');
+INSERT INTO `problema` VALUES (1,'problema '),(2,'problema 2'),(3,'problema 3 '),(4,'Ar condicionado sem funcionar'),(5,'SQL workbench não conecta'),(6,'Luz queimada'),(7,'problema 4 ');
 /*!40000 ALTER TABLE `problema` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -223,6 +223,14 @@ LOCK TABLES `usuario` WRITE;
 INSERT INTO `usuario` VALUES (69649635,'matheus tsila','m@1524418','7192065445'),(69759635,'matheus teste ','asdasd@asdasd.com','71920645124'),(697596325,'caio bruno','bruno@pittar','71920645124'),(697596326,'caio bruno 4','bruno@pittar','71920645124'),(697596354,'matheus santos ','matheus@hotmail.com3','78423665'),(697596751,'Maria','maria@gmail.com','71920645124'),(697596951,'M SOUZA','m@as','5444'),(697596952,'Yan Santana','yansbarreiro@gmail.com','71920645124'),(697596961,'João','joao@gmail.com','71920645124');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'myb1'
+--
+
+--
+-- Dumping routines for database 'myb1'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -233,4 +241,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-08 18:30:48
+-- Dump completed on 2019-09-12 21:51:33
