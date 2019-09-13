@@ -62,4 +62,43 @@ $("#consulta").click(function () {
 $("#voltar-form").click(function(){
     $("#exterior").show();
     $("#consulta-form").hide();
+    $("#remover-form").hide();
+    $("#alterar-form").hide();
+    $(".formTecnico").show();
+    $("#remover-form").hide();
+    $(".formArea").show();
+    
+});
+$("#remover-tecnico").click(function(){
+    $("#remover-form").show();
+    $(".formTecnico").hide();
+});
+$("#alterar-tecnico").click(function (){
+    $("#alterar-form").show();
+    $(".formTecnico").hide();
+});
+$("#voltar-alterar").click(function () {
+    $("#alterar-form").hide();
+    $(".formTecnico").show();
+    $("#alterar-form").hide();
+    $(".formArea").show();
+});
+
+$("#remover-setor").click(function () {
+    $("#remover-form").show();
+    $(".formArea").hide();
+});
+
+$("#alterar-setor").click(function () {
+    $("#alterar-form").show();
+    $(".formArea").hide();
+});
+
+$("#remover-problema").click(function () {
+    $("#remover-form").show();
+    $(".formArea").hide();
+});
+$("#alterar-problema").click(function () {
+    $("#alterar-form").show();
+    $(".formArea").hide();
 });

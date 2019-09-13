@@ -13,7 +13,7 @@
   require_once 'function.php';
 
   $Setor = new Setor();
-  $Tecnico = new Tecnico(); 
+  $Tecnico = new Tecnico();
   ?>
 </head>
 
@@ -75,35 +75,35 @@
             </select>
           </p>
           <p>
-            CPF<input class="form-control" id="CPF" type="text" name="CPF" size="20px" maxlength="9"required>
+            CPF<input class="form-control" id="CPF" type="text" name="CPF" size="20px" maxlength="9" required>
           </p>
 
           <p>
-            Nome<input class="form-control" id="Nome" type="text" name="Nome" size="20px" maxlength="100"required>
+            Nome<input class="form-control" id="Nome" type="text" name="Nome" size="20px" maxlength="100" required>
           </p>
           <p>
-            Login<input class="form-control" id="Login" type="text" name="Login" size="20px" maxlength="9"required>
+            Login<input class="form-control" id="Login" type="text" name="Login" size="20px" maxlength="9" required>
           </p>
           <p>
-            Email<input class="form-control" id="Email" type="email" name="Email" size="20px" maxlength="50"required>
+            Email<input class="form-control" id="Email" type="email" name="Email" size="20px" maxlength="50" required>
           </p>
 
           <p>
-            Telefone<input class="form-control" id="Telefone" type="tel" name="Telefone" size="30px" maxlength="11"required>
+            Telefone<input class="form-control" id="Telefone" type="tel" name="Telefone" size="30px" maxlength="11" required>
           </p>
 
 
           <p>Setor</p>
           <?php
-         Select("Setor");
+          Select("Setor");
           ?>
           <p>
-            Senha<input class="form-control" id="Senha" type="password" name="Senha" size="20px" maxlength="9"required>
+            Senha<input class="form-control" id="Senha" type="password" name="Senha" size="20px" maxlength="9" required>
           </p>
           <input type="hidden" id="Acao" name="Acao" value="Adicionar">
           <div class="botoes">
             <p>
-              <a><button class="btn btn-info" >Cadastrar</button></a>
+              <a><button class="btn btn-info">Cadastrar</button></a>
             </p>
 
           </div>
@@ -113,27 +113,26 @@
       </div>
 
     </form>
+    <!--<form method="POST" action="../Controller/ControladorTecnico.php" class="needs-validation">-->
+    <div class="form-row">
+      <div class="col-md-30">
+        <h3>Remover Tecnico</h3>
+        <p>
+          Tecnico:
+          <?php
+          Select("Tecnico");
+          ?>
+        </p>
+        <!--<input type="hidden" id="Acao" name="Acao" value="Remover">-->
 
-    <form method="POST" action="../Controller/ControladorTecnico.php" class="needs-validation">
-      <div class="form-row">
-        <div class="col-md-30">
-          <h3>Remover Tecnico</h3>
-          <p>
-            Tecnico:
-            <?php
-                Select("Tecnico"); 
-            ?>
-          </p>
-          <input type="hidden" id="Acao" name="Acao" value="Remover">
-
-          <div class="botoes">
-            <button class="btn btn-info">Remover</button>
-          </div>
-
-
+        <div class="botoes">
+          <button id="remover-tecnico" aria-controls="remover-tecnico" class="btn btn-info">Remover</button>
         </div>
+
+
       </div>
-    </form>
+    </div>
+    <!--</form>-->
 
     <div>
       <form method="POST" action="../Controller/ControladorTecnico.php" class="needs-validation">
@@ -141,8 +140,8 @@
         <p>
           Técnico:
           <?php
-              Select("Tecnico"); 
-            ?>
+          Select("Tecnico");
+          ?>
         </p>
 
         <p>
@@ -163,14 +162,34 @@
           Novo Campo<input class="form-control" value="" type="text" id="" name="Nome" size="25px" maxlength="100">
         </p>
         <input type="hidden" id="Acao" name="Acao" value="Alterar">
-        <div class="botoes">
-          <button class="btn btn-info">Alterar</button>
-        </div>
+
 
       </form>
+      <div class="botoes">
+        <button id="alterar-tecnico" class="btn btn-info">Alterar</button>
+      </div>
     </div>
   </div>
 
+  <div class="conter-item-validar" id="remover-form" style="display:none;">
+    <form method="POST" action="">
+      <p>Insira sua senha : </p> <input class="form-control" type="remover-tecnico" name="senha" />
+    </form>
+    <p>
+      <a href=""><button id="apagar" class="btn btn-info" aria-controls="apagar">Remover</button></a>
+      <button id="voltar-form" class="btn btn-info" aria-controls="voltar-form">Voltar</button>
+    </p>
+  </div>
+
+  <div class="conter-item-validar" id="alterar-form" style="display:none;">
+    <form method="POST" action="">
+      <p>Insira sua senha : </p> <input class="form-control" type="alterar-tecnico" name="senha" />
+    </form>
+    <p>
+      <a href=""><button id="mudar" class="btn btn-info" aria-controls="mudar">Alterar</button></a>
+      <button id="voltar-alterar" class="btn btn-info" aria-controls="voltar-alterar">Voltar</button>
+    </p>
+  </div>
 
 
 
@@ -194,6 +213,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="js/validacao.js"></script>
+  <script src="js/esconder.js"></script>
 </footer>
 
 </html>

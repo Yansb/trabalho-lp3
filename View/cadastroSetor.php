@@ -63,14 +63,14 @@
           <p>
             Nome do Setor<input class="form-control" value="" type="text" id="NomeSetor" name="Nome" size="25px" maxlength="100" required> </p>
           <p>
-            Telefone<input class="form-control" value="" type="text" id="Telefone" name="Telefone" size="25px" maxlength="100"required>
+            Telefone<input class="form-control" value="" type="text" id="Telefone" name="Telefone" size="25px" maxlength="100" required>
           </p>
           <p>
-            Email<input class="form-control" value="" type="email" id="Email" name="Email" size="25px" maxlength="100"required>
+            Email<input class="form-control" value="" type="email" id="Email" name="Email" size="25px" maxlength="100" required>
           </p>
           <input type="hidden" id="Acao" name="Acao" value="Adicionar">
           <div class="botoes">
-            <button class="btn btn-info" type="submit" name="validar" > Cadastrar</button>
+            <button class="btn btn-info" type="submit" name="validar"> Cadastrar</button>
 
           </div>
         </div>
@@ -80,32 +80,32 @@
     </form>
     <form id="box1" method="POST" action="../Controller/ControladorSetor.php">
       <h3>Remover Setor</h3>
-      
+
       </p>
 
       <input type="hidden" id="Acao" name="Acao" value="Remover">
       <p>
-      <p>
-        Setor:
-        <?php
-            Select("Setor");
-        ?>
+        <p>
+          Setor:
+          <?php
+          Select("Setor");
+          ?>
 
-        <div class="botoes">
-          <button class="btn btn-info">Remover</button>
-        </div>
-      </p>
+
+        </p>
 
 
     </form>
-
+    <div class="botoes">
+      <button id="remover-setor" class="btn btn-info">Remover</button>
+    </div>
     <form id="box" method="POST" action="../Controller/ControladorSetor.php">
       <h3>Alterar Setor</h3>
-     
+
       <p>
         Setor:
         <?php
-             Select("Setor");
+        Select("Setor");
         ?>
       </p>
 
@@ -116,17 +116,37 @@
           <option value="telefone">Telefone</option>
           <option value="email">Email</option>
         </select>
-      
+
         Novo Campo:<input class="form-control" value="" type="text" id="Novo" name="Novo" size="25px" maxlength="100">
       </p>
       </p>
       <input type="hidden" id="Acao" name="Acao" value="Alterar">
       <p>
-      <div class="botoes">
-        <button class="btn btn-info">Alterar</button>
-      </div>
+        
     </form>
+        <div class="botoes">
+          <button id="alterar-setor" class="btn btn-info">Alterar</button>
+        </div>
+  </div>
 
+  <div class="conter-item-validar" id="remover-form" style="display:none;">
+    <form method="POST" action="">
+      <p>Insira sua senha : </p> <input class="form-control" type="remover-setor" name="senha" />
+    </form>
+    <p>
+      <a href=""><button id="apagar" class="btn btn-info" aria-controls="apagar">Remover</button></a>
+      <button id="voltar-form" class="btn btn-info" aria-controls="voltar-form">Voltar</button>
+    </p>
+  </div>
+
+  <div class="conter-item-validar" id="alterar-form" style="display:none;">
+    <form method="POST" action="">
+      <p>Insira sua senha : </p> <input class="form-control" type="alterar-setor" name="senha" />
+    </form>
+    <p>
+      <a href=""><button id="mudar" class="btn btn-info" aria-controls="mudar">Alterar</button></a>
+      <button id="voltar-alterar" class="btn btn-info" aria-controls="voltar-alterar">Voltar</button>
+    </p>
   </div>
 
 
@@ -144,6 +164,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="js/validacao.js"></script>
+  <script src="js/esconder.js"></script>
 </footer>
 
 

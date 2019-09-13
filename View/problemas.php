@@ -58,7 +58,7 @@
         <div class="col-md-30">
           <br>
           <p>
-            Problema<input class="form-control" value="" type="text" id="Problema" name="Nome" size="25px" maxlength="100"required>
+            Problema<input class="form-control" value="" type="text" id="Problema" name="Nome" size="25px" maxlength="100" required>
           </p>
           <input type="hidden" id="Acao" name="Acao" value="Adicionar">
           <div>
@@ -75,16 +75,17 @@
     </form>
     <br>
     <form action="../Controller/ControladorProblema.php" method="post">
-        <h3>Remover Problemas</h3>
-        <?php
-             $Problema->select();
-        ?>
-        <input type="hidden" id="Acao" name="Acao" value="Remover">
-        <p>
-          <button class="btn btn-info">Remover</button>
-        </p>
+      <h3>Remover Problemas</h3>
+      <?php
+      $Problema->select();
+      ?>
+      <input type="hidden" id="Acao" name="Acao" value="Remover">
+     
 
-    </form>
+    </form> 
+      <p>
+        <button id="remover-problema" class="btn btn-info">Remover</button>
+      </p>
     <br>
     <form action="../Controller/ControladorProblema.php" method="post">
       <h3>Alterar</h3>
@@ -95,10 +96,31 @@
       <p>
         Novo nome<input class="form-control" value="" type="text" id="" name="Novo" size="25px" maxlength="100">
       </p>
-      <button class="btn btn-info">Alterar</button>
+      
     </form>
+    <button id="alterar-problema"class="btn btn-info">Alterar</button>
     <br>
 
+  </div>
+
+  <div class="conter-item-validar" id="remover-form" style="display:none;">
+    <form method="POST" action="">
+      <p>Insira sua senha : </p> <input class="form-control" type="remover-problema" name="senha" />
+    </form>
+    <p>
+      <a href=""><button id="apagar" class="btn btn-info" aria-controls="apagar">Remover</button></a>
+      <button id="voltar-form" class="btn btn-info" aria-controls="voltar-form">Voltar</button>
+    </p>
+  </div>
+
+  <div class="conter-item-validar" id="alterar-form" style="display:none;">
+    <form method="POST" action="">
+      <p>Insira sua senha : </p> <input class="form-control" type="alterar-problema" name="senha" />
+    </form>
+    <p>
+      <a href=""><button id="mudar" class="btn btn-info" aria-controls="mudar">Alterar</button></a>
+      <button id="voltar-alterar" class="btn btn-info" aria-controls="voltar-alterar">Voltar</button>
+    </p>
   </div>
 
   <footer>
@@ -106,6 +128,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/validacao.js"></script>
+    <script src="js/esconder.js"></script>
 
   </footer>
 </body>
