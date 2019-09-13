@@ -62,6 +62,40 @@
                      }
                      $Minhaconexao= Null; 
                  }
+
+
+                 public function Buscar($Usuario){
+
+                    try{
+
+                        $Minhaconexao = ConnectionFactory::getconnection();
+
+                        $SQL = $Minhaconexao->prepare("select *from myb1.usuario where cpf=:cpf"); // codigo sql 
+                        $SQL->bindParam('cpf',$CPF); 
+                        $CPF = $Usuario->getCPF(); 
+
+                    $SQL->execute();
+                    $SQL->setFetchMode(PDO::FETCH_ASSOC);
+                        $Resultado=0; 
+                        $i =0;
+
+                        while($linha = $SQL->fetch(PDO::FETCH_ASSOC)){
+                            $Resultado=$linha["cpf"];
+                            $i ++; 
+                        }
+            
+                     return $Resultado; 
+
+
+                    }catch(PDOException $Erro){
+
+                        Echo "Erro ao verificar CPF ".$Erro->getmessage(); 
+                        
+                        return; 
+                    }
+                    
+                    $Minhaconexao=null;
+                } 
             }
 
             // fim classe UsuarioDAO

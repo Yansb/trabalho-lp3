@@ -3,6 +3,7 @@
 require_once "../Model/ClasseChamados.php";
 require_once "../Model/ClassUsuarios.php";
 require_once "../Model/class.php";
+
 function Menu($Cargo)
 {
 

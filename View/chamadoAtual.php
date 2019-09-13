@@ -10,18 +10,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/MYB.css">
     <?php
-    require_once "../Model/ClassUsuarios.php";
-    require_once "../Model/class.php";
-    require_once "../Model/ClasseChamados.php";
+require_once "function.php";
+
 
 
     session_start();
 
     $Tecnico = new Tecnico();
-    $Setor = new Setor();
+    $Usuario   = new Usuario();
     $Chamado = $_SESSION['Chamado'];
-    
-  
 
     ?>
 
@@ -104,12 +101,12 @@
             </form>
             <div class="direita">
 
-                <form action="" method="POST">
+                <form>
                 <p>Número do chamado <input class="form-control" type="text" name="chamado" value=" <?php echo $Chamado->getNumero(); ?>" size="25px" maxlength="100" readonly="readonly"></p>
                     <p>Email <input class="form-control" type="email" name="email" size="25px" maxlength="100" readonly="readonly"></p>
                     <p>Telefone do cliente <input class="form-control" type="text" name="Telefone" size="25px" maxlength="100" readonly="readonly"></p>
-                    <p>Problema <input class="form-control" type="text" name="defeito" size="25px" maxlength="100" value=" <?php echo $Chamado->getProblema(); ?>" readonly="readonly"></p>
-                    <p> Data Fechamento <input class="form-control" type="text" name="defeito" size="25px" maxlength="100" <?php echo $Chamado->getDataHoraFechamento(); ?>readonly="readonly"></p>
+                    <p>Problema <input class="form-control" type="text" name="defeito" size="25px" maxlength="100" value=" <?php  echo $Chamado->getProblema(); ?>" readonly="readonly"></p>
+                    <p> Data Fechamento <input class="form-control" type="text" name="defeito" size="25px" maxlength="100" value=" <?php echo $Chamado->getDataHoraFechamento(); ?>" readonly="readonly"></p>
                     <p><a class="form-control" href="imagem que vai estar no banco ">Ver imagem </a></p>
 
                 </form>
@@ -156,13 +153,13 @@
                     <p>Selecione o Técnico</p>
 
                     <?php
-                    $Tecnico->Select();
+                        Select("Tecnico");
                     ?>
 
                     <p>Selecione o Setor</p>
 
                     <?php
-                    $Setor->Select();
+                        Select("Setor");
                     ?>
                     <input class="btn btn-info" type="submit" method="POST" action="" value="Encaminhar">
 
@@ -245,7 +242,7 @@
         <div class="esquerda">
             <div class="list-group" id="list-tab" role="tablist">
                 <a class="list-group-item list-group-item-action active" id="Chamado" data-toggle="list" href="#" role="tab" aria-controls="Chamado">Chamado</a>
-                <a class="list-group-item list-group-item-action" id="Processamento" data-toggle="list" href="#" role="tab" aria-controls="Processamento">Processamento</a>
+                <a class="list-group-item list-group-item-action" id="Processamento" data-toggle="list" href="#" role="tab" aria-controls="Processamento">Histórico de Alteração</a>
                 <a class="list-group-item list-group-item-action" id="Encaminhar" data-toggle="list" href="#" role="tab" aria-controls="Encaminhar">Encaminhar</a>
                 <a class="list-group-item list-group-item-action" id="Tombamento" data-toggle="list" href="#" role="tab" aria-controls="Tombamento">Tombo de Patrimônio</a>
                 <a class="list-group-item list-group-item-action" id="Finalizar" data-toggle="list" href="#" role="tab" aria-controls="Finalizar">Finalizar</a>

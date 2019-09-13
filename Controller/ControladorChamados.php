@@ -71,6 +71,8 @@
 
                     $Chamado = new Chamado($_GET['Numero']);
                   if($Chamado->Pesquisar("Numero")){
+                      $Usuario = new Usuario($Chamado->getSolicitante()); 
+                      $Usuario->CPF();
                     $_SESSION['Chamado']= $Chamado; 
    
                    header('location: ../View/chamadoAtual.php'); 

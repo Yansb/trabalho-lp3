@@ -16,6 +16,13 @@
                             
                         }
 
+                        public function Buscar(){
+
+                            $Usuario = new UsuarioDAO();
+                         
+                            return $Usuario->Buscar($this);
+                        }
+
                         public function VerificarCPF(){
 
                             $Usuario = new UsuarioDAO();
