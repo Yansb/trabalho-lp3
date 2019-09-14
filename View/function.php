@@ -108,3 +108,18 @@ function select($Tipo){
         }
     
 }
+
+function pedeSenha(){
+   echo'<div id="exterior">';
+   echo'<div   id="interior" id="alterar-form"">';
+   echo'<form method="POST" action="">';
+   echo'<p>Insira sua senha : </p> <input class="form-control" type="alterar-setor" name="senha" />';
+   echo'</form>';
+   echo'<p>';
+   echo '<a href=""><button id="mudar" class="btn btn-info" aria-controls="mudar">Confirmar</button></a>';
+   echo '<button id="voltar-alterar" class="btn btn-info" aria-controls="voltar-alterar">Voltar</button>';
+   echo'</p>';
+  echo'</div>';
+    echo '</div>';
+}
+

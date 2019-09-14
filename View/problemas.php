@@ -80,12 +80,12 @@
       $Problema->select();
       ?>
       <input type="hidden" id="Acao" name="Acao" value="Remover">
-     
-
-    </form> 
-      <p>
+       <p>
         <button id="remover-problema" class="btn btn-info">Remover</button>
       </p>
+
+    </form> 
+    
     <br>
     <form action="../Controller/ControladorProblema.php" method="post">
       <h3>Alterar</h3>
@@ -96,31 +96,11 @@
       <p>
         Novo nome<input class="form-control" value="" type="text" id="" name="Novo" size="25px" maxlength="100">
       </p>
-      
+          <button id="alterar-problema"class="btn btn-info">Alterar</button>
+          <br>
     </form>
-    <button id="alterar-problema"class="btn btn-info">Alterar</button>
-    <br>
+   
 
-  </div>
-
-  <div class="conter-item-validar" id="remover-form" style="display:none;">
-    <form method="POST" action="">
-      <p>Insira sua senha : </p> <input class="form-control" type="remover-problema" name="senha" />
-    </form>
-    <p>
-      <a href=""><button id="apagar" class="btn btn-info" aria-controls="apagar">Remover</button></a>
-      <button id="voltar-form" class="btn btn-info" aria-controls="voltar-form">Voltar</button>
-    </p>
-  </div>
-
-  <div class="conter-item-validar" id="alterar-form" style="display:none;">
-    <form method="POST" action="">
-      <p>Insira sua senha : </p> <input class="form-control" type="alterar-problema" name="senha" />
-    </form>
-    <p>
-      <a href=""><button id="mudar" class="btn btn-info" aria-controls="mudar">Alterar</button></a>
-      <button id="voltar-alterar" class="btn btn-info" aria-controls="voltar-alterar">Voltar</button>
-    </p>
   </div>
 
   <footer>

@@ -162,34 +162,16 @@
           Novo Campo<input class="form-control" value="" type="text" id="" name="Nome" size="25px" maxlength="100">
         </p>
         <input type="hidden" id="Acao" name="Acao" value="Alterar">
-
+        <div class="botoes">
+          <button id="alterar-tecnico" class="btn btn-info">Alterar</button>
+        </div>
 
       </form>
-      <div class="botoes">
-        <button id="alterar-tecnico" class="btn btn-info">Alterar</button>
-      </div>
+      
     </div>
   </div>
 
-  <div class="conter-item-validar" id="remover-form" style="display:none;">
-    <form method="POST" action="">
-      <p>Insira sua senha : </p> <input class="form-control" type="remover-tecnico" name="senha" />
-    </form>
-    <p>
-      <a href=""><button id="apagar" class="btn btn-info" aria-controls="apagar">Remover</button></a>
-      <button id="voltar-form" class="btn btn-info" aria-controls="voltar-form">Voltar</button>
-    </p>
-  </div>
 
-  <div class="conter-item-validar" id="alterar-form" style="display:none;">
-    <form method="POST" action="">
-      <p>Insira sua senha : </p> <input class="form-control" type="alterar-tecnico" name="senha" />
-    </form>
-    <p>
-      <a href=""><button id="mudar" class="btn btn-info" aria-controls="mudar">Alterar</button></a>
-      <button id="voltar-alterar" class="btn btn-info" aria-controls="voltar-alterar">Voltar</button>
-    </p>
-  </div>
 
 
 

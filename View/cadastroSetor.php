@@ -122,31 +122,22 @@
       </p>
       <input type="hidden" id="Acao" name="Acao" value="Alterar">
       <p>
-        
-    </form>
         <div class="botoes">
           <button id="alterar-setor" class="btn btn-info">Alterar</button>
         </div>
+    </form>
+        
   </div>
 
   <div class="conter-item-validar" id="remover-form" style="display:none;">
     <form method="POST" action="">
       <p>Insira sua senha : </p> <input class="form-control" type="remover-setor" name="senha" />
-    </form>
-    <p>
+      <p>
       <a href=""><button id="apagar" class="btn btn-info" aria-controls="apagar">Remover</button></a>
       <button id="voltar-form" class="btn btn-info" aria-controls="voltar-form">Voltar</button>
     </p>
-  </div>
-
-  <div class="conter-item-validar" id="alterar-form" style="display:none;">
-    <form method="POST" action="">
-      <p>Insira sua senha : </p> <input class="form-control" type="alterar-setor" name="senha" />
     </form>
-    <p>
-      <a href=""><button id="mudar" class="btn btn-info" aria-controls="mudar">Alterar</button></a>
-      <button id="voltar-alterar" class="btn btn-info" aria-controls="voltar-alterar">Voltar</button>
-    </p>
+    
   </div>
 
 
