@@ -8,7 +8,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/MYB.css">
   <?php
-  require_once 'function.php';
+require_once "../Model/ClasseChamados.php";
+require_once "../Model/ClassUsuarios.php";
+require_once "function.php";
+  session_start(); 
+
   $Problema = new Problema();
   ?>
 </head>
@@ -28,11 +32,7 @@
             <div class="btn btn-info btn-lg">Menu</div>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="Chamados.php">Chamados</a>
-            <a class="dropdown-item" href="cadastroSetor.php">Cadastro Setor</a>
-            <a class="dropdown-item" href="CadastroTecnico.php">Cadastro Técnico</a>
-            <a class="dropdown-item" href="#">Cadastro Problemas</a>
-            <a class="dropdown-item" href="relatorios.php">Relatórios</a>
+           <?php Menu($_SESSION["Tecnico"]->getCargo());?> 
           </div>
         </li>
         <li>
@@ -77,29 +77,29 @@
     <form action="../Controller/ControladorProblema.php" method="post">
       <h3>Remover Problemas</h3>
       <?php
-      $Problema->select();
+      select("Problema");
       ?>
       <input type="hidden" id="Acao" name="Acao" value="Remover">
-       <p>
+      <p>
         <button id="remover-problema" class="btn btn-info">Remover</button>
       </p>
 
-    </form> 
-    
+    </form>
+
     <br>
     <form action="../Controller/ControladorProblema.php" method="post">
       <h3>Alterar</h3>
       <?php
-      $Problema->select();
+      select("Problema");
       ?>
       <input type="hidden" id="Acao" name="Acao" value="Alterar">
       <p>
         Novo nome<input class="form-control" value="" type="text" id="" name="Novo" size="25px" maxlength="100">
       </p>
-          <button id="alterar-problema"class="btn btn-info">Alterar</button>
-          <br>
+      <button id="alterar-problema" class="btn btn-info">Alterar</button>
+      <br>
     </form>
-   
+
 
   </div>
 

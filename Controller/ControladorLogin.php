@@ -19,9 +19,8 @@ if ($Acao === "Logar") {
 
         $Chamado = new Chamado();
         $Chamado->setSetor($Tecnico->getSetor());
-        $ResuPesquia= $Chamado->Pesquisar("Setor");
+        $_SESSION["Chamado"]= $Chamado; 
 
-        $_SESSION["ResuPesquia"]= $ResuPesquia; 
          $_SESSION["Tecnico"]= $Tecnico; 
          if($Tecnico->getCargo()==="Admin")
                  header('location: ../View/ListaTec.php'); 

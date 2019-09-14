@@ -17,7 +17,7 @@ if (isset($_POST['Acao'])) {
         $Email = $_POST["Email"];
         $Telefone = $_POST["Telefone"];
         $Setor = $_POST["Codigo"];
-        $Problema = $_POST["problemas"];
+        $Problema = $_POST["Problema"]; 
         if (isset($_POST["Arquivo"])) {
             $Arquivo = $_POST["Arquivo"];
         }
@@ -63,8 +63,8 @@ if (isset($_POST['Acao'])) {
 
     if ($Acao === "AdicionarFT") {
 
-        $Ataul = new DateTime();
-        $DataHoraAbertura = $Ataul->format('d-m-Y H:i:s');
+        $Atual = new DateTime();
+        $DataHoraAbertura = $Atual->format('Y-m-d H:i:s');
         $Nome = $_POST["Nome"];
         $CPF = $_POST["CPF"];
         $Email = $_POST["Email"];
@@ -93,11 +93,14 @@ if (isset($_POST['Acao'])) {
            $Usuario = new Usuario();
            $Usuario->setCPF($_POST["CPF"]);
         $Usuario->getCPF();
-            if ($Usuario->VerificarCPF()); {
+            if ($Usuario->VerificarCPF()!=0) {
+               
                 $_SESSION["Usuario"]= $Usuario; 
-               header('Location: ../View/usuario.php'); 
+              header('Location: ../View/usuario.php'); 
 
-            }
+            }else
+               echo  "Não exite Chamado para Esse CPF"; 
+            
   
 
 

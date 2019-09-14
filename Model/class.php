@@ -132,17 +132,7 @@
                 return $Prob->BuscarTodos(); 
             } 
 
-            public function Select(){
-               $Resultado= $this->BuscarTodos(); 
-               $quant= count($Resultado);
-
-               echo "<select class='custom-select custom-select-lg mb-3' name='Problema' id='Problema'>";
-               for($i=0;$i<$quant;$i++){ 
-                echo "<option value= '".$Resultado[$i][0]."'>".$Resultado[$i][1]."</option>"; 
-                }
-                 echo "</select>";
-      
-            }
+         
             public function getCodigo()
             {
                         return $this->Codigo;
