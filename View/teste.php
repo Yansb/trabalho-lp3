@@ -14,8 +14,10 @@
      
 <?php
   require"function.php";
-  pedeSenha();
-  enviaEmail();
+  //pedeSenha();
+  //enviaEmail();
+  mensagem("testando");
+
 ?>
   
 
