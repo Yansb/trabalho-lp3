@@ -75,7 +75,7 @@
                                                 <p>
                                                         Problema
                                                         <?php
-                                                        $Problema->Select();
+                                                       Select('Problema');
                                                         ?>
 
                                                 </p>

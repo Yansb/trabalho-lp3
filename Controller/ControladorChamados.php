@@ -23,13 +23,21 @@
             } else {
                 if ($Pesquisar == "Numero") {
                     $Chamado->setNumero($_POST['Numero']);
-                    if ($Chamado->Pesquisar($Pesquisar)) { } else { }
+                    if ($Chamado->Pesquisar($Pesquisar)) {
+                        echo $Chamado->getSolicitante();
+                     } else {
+                        echo "não encontrado";
+                      }
                 } else {
-                    if ($Pesquisar == "Equipamento") {
+                    if ($Pesquisar == "Problema") {
 
-                        $Chamado->setEquipamento($_POST['Equipamento']);
+                        $Chamado->setEquipamento($_POST['Problema']);
 
-                        if ($Chamado->Pesquisar($Pesquisar)) { } else { }
+                        if ($Chamado->Pesquisar($Pesquisar)) { 
+                            $Chamado->getSolicitante();
+                        } else {
+                            echo "não encontrado ´problema";
+                         }
                     } else {
                         if ($Pesquisar == "Setor") {
 

@@ -72,10 +72,10 @@ class ChamadoDAO
     {
         try {
             $Minhaconexao = ConnectionFactory::getConnection();
-            $SQL = $Minhaconexao->prepare("SELECT cpf_funcionario as tecnico from Chamado where cpf_funcionario =:cpf");
+            $SQL = $Minhaconexao->prepare("SELECT cpf_funcionario as tecnico from Chamado where numero_chamado=:numero");
 
-            $SQL->bindParam("cpf", $CPF);
-            $CPF = $Chamado->getTecnico();
+            $SQL->bindParam("numero", $Numero);
+            $Numero = $Chamado->getNumero();
             $Resultado = 0;
             $SQL->execute();
             $SQL->setFetchMode(PDO::FETCH_ASSOC);
@@ -95,7 +95,7 @@ class ChamadoDAO
             $Minhaconexao = ConnectionFactory::getConnection();
             $SQL = $Minhaconexao->prepare("SELECT numero_chamado as numero from myb1.chamado where estado =:estado and numero_chamado=:numero");
 
-            $SQL->bindParam("estado", $Estado);  
+            $SQL->bindParam("estado", $Estado);
             $SQL->bindParam("numero", $Numero);
             $Numero = $Chamado->getNumero();
             $Estado = "Em Aberto";
@@ -116,7 +116,7 @@ class ChamadoDAO
     {
         try {
             $Minhaconexao = ConnectionFactory::getConnection();
-            $SQL = $Minhaconexao->prepare("update myb1.chamado set cpf_funcionario = :cpf where numero_chamado = :numero");
+            $SQL = $Minhaconexao->prepare("update myb1.chamado set cpf_funcionario =:cpf , estado='Em Atendimento' where numero_chamado =:numero");
 
             $SQL->bindParam("cpf", $CPF);
             $SQL->bindParam("numero", $Numero);
@@ -168,15 +168,14 @@ class ChamadoDAO
                 // falta o return com dados 
             } else {
                 if ($Tipo === "Numero") {
-                    $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, c.obs,p.nome as problema, f.nome as atendente, u.cpf as solicitante, u.email,u.telefone, s.nome as setor, c.estado as situacao, c.prioridade, c.abertura, c.fim
-                    from myb1.chamado c inner join myb1.usuario u on c.cpf_usuario = u.cpf 
-                    inner join myb1.problema p on c.id_problema = p.idproblema 
-                    inner join myb1.setor s on c.codigo_setor = s.codigo
-                    left join myb1.funcionario f on f.cpf= c.cpf_funcionario 
+                    $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante, s.nome as setor, c.estado, c.prioridade, c.abertura
+                    from myb1.chamado c left join myb1.funcionario f on c.cpf_funcionario = f.cpf
+                    inner join myb1.setor s on c.codigo_setor= s.codigo 
+                    inner join myb1.usuario u on c.cpf_usuario = u.cpf
                     where c.numero_chamado =:numero");
 
                     $SQL->bindParam("numero", $Numero);
-                    $Numero = $Chamado->getNumero();
+                  $Numero =  $Chamado->getNumero();
 
                     $SQL->execute();
                     $SQL->setFetchMode(PDO::FETCH_ASSOC);
@@ -185,25 +184,24 @@ class ChamadoDAO
                     while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
                         $Chamado->setNumero($linha['numero']);
                         $Chamado->setDescricao($linha['descricao']);
-                        $Chamado->setOBS($linha['obs']);
+
                         $Chamado->setTecnico($linha['atendente']);
                         $Chamado->setSolicitante($linha['solicitante']);
                         $Chamado->setSetor($linha['setor']);
-                        $Chamado->setStatus($linha['situacao']);
+                        $Chamado->setStatus($linha['estado']);
                         $Chamado->setPrioridade($linha['prioridade']);
                         $Chamado->setDataHoraAbertura($linha['abertura']);
-                        $Chamado->setDataHoraFechamento($linha['fim']);
-                        $Chamado->setProblema($linha['problema']);
+                      
                     }
                     return true;
                 } else {
-                    if ($Tipo === "Setor") {
+                    if ($Tipo === "Normal") {
 
                         $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante, s.nome as setor, c.estado, c.prioridade, c.abertura
                         from myb1.chamado c left join myb1.funcionario f on c.cpf_funcionario = f.cpf
                         inner join myb1.setor s on c.codigo_setor= s.codigo 
                         inner join myb1.usuario u on c.cpf_usuario = u.cpf
-                        where s.nome =:setor and c.estado = 'em Aberto'");
+                        where s.nome =:setor and (c.estado = 'Em Aberto' or c.estado = 'Em Atendimento')");
                         $SQL->bindParam("setor", $Setor);
                         $Setor = $Chamado->getSetor();
 
@@ -238,10 +236,33 @@ class ChamadoDAO
                                         $SQL->bindParam("numero", $Atendente);
                                         $Atendente = $Chamado->getAtendente();
                                     } else {
-                                        $SQL = $Minhaconexao->prepare("");
-                                        //$SQL->bindParam("qtds", $Qtds);
-                                        //$Qtds= $Chamado->getQtds();
-                                        // qtd dias;
+                                        if ($Tipo === "Setor") {
+
+                                            $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante, s.nome as setor, c.estado, c.prioridade, c.abertura
+                                            from myb1.chamado c left join myb1.funcionario f on c.cpf_funcionario = f.cpf
+                                            inner join myb1.setor s on c.codigo_setor= s.codigo 
+                                            inner join myb1.usuario u on c.cpf_usuario = u.cpf
+                                            where s.nome =:setor and (c.estado = 'Em Aberto' or c.estado = 'Em Atendimento')");
+                                            $SQL->bindParam("setor", $Setor);
+                                            $Setor = $Chamado->getSetor();
+
+                                            $SQL->execute();
+                                            $SQL->setFetchMode(PDO::FETCH_ASSOC);
+                                            $vet = array();
+                                            $i = 0;
+
+                                            while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+                                                $vet[$i] = array($linha['numero'], $linha['descricao'], $linha['atendente'], $linha['solicitante'], $linha['setor'], $linha['estado'], $linha['prioridade'], $linha['abertura']);
+                                                $i++;
+                                            }
+                                            return $vet;
+                                        } else {
+
+                                            $SQL = $Minhaconexao->prepare("");
+                                            //$SQL->bindParam("qtds", $Qtds);
+                                            //$Qtds= $Chamado->getQtds();
+                                            // qtd dias;
+                                        }
                                     }
                                 }
                             }

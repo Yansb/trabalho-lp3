@@ -10,7 +10,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/MYB.css">
   <?php
-  require_once 'function.php';
+  require_once "../Model/ClasseChamados.php";
+  require_once "../Model/ClassUsuarios.php";
+  require_once "function.php";
+  session_start();
 
   $Setor = new Setor();
   $Tecnico = new Tecnico();
@@ -36,12 +39,7 @@
             <div class="btn btn-info btn-lg">Menu</div>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="Chamados.php">Chamados</a>
-            <a class="dropdown-item" href="cadastroSetor.php">Cadastro Setor</a>
-            <a class="dropdown-item" href="#">Cadastro Técnico</a>
-            <a class="dropdown-item" href="problemas.php">Cadastro Problemas</a>
-            <a class="dropdown-item" href="relatorios.php">Relatórios</a>
-            <a class="dropdown-item" href="ListaTec.php">Administrador</a>
+            <?php Menu($_SESSION["Tecnico"]->getCargo()); ?>
           </div>
         </li>
         <li>
@@ -167,7 +165,7 @@
         </div>
 
       </form>
-      
+
     </div>
   </div>
 

@@ -7,17 +7,19 @@
     
         $Chamado = new Chamado($_GET['Numero']);
         $Chamado->setTecnico($_GET['Tecnico']);
-            if($Chamado->VerificarAtendente()==NULL){
-            
-            if( $Chamado->Atender()>0){
-          
-                 header("Location: ../Controller/ControladorLogin.php");
-         
-            }else{
-             header("Location: ../View/ChamadoAtual.php");
-            }
+      
+            if( $Chamado->VerificarAtendente()==NULL){
+             
+                    if( $Chamado->Atender()>0){
+                
+                     header("Location: ../View/ChamadoAtual.php");
+                
+                    }else{
+                    echo "erro ao atender";
+                    }
         }else{
             echo "chamado já em atendimento";
+
         }
     
     }else{

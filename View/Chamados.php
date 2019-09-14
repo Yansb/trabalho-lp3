@@ -87,7 +87,8 @@
             </div>
 
             <div class="divDireita" id="Equipamento" style="display:none;">
-                <p> Qual Equipamento?</p><input class="form-control" type="text" name="Equipamento" />
+                <p> Qual Problema?</p>
+                <?php  Select("Problema");?>
 
             </div>
             <div class="divDireita" id="Solicitante" style="display:none;">
@@ -165,7 +166,7 @@
                 </thead>
                 <?php
     
-              $Resultado = $_SESSION['ResuPesquia'];
+              $Resultado= $_SESSION['Chamado']->Pesquisar("Normal");
               $quant = Count($Resultado); 
               for($i=0;$i<$quant;$i++){ 
               
