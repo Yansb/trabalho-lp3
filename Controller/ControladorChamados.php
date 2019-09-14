@@ -80,14 +80,16 @@
                       
                         $Usuario->VerificarCPF();
                        
-                            
+                          
                           $_SESSION['Usuario']=$Usuario;
-        
-                        if($_GET['Pagina']="1"){
-                            header('location: ../View/ChamadoAtualUsuario.php');
+                   
+                        if($_GET['Pagina']=="1"){
+                           header('location: ../View/ChamadoAtualUsuario.php');
 
-                        }else
-                          header('location: ../View/chamadoAtual.php');
+                        }else{
+                            header('location: ../View/chamadoAtual.php');
+                        }
+                        
                         
                     }
                 }

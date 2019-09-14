@@ -170,8 +170,8 @@
               for($i=0;$i<$quant;$i++){ 
               
                   echo "<tr>"; 
-                  echo "<td scope='row'><a href='../Controller/ControladorChamados.php?Numero=".$Resultado[$i][0]."&Acao=Busca'>".$Resultado[$i][0]."</a></td>";
-                  echo "<td><a href='../Controller/ControladorChamados.php?Numero=".$Resultado[$i][0]."&Acao=Busca'>".$Resultado[$i][1]." </a></td>"; 
+                  echo "<td scope='row'><a href='../Controller/ControladorChamados.php?Numero=".$Resultado[$i][0]."&Pagina=2&Acao=Busca'>".$Resultado[$i][0]."</a></td>";
+                  echo "<td><a href='../Controller/ControladorChamados.php?Numero=".$Resultado[$i][0]."&Pagina=2&Acao=Busca'>".$Resultado[$i][1]." </a></td>"; 
                   echo"<td>".$Resultado[$i][2]."</td>";
                   echo"<td>".$Resultado[$i][3]."</td>";  
                   echo"<td>".$Resultado[$i][4]."</td>";  
