@@ -2,6 +2,8 @@
 include "../Model/ClasseChamados.php";
 require "../Model/ClassUsuarios.php";
 
+session_start();
+
 if (isset($_POST['Acao'])) {
     $Acao = $_POST['Acao'];
 
@@ -33,7 +35,7 @@ if (isset($_POST['Acao'])) {
             $Chamado = new Chamado("", $Descricao, "Em Aberto", $Setor, $Problema, "Normal", $Arquivo, $OBS, $DataHoraAbertura, null, $Usuario->getCPF(), $Tombo, null);
 
             if ($Chamado->Adicionar() > 0) {
-                session_start();
+                
                 $_SESSION["Usuario"] = $Usuario;
                 header('Location: ../View/usuario.php');
             } else {
@@ -84,11 +86,20 @@ if (isset($_POST['Acao'])) {
     }
 }else{
 
-    if(isset($_GET['Acao'])){
+    if(isset($_POST['Acao2'])){
        
-        if( $Acao=$_GET["Acao"]==="Consulta"){
+        if( $Acao=$_POST["Acao2"]==="Consulta"){
      
-          header('Location: ../View/usuario.php'); 
+           $Usuario = new Usuario();
+           $Usuario->setCPF($_POST["CPF"]);
+        $Usuario->getCPF();
+            if ($Usuario->VerificarCPF()); {
+                $_SESSION["Usuario"]= $Usuario; 
+               header('Location: ../View/usuario.php'); 
+
+            }
+  
+
 
             
 

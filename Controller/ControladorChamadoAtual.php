@@ -20,6 +20,19 @@
             echo "chamado já em atendimento";
         }
     
+    }else{
+        if( $_GET['Acao']==="Cancelar"){
+    
+            $Chamado = new Chamado($_GET['Numero']);
+           if( $Chamado->VerificarEstado()){
+             if($Chamado->Remover()>0){
+                   echo "cancelado com sucesso";
+            }
+           }else{
+               
+               echo"Chamado não pode ser cancelado pois já está em atendimento ";
+           }
+        }
     }
 
   }else{

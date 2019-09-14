@@ -94,6 +94,11 @@ include "ClasseChamadosDAO.php";
                   $Chamado = new ChamadoDAO();
                   return $Chamado->VerificarAtendente($this);
             }
+            public function VerificarEstado(){
+                $Chamado = new ChamadoDAO();
+                return $Chamado->VerificarEstado($this);
+          }
+        
           
             public  function PrintUserTabela($Usuario)
             {
@@ -103,8 +108,8 @@ include "ClasseChamadosDAO.php";
                 for($i=0;$i<$quant;$i++){ 
             
                     echo "<tr>"; 
-                    echo "<td scope='row'><a href='chamadoAtual.php'>".$Resultado[$i][0]."</a></td>";
-                    echo "<td><a href='chamadoAtual.php'>".$Resultado[$i][1]." </a></td>"; 
+                    echo "<td scope='row'><a href='ChamadoAtualUsuario.php'>".$Resultado[$i][0]."</a></td>";
+                    echo "<td><a href='ChamadoAtualUsuario.php'>".$Resultado[$i][1]." </a></td>"; 
                     echo"<td>".$Resultado[$i][2]."</td>";
                     echo"<td>".$Resultado[$i][4]."</td>";  
                     echo"<td class='bg-danger'>".$Resultado[$i][5]."</td>"; 

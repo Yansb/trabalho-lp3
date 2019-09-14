@@ -118,13 +118,15 @@
                         </div>
         </div>
         <div class="conter-item-validar" id="consulta-form" style="display:none;">
-                <form method="POST" action="">
-                        <p>Insira seu CPF: </p> <input class="form-control" type="consulta" name="consulta" />
-                </form>
-                <p>
-                        <a href=""><button id="consultar" class="btn btn-info" aria-controls="consultar">Consultar</button></a>
+                <form method="POST" action="../Controller/ControladorIndex.php">
+                        <p>Insira seu CPF: </p> <input class="form-control" type="text" name="CPF" />
+                        <input type="hidden" name="Acao2" value="Consulta" />
+                        <p>
+                         <input class="btn btn-info" type="submit" value="Consultar">
                         <button id="voltar-form" class="btn btn-info" aria-controls="voltar-form">Voltar</button>
                 </p>
+                </form>
+                
         </div>
 
 </body>

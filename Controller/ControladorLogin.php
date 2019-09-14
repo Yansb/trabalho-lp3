@@ -1,7 +1,7 @@
 <?php
 require "../Model/ClassUsuarios.php";
 require_once"../Model/ClasseChamados.php";
-session_start();
+ session_start();
 $Acao = $_POST['Acao'];
 
 if ($Acao === "Logar") {

@@ -10,7 +10,18 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/MYB.css">
+   <?php require_once "function.php";
+
+    session_start();
     
+    
+    $Chamado = $_SESSION['Chamado'];
+    $Usuario  =  $_SESSION['Usuario'];
+    
+    
+
+    ?>
+
 
   
     
@@ -63,35 +74,35 @@
             
             <div class=" itens"> 
                 <div class="arrumar"> 
-                 <p>Número do chamado <input class="form-control" type="text" name="chamado" size="25px" maxlength="100"></p>
-                 <p>Solicitante <input  class="form-control" type="text" name="Nome" size="25px" maxlength="100"></p>
-                 <p>Setor <input class="form-control"  type="text" name="setor" size="25px" maxlength="100"></p>
-                <p>
-                     Prioridade 
-                    <input class="form-control" type="text"  name="prioridade" size="0" >
-                </p>
-                
-                <p>Situação <input class="form-control" type="text" name="informe" size="25px" maxlength="100"></p>
-          
-                <p>Data de Abertura  <input  class="form-control" type="text" name="data" size="25px" maxlength="100"></p>
-                <p> Técnico Responsável  <input  class="form-control" type="text" name="data" size="25px" maxlength="100"></p>
-                <p>
-                     Observações <textarea name="OBS" rows="4" cols="50" size="50px" maxlength="99999" required>
-                    </textarea>
-                </p>
+                <p>Descrição <input class="form-control" type="text" name="defeito" size="25px" maxlength="100" value=" <?php echo $Chamado->getDescricao(); ?>" readonly="readonly"></p>
+                        <p>Solicitante <input class="form-control" type="text" name="Nome" size="25px" maxlength="100" value=" <?php echo $Usuario->getNome(); ?>" readonly="readonly">
+                        </p>
+                        <p>Setor <input class="form-control" type="text" name="setor" size="25px" maxlength="100" value=" <?php echo $Chamado->getSetor(); ?>" readonly="readonly" ></p>
+                        <p>
+                            Prioridade
+                            <input class="form-control" type="text" name="prioridade" size="0" value=" <?php echo $Chamado->getPrioridade(); ?>" readonly="readonly">
+                        </p>
+
+                        <p>Situação <input class="form-control" type="text" name="informe" size="25px" maxlength="100" value=" <?php echo $Chamado->getStatus(); ?>" readonly="readonly">
+                        </p>
+
+                        <p>Data de Abertura <input class="form-control" type="text" name="data" size="25px" maxlength="100" value=" <?php echo $Chamado->getDataHoraAbertura(); ?>" readonly="readonly"></p>
+                        <p> Técnico Responsável <input class="form-control" type="text" name="data" size="25px" maxlength="100" value=" <?php echo $Chamado->getTecnico(); ?>" readonly="readonly"></p>
+                        <p>
+                            Observações <textarea name="OBS" rows="4" cols="50" size="50px" maxlength="99999"  readonly="readonly"><?php echo $Chamado->getOBS();?></textarea>
+                        </p>
 
             </form>
             <div class="direita"> 
 
                 <form action="" method="POST">
 
-                    <p>Email <input class="form-control" type="email" name="email" size="25px" maxlength="100"></p> 
-                    <p> Ramal do setor <input class="form-control"  type="text" name="text" size="25px" maxlength="100"></p>
-                    <p>Telefone do cliente <input class="form-control"  type="text" name="Telefone" size="25px" maxlength="100"></p> 
-                    <p> Equipamento <input  class="form-control"  type="text" name="text" size="25px" maxlength="100"></p>
-                    <p>Defeito <input  class="form-control"  type="text" name="defeito" size="25px" maxlength="100"></p> 
-                    <p> Data Fechamento <input class="form-control"   type="text" name="defeito" size="25px" maxlength="100"></p>
-                    <p><a  class="form-control"  href="imagem que vai estar no banco ">Ver imagem </a></p>    
+                <p>Número do chamado <input class="form-control" type="text" name="chamado" value=" <?php echo $Chamado->getNumero(); ?>" size="25px" maxlength="100" readonly="readonly"></p>
+                    <p>Email <input class="form-control" type="email" name="email" size="25px" maxlength="100" value=" <?php echo $Usuario->getEmail(); ?>" readonly="readonly"></p>
+                    <p>Telefone do cliente <input class="form-control" type="text" name="Telefone" size="25px" maxlength="100" value=" <?php echo $Usuario->getTelefone(); ?>" readonly="readonly"></p>
+                    <p>Problema <input class="form-control" type="text" name="defeito" size="25px" maxlength="100" value=" <?php  echo $Chamado->getProblema(); ?>" readonly="readonly"></p>
+                    <p> Data Fechamento <input class="form-control" type="text" name="defeito" size="25px" maxlength="100" value=" <?php echo $Chamado->getDataHoraFechamento(); ?>" readonly="readonly"></p>
+                    <p><a class="form-control" href="imagem que vai estar no banco ">Ver imagem </a></p>   
                       
                 </form>
             </div>
@@ -100,7 +111,7 @@
     <div class="esquerda">
         <div class="list-group" id="list-tab" role="tablist">
                 
-                <a class="list-group-item list-group-item-action" id="Cancelar" data-toggle="list" href="#" role="tab" aria-controls="Cancelar" onclick="cancelar()">Cancelar Chamado</a>
+        <a class="list-group-item list-group-item-action" id="Cancelar"  href="../Controller/ControladorChamadoAtual.php?Acao=Cancelar&Numero=<?php echo $Chamado->getNumero(); ?>" role="tab" aria-controls="Atender">Cancelar Chamado</a>
                 <a class="list-group-item list-group-item-action" id="Retornar"  href="usuario.php" role="tab" aria-controls="Retornar">Retornar</a>
  
         </div>

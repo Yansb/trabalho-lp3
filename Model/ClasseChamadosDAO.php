@@ -52,7 +52,7 @@ class ChamadoDAO
         try {
             $Minhaconexao = ConnectionFactory::getconnection();
 
-            $SQL = $Minhaconexao->prepare(""); // codigo sql 
+            $SQL = $Minhaconexao->prepare("delete from myb1.chamado where numero_chamado= :numero"); // codigo sql 
 
             $SQL->bindParam("numero", $Numero);
             $Numero = $Chamado->getNumero();
@@ -81,6 +81,29 @@ class ChamadoDAO
             $SQL->setFetchMode(PDO::FETCH_ASSOC);
             while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
                 $Resultado = $linha["tecnico"];
+            }
+            return $Resultado;
+        } catch (PDOException $Erro) {
+            echo $Erro->getMessage();
+        }
+        $Minhaconexao = NULL;
+    }
+
+    public function VerificarEstado($Chamado)
+    {
+        try {
+            $Minhaconexao = ConnectionFactory::getConnection();
+            $SQL = $Minhaconexao->prepare("SELECT numero_chamado as numero from myb1.chamado where estado =:estado and numero_chamado=:numero");
+
+            $SQL->bindParam("estado", $Estado);  
+            $SQL->bindParam("numero", $Numero);
+            $Numero = $Chamado->getNumero();
+            $Estado = "Em Aberto";
+            $Resultado = 0;
+            $SQL->execute();
+            $SQL->setFetchMode(PDO::FETCH_ASSOC);
+            while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+                $Resultado = $linha["numero"];
             }
             return $Resultado;
         } catch (PDOException $Erro) {
@@ -265,7 +288,7 @@ class ChamadoDAO
             from myb1.chamado c inner join myb1.usuario u on c.cpf_usuario = u.cpf 
             inner join myb1.setor s on c.codigo_setor = s.codigo
             left join myb1.funcionario f on f.cpf= c.cpf_funcionario 
-            where c.estado = 'Em Aberto' and c.cpf_usuario =:cpf");
+            where c.cpf_usuario =:cpf");
             $SQL->bindParam('cpf', $CPF);
             $CPF = $Usuario->getCPF();
 
