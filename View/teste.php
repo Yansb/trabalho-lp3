@@ -15,6 +15,7 @@
 <?php
   require"function.php";
   pedeSenha();
+  enviaEmail();
 ?>
   
 

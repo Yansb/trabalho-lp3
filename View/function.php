@@ -3,6 +3,11 @@
 require_once "../Model/ClasseChamados.php";
 require_once "../Model/ClassUsuarios.php";
 require_once "../Model/class.php";
+require_once "../Model/Exception.php";
+require_once "../Model/PHPMailer.php";
+require_once "../Model/SMTP.php";
+
+
 
 function Menu($Cargo)
 {
@@ -123,3 +128,28 @@ function pedeSenha(){
     echo '</div>';
 }
 
+
+
+function enviaEmail(){
+    $mail = new PHPMailer\PHPMailer\PHPMailer();
+    $mail->IsSMTP(); // enable SMTP
+
+    $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+    $mail->SMTPAuth = true; // authentication enabled
+    $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+    $mail->Host = "smtp.gmail.com";
+    $mail->Port = 465; // or 587
+    $mail->IsHTML(true);
+    $mail->Username = "yansbarreiro@gmail.com";//conta gmail
+    $mail->Password = "SENHA GMAIL";//por motivos obvios n deixei a minha aqui
+    $mail->SetFrom("yansbarreiro@gmail.com");//n sei
+    $mail->Subject = "Test";//assunto do email
+    $mail->Body = "hello";//email em si
+    $mail->AddAddress("yansbarreiro@gmail.com");//email q quer enviar
+
+    if (!$mail->Send()) {
+        echo "Mailer Error: " . $mail->ErrorInfo;
+    } else {
+        echo "Message has been sent";
+    }
+}
