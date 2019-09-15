@@ -42,7 +42,13 @@
                 </li>
             </ul>
         </div>
-
+        <div>
+            <a href="#" class="btn btn-info btn-lg">
+                <li class="list-group">Nome:<?php echo  $_SESSION['Tecnico']->getNome()?></li>
+                <li class="list-group">Cargo:<?php  echo $_SESSION['Tecnico']->getCargo()?></li>
+                <li class="list-group">Setor:<?php echo $_SESSION['Tecnico']->getSetor()?></li>
+            </a>
+        </div>
 
         <div>
             <a href="login.php" class="btn btn-info btn-lg">
@@ -61,17 +67,8 @@
                 <p>
                     <p>Pesquisar por:</p>
                     <select class="custom-select custom-select-lg mb-3" id="Pesquisar" name="Pesquisar" onchange="mostraOculta('Pesquisar');">
-                        <option value="Padrao">Padrão</option>
-                        <option value="Periodo">Período</option>
-                        <option value="Numero">Numero do Chamado</option>
-                        <option value="Problema">Problema</option>
-                        <option value="Setor">Setor</option>
-                        <option value="Solicitante">Solicitante</option>
-                        <option value="Estado">Estado</option>
-                        <option value="Prioridade">Prioridade</option>
-                        <option value="Atendente">Atendente</option>
-                        <option value="Qtdias">Quantidade de dias</option>
-
+                       
+                        <?php  selectPesquisa($_SESSION['Tecnico']->getCargo()); ?>
 
                     </select>
                 </p>
@@ -101,7 +98,7 @@
                     <option value=""></option>
                     <option value="Em Aberto">Em Aberto </option>
                     <option value="Em Atendimento">Em Atendimento</option>
-                    <option value="Fechado">Fechado</option>
+                    <option value="FInalizado">Finalizado</option>
 
                 </select>
 
@@ -112,7 +109,7 @@
                 <select class="custom-select custom-select-lg mb-3" name="Prioridade">
                     <option value=""></option>
                     <option value="Baixa">Baixa </option>
-                    <option value="Consideravel">Considerável</option>
+                    <option value="Normal">Normal</option>
                     <option value="Alta">Alta</option>
                     <option value="Muito Alta">Muito Altao</option>
 

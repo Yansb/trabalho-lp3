@@ -39,7 +39,7 @@ function Tabela($Tipo)
 
     if ($Tipo === "Perfis") {
         $Tecnico = new Tecnico();
-  
+
         $quat = count($TecTabela = $Tecnico->BuscarTodos());
 
         for ($i = 0; $i < $quat; $i++) {
@@ -47,7 +47,7 @@ function Tabela($Tipo)
             echo "<th>" . $TecTabela[$i][3] . "</th>"; // login
             echo " <th>" . $TecTabela[$i][1] . "</th>";
             echo "<th>" . $TecTabela[$i][2] . "</th>";
-            echo "<th><a href='../Controller/ControladorListaTec.php?Acao=Tecnico&CPF=".$TecTabela[$i][0]."'> <button class='btn btn-info' > Excluir</button></th></a>";
+            echo "<th><a href='../Controller/ControladorListaTec.php?Acao=Tecnico&CPF=" . $TecTabela[$i][0] . "'> <button class='btn btn-info' > Excluir</button></th></a>";
             echo " <th> <a href='CadastroTecnico.php'> <button class='btn btn-info' type='submit' name='validar'> ADD</button></th></a>";
             echo "</tr>";
         }
@@ -61,7 +61,7 @@ function Tabela($Tipo)
                 echo " <th>" . $TecTabela[$i][3] . "</th>";
                 echo "<th>" . $TecTabela[$i][1] . "</th>";
                 echo "<th>" . $TecTabela[$i][2] . "</th>";
-                echo "<th> <a href='../Controller/ControladorListaTec.php?Acao=Setor&Codigo=".$TecTabela[$i][0]."'><button class='btn btn-info' > Excluir</button></th></a>";
+                echo "<th> <a href='../Controller/ControladorListaTec.php?Acao=Setor&Codigo=" . $TecTabela[$i][0] . "'><button class='btn btn-info' > Excluir</button></th></a>";
                 echo " <th> <a href='cadastroSetor.php'> <button class='btn btn-info' type='submit' name='validar'> ADD</button></th></a>";
                 echo "<tr>";
             }
@@ -73,7 +73,7 @@ function Tabela($Tipo)
                 echo "<tr>";
                 echo "<th>" . $TecTabela[$i][0] . "</th>"; // codigo 
                 echo " <th>" . $TecTabela[$i][1] . "</th>";
-                echo "<th> <a href='../Controller/ControladorListaTec.php?Acao=Problemas&Codigo=".$TecTabela[$i][0] ."'><button class='btn btn-info' > Excluir</button></th></a>";
+                echo "<th> <a href='../Controller/ControladorListaTec.php?Acao=Problemas&Codigo=" . $TecTabela[$i][0] . "'><button class='btn btn-info' > Excluir</button></th></a>";
                 echo " <th> <a href='problemas.php'> <button class='btn btn-info' type='submit' name='validar'> ADD</button></th></a>";
                 echo "</tr>";
             }
@@ -82,67 +82,68 @@ function Tabela($Tipo)
 }
 
 
-function select($Tipo){
-        if($Tipo==="Setor"){
-            $Setor = new Setor(); 
-            $Resultado = $Setor->BuscarTodos(); 
-            $quant = Count($Resultado);
-            echo "<select class='custom-select custom-select-lg mb-3' name='Codigo' id='Codigo'>";
-            echo "<option value=''></option>";
-            for($i=0;$i<$quant;$i++){ 
+function select($Tipo)
+{
+    if ($Tipo === "Setor") {
+        $Setor = new Setor();
+        $Resultado = $Setor->BuscarTodos();
+        $quant = Count($Resultado);
+        echo "<select class='custom-select custom-select-lg mb-3' name='Codigo' id='Codigo'>";
+        echo "<option value=''></option>";
+        for ($i = 0; $i < $quant; $i++) {
 
-            echo "<option value='".$Resultado[$i][0]."'>".$Resultado[$i][3]."</option>"; 
-            }
-             echo "</select>";
-        }else{
-            if($Tipo==="Tecnico"){
-      
-
-                $Tecnico = new Tecnico();
-
-                $Resultado = $Tecnico->BuscarTodos(); 
-                $quant = Count($Resultado);
-                echo "<select class='custom-select custom-select-lg mb-3' name='CPF' id='CPF'>";
-                echo "<option value=''></option>";
-                for($i=0;$i<$quant;$i++){ 
-         
-                        echo "<option value='".$Resultado[$i][0]."'>".$Resultado[$i][1]."</option>"; 
-                }
-                echo "</select>";
-            }else{
-                $Problema = new Problema();
-                $Resultado= $Problema->BuscarTodos(); 
-               $quant= count($Resultado);
-
-               echo "<select class='custom-select custom-select-lg mb-3' name='Problema' id='Problema'>";
-               echo "<option value= ''</option>"; 
-               for($i=0;$i<$quant;$i++){ 
-                echo "<option value= '".$Resultado[$i][0]."'>".$Resultado[$i][1]."</option>"; 
-                }
-                 echo "</select>";
-                
-            }
+            echo "<option value='" . $Resultado[$i][0] . "'>" . $Resultado[$i][3] . "</option>";
         }
-    
+        echo "</select>";
+    } else {
+        if ($Tipo === "Tecnico") {
+
+
+            $Tecnico = new Tecnico();
+
+            $Resultado = $Tecnico->BuscarTodos();
+            $quant = Count($Resultado);
+            echo "<select class='custom-select custom-select-lg mb-3' name='CPF' id='CPF'>";
+            echo "<option value=''></option>";
+            for ($i = 0; $i < $quant; $i++) {
+
+                echo "<option value='" . $Resultado[$i][0] . "'>" . $Resultado[$i][1] . "</option>";
+            }
+            echo "</select>";
+        } else {
+            $Problema = new Problema();
+            $Resultado = $Problema->BuscarTodos();
+            $quant = count($Resultado);
+
+            echo "<select class='custom-select custom-select-lg mb-3' name='Problema' id='Problema'>";
+            echo "<option value= ''</option>";
+            for ($i = 0; $i < $quant; $i++) {
+                echo "<option value= '" . $Resultado[$i][0] . "'>" . $Resultado[$i][1] . "</option>";
+            }
+            echo "</select>";
+        }
+    }
 }
 
-function pedeSenha(){
-    echo'<div id="exterior">';
-    echo'<div   id="interior" id="alterar-form"">';
-    echo'<form method="POST" action="">';
-    echo'<p>Insira sua senha : </p> <input class="form-control" type="alterar-setor" name="senha" />';
-    echo'<p>';
+function pedeSenha()
+{
+    echo '<div id="exterior">';
+    echo '<div   id="interior" id="alterar-form"">';
+    echo '<form method="POST" action="">';
+    echo '<p>Insira sua senha : </p> <input class="form-control" type="alterar-setor" name="senha" />';
+    echo '<p>';
     echo '<a href=""><button id="mudar" class="btn btn-info" aria-controls="mudar">Confirmar</button></a>';
     echo '<button id="voltar-alterar" class="btn btn-info" aria-controls="voltar-alterar">Voltar</button>';
-    echo'</p>';
-    echo'</form>';
-    echo'</div>';
+    echo '</p>';
+    echo '</form>';
+    echo '</div>';
     echo '</div>';
 }
 
 
 
-function enviaEmail(){
+function enviaEmail()
+{
     $mail = new PHPMailer\PHPMailer\PHPMailer();
     $mail->IsSMTP(); // enable SMTP
 
@@ -152,12 +153,12 @@ function enviaEmail(){
     $mail->Host = "smtp.gmail.com";
     $mail->Port = 465; // or 587
     $mail->IsHTML(true);
-    $mail->Username = "yansbarreiro@gmail.com";//conta gmail
-    $mail->Password = "SENHA GMAIL";//por motivos obvios n deixei a minha aqui
-    $mail->SetFrom("yansbarreiro@gmail.com");//n sei
-    $mail->Subject = "Test";//assunto do email
-    $mail->Body = "hello";//email em si
-    $mail->AddAddress("yansbarreiro@gmail.com");//email q quer enviar
+    $mail->Username = "yansbarreiro@gmail.com"; //conta gmail
+    $mail->Password = "SENHA GMAIL"; //por motivos obvios n deixei a minha aqui
+    $mail->SetFrom("yansbarreiro@gmail.com"); //n sei
+    $mail->Subject = "Test"; //assunto do email
+    $mail->Body = "hello"; //email em si
+    $mail->AddAddress("yansbarreiro@gmail.com"); //email q quer enviar
 
     if (!$mail->Send()) {
         echo "Mailer Error: " . $mail->ErrorInfo;
@@ -166,11 +167,12 @@ function enviaEmail(){
     }
 }
 
-function mensagem($texto){
+function mensagem($texto)
+{
     echo '<div id="exterior">';
     echo '<div   id="interior" id="alterar-form"">';
     echo '<form method="POST" action="">';
-    echo '<p>Insira Aqui : </p> <input class="form-control" type="alterar-setor" value="' .$texto .'" name="texto" />'; 
+    echo '<p>Insira Aqui : </p> <input class="form-control" type="alterar-setor" value="' . $texto . '" name="texto" />';
     echo '<p>';
     echo '<div>';
     echo '<a href=""><button id="OK" class="btn btn-info" aria-controls="OK">OK</button></a>';
@@ -179,5 +181,44 @@ function mensagem($texto){
     echo '</form>';
     echo '</div>';
     echo '</div>';
+}
 
+
+function selectPesquisa($Cargo)
+{
+
+    if ($Cargo === "Tecnico") {
+        echo ' <option value="Padrao">Padrão</option>';
+        echo '<option value="Finalizado">Finalizado</option>';
+        echo '<option value="Numero">Numero do Chamado</option>';
+        echo '<option value="Problema">Problema</option>';
+        echo '<option value="Solicitante">Solicitante</option>';
+        echo '<option value="Estado">Estado</option>';
+        echo '<option value="Prioridade">Prioridade</option>';
+        echo '<option value="Qtdias">Quantidade de dias</option>';
+    } else {
+        if ($Cargo === "Gerente") {
+            echo ' <option value="Padrao">Padrão</option>';
+            echo '<option value="Finalizado">Finalizado</option>';
+            echo '<option value="Numero">Numero do Chamado</option>';
+            echo '<option value="Problema">Problema</option>';
+            echo '<option value="Solicitante">Solicitante</option>';
+            echo '<option value="Estado">Estado</option>';
+            echo '<option value="Prioridade">Prioridade</option>';
+            echo '<option value="Atendente">Atendente</option>';
+            echo '<option value="Qtdias">Quantidade de dias</option>';
+        }else{
+            echo ' <option value="Padrao">Padrão</option>';
+            echo '<option value="Finalizado">Finalizado</option>';
+            echo '<option value="Numero">Numero do Chamado</option>';
+            echo '<option value="Problema">Problema</option>';
+            echo ' <option value="Setor">Setor</option>';
+            echo '<option value="Solicitante">Solicitante</option>';
+            echo '<option value="Estado">Estado</option>';
+            echo '<option value="Prioridade">Prioridade</option>';
+            echo '<option value="Atendente">Atendente</option>';
+            echo '<option value="Qtdias">Quantidade de dias</option>';
+        } 
+    }
+    return;
 }

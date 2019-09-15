@@ -188,13 +188,13 @@
             </div>
 
             <div id="form-finalizar" style="display:none">
-                <form method="POST" action="../Controller/ControladorChamadoAtual.php>"></form>
+                <form method="POST" action="../Controller/ControladorChamadoAtual.php">
                 <div class=" itens">
                     <div class="arrumar">
 
                         <p>
                             <h5 style="color:rgb(14, 7, 7) ">Digite o Relatório de Finalização </h5>
-                            <textarea name="Finalização" rows="4" value="" id="finalizar" cols="50" size="50px" maxlength="99999"></textarea>
+                            <textarea name="Finalizar" rows="4" value="" id="finalizar" cols="50" size="50px" maxlength="99999"></textarea>
                             <input type="Hidden" name="Numero" value=" <?php echo $Chamado->getNumero(); ?>">
                             <input type="Hidden" name="Acao" value="Finalizar">
                         </p>

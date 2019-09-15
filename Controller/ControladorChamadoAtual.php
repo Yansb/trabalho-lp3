@@ -12,7 +12,7 @@
              
                     if( $Chamado->Atender()>0){
                 
-                     header("Location: ../View/ChamadoAtual.php");
+                        header("Location: ../View/Chamados.php"); 
                 
                     }else{
                     echo "erro ao atender";
@@ -43,8 +43,19 @@
       if(isset($_POST['Acao'])){
 
         if( $_POST['Acao']==="Finalizar"){
-                echo "foi";
-    
+                $Atual = new DateTime();
+                $DataHora =$Atual->format('d-m-Y H:i:s');
+                 $Descricao = $_POST["Finalizar"];
+
+                $Historico= new HistoricoChamado($DataHora,$Descricao); 
+                $Historico->setChamado($_POST['Numero']); 
+
+                $Chamado = new Chamado($_POST['Numero']); 
+                if($Chamado->Finalizar()>0 && $Historico->adicionar()>0){
+
+                    header("Location: ../View/Chamados.php"); 
+                }
+
         }else{
             if( $_POST['Acao']==="Tombo"){
                 

@@ -8,20 +8,19 @@ if (isset($_POST['Pesquisar'])) {
     $Chamado = new Chamado();
 
 
-    if ($Pesquisar == "Periodo") {
+    if ($Pesquisar == "Finalizado") {
 
-
-
-        $Chamado->setDataHoraAbertura($_POST['Inicio']);
-        $Chamado->setDataHoraFechamento($_POST['Fim']);
-        $Resultado = $Chamado->Pesquisar($Pesquisar);
+        $Chamado->setStatus('Finalizado');
+        $Chamado->setSetor($_SESSION["Tecnico"]->getSetor());
         $_SESSION["Chamado2"] = $Chamado;
-        $_SESSION["Tipo"] = "Periodo";
+        $_SESSION["Tipo"] = "Finalizado";
+        echo $Chamado->getSetor(); 
 
         header("Location: ../View/Chamados.php");
     } else {
         if ($Pesquisar == "Numero") {
             $Chamado->setNumero($_POST['Numero']);
+            $Chamado->setSetor($_SESSION["Tecnico"]->getSetor());
             $_SESSION["Chamado"] = $Chamado;
             $_SESSION["Tipo"] = "Numero";
 
@@ -30,6 +29,7 @@ if (isset($_POST['Pesquisar'])) {
             if ($Pesquisar == "Problema") {
 
                 $Chamado->setProblema($_POST['Problema']);
+                $Chamado->setSetor($_SESSION["Tecnico"]->getSetor());
                 $_SESSION["Chamado"] = $Chamado;
                 $_SESSION["Tipo"] = "Problema";
 
@@ -45,7 +45,7 @@ if (isset($_POST['Pesquisar'])) {
                 } else {
                     if ($Pesquisar == "Solicitante") {
                         $Chamado->setSolicitante($_POST['Solicitante']);
-
+                        $Chamado->setSetor($_SESSION["Tecnico"]->getSetor());
                         $_SESSION["Chamado"] = $Chamado;
                         $_SESSION["Tipo"] = "Solicitante";
 
@@ -54,6 +54,7 @@ if (isset($_POST['Pesquisar'])) {
                         if ($Pesquisar == "Estado") {
                             $Chamado->setStatus($_POST['Estado']);
                             $_SESSION["Chamado"] = $Chamado;
+                            $Chamado->setSetor($_SESSION["Tecnico"]->getSetor());
                             $_SESSION["Tipo"] = "Estado";
 
                             header("Location: ../View/Chamados.php");
@@ -61,6 +62,7 @@ if (isset($_POST['Pesquisar'])) {
                             if ($Pesquisar == "Prioridade") {
 
                                 $Chamado->setPrioridade($_POST['Prioridade']);
+                                $Chamado->setSetor($_SESSION["Tecnico"]->getSetor());
                                 $_SESSION["Chamado"] = $Chamado;
                                 $_SESSION["Tipo"] = "Prioridade";
 

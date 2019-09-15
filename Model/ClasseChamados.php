@@ -91,7 +91,8 @@ include "ClasseChamadosDAO.php";
             }
             public function Finalizar()
             {
-                
+                $Chamado = new ChamadoDAO();
+               return  $Chamado->Finalizar($this); 
             }
 
             public function VerificarAtendente(){
