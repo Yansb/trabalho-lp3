@@ -140,10 +140,10 @@
         </div>
   
 
-        <div id=" form-encaminhar" style="display:none; ">
+        <div id="form-encaminhar" style="display:none; ">
                     <form method="POST" action="../Controller/ControladorChamadoAtual.php">
 
-                        <div class=" itens">
+                        <div class="itens">
                             <div class="arrumar">
 
                                 <p>Selecione o Técnico</p>
