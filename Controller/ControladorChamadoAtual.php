@@ -43,7 +43,7 @@
       if(isset($_POST['Acao'])){
 
         if( $_POST['Acao']==="Finalizar"){
-        
+                echo "foi";
     
         }else{
             if( $_POST['Acao']==="Tombo"){
@@ -56,7 +56,7 @@
                  $Chamado->setSetor($_POST['Codigo']);
                  
                 $Chamado->Encaminhar(); 
-                header("Location: ../View/ChamadoAtual.php");
+                header("Location: ../View/Chamados.php");
                 }else{
                     if( $_POST['Acao']==="Historico"){
                         $Atual = new DateTime();
@@ -67,7 +67,7 @@
                     
                         
                         if($Historico->adicionar()>0){
-                            echo "adicionado com sucesso ";
+                            header("Location: ../View/ChamadoAtual.php");
                         } 
                      
 

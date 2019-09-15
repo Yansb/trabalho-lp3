@@ -111,7 +111,7 @@
       </div>
 
     </form>
-    <!--<form method="POST" action="../Controller/ControladorTecnico.php" class="needs-validation">-->
+    <form method="POST" action="../Controller/ControladorTecnico.php" class="needs-validation">
     <div class="form-row">
       <div class="col-md-30">
         <h3>Remover Tecnico</h3>
@@ -121,16 +121,16 @@
           Select("Tecnico");
           ?>
         </p>
-        <!--<input type="hidden" id="Acao" name="Acao" value="Remover">-->
+        <input type="hidden" id="Acao" name="Acao" value="Remover">
 
         <div class="botoes">
-          <button id="remover-tecnico" aria-controls="remover-tecnico" class="btn btn-info">Remover</button>
+          <button type="submit" aria-controls="remover-tecnico" class="btn btn-info">Remover</button>
         </div>
 
 
       </div>
     </div>
-    <!--</form>-->
+    </form>
 
     <div>
       <form method="POST" action="../Controller/ControladorTecnico.php" class="needs-validation">

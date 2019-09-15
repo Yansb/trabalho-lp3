@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/MYB.css">
   <?php
- require_once "../Model/ClasseChamados.php";
- require_once "../Model/ClassUsuarios.php";
- require_once "function.php";
-   session_start(); 
+  require_once "../Model/ClasseChamados.php";
+  require_once "../Model/ClassUsuarios.php";
+  require_once "function.php";
+  session_start();
   $Setor = new Setor();
   ?>
 </head>
@@ -32,7 +32,7 @@
             <div class="btn btn-info btn-lg">Menu</div>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <?php Menu($_SESSION["Tecnico"]->getCargo());?> 
+            <?php Menu($_SESSION["Tecnico"]->getCargo()); ?>
           </div>
         </li>
         <li>
@@ -92,11 +92,11 @@
 
         </p>
 
-
+        <div class="botoes">
+          <button type="submit" class="btn btn-info">Remover</button>
+        </div>
     </form>
-    <div class="botoes">
-      <button id="remover-setor" class="btn btn-info">Remover</button>
-    </div>
+
     <form id="box" method="POST" action="../Controller/ControladorSetor.php">
       <h3>Alterar Setor</h3>
 
@@ -124,19 +124,10 @@
           <button id="alterar-setor" class="btn btn-info">Alterar</button>
         </div>
     </form>
-        
+
   </div>
 
-  <div class="conter-item-validar" id="remover-form" style="display:none;">
-    <form method="POST" action="">
-      <p>Insira sua senha : </p> <input class="form-control" type="remover-setor" name="senha" />
-      <p>
-      <a href=""><button id="apagar" class="btn btn-info" aria-controls="apagar">Remover</button></a>
-      <button id="voltar-form" class="btn btn-info" aria-controls="voltar-form">Voltar</button>
-    </p>
-    </form>
-    
-  </div>
+
 
 
 

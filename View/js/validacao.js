@@ -63,13 +63,13 @@ function mostraOculta(opc) {
     }
 
 
-    if (document.getElementById(opc).value == 'Equipamento') {
+    if (document.getElementById(opc).value == 'Problema') {
 
-        if (document.getElementById("Equipamento").style.display == 'none') {
-            document.getElementById("Equipamento").style.display = 'inline';
+        if (document.getElementById("Problema").style.display == 'none') {
+            document.getElementById("Problema").style.display = 'inline';
         }
     } else {
-        document.getElementById("Equipamento").style.display = 'none';
+        document.getElementById("Problema").style.display = 'none';
     }
 
 

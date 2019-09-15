@@ -20,6 +20,7 @@ if ($Acao === "Logar") {
         $Chamado = new Chamado();
         $Chamado->setSetor($Tecnico->getSetor());
         $_SESSION["Chamado"]= $Chamado; 
+        $_SESSION["Tipo"]= "Normal";
 
          $_SESSION["Tecnico"]= $Tecnico; 
          if($Tecnico->getCargo()==="Admin")

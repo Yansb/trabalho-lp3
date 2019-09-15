@@ -74,9 +74,9 @@ if (isset($_POST['Acao'])) {
         $Link = $_POST['Link'];
         $Plugin = $_POST['Plugin'];
 
-        $ChamadoSoftware = new ChamadoSoftware("", $Descricao, $Setor, "dad", "adad", "dasda", $DataHoraAbertura, $Link, $Plugin);
+        $ChamadoSoftware = new ChamadoSoftware("", $Descricao, $Setor, "", "adad", "dasda", $DataHoraAbertura, $Link, $Plugin);
         $$Usuario = new Usuario($Nome, $CPF, $Telefone, $Email);
-
+        
         if ($ChamadoSoftware->Adicionar($Usuario) > 0) {
 
             header('Location: ../Model/ClasseChamadosDAO.php');
@@ -92,10 +92,11 @@ if (isset($_POST['Acao'])) {
      
            $Usuario = new Usuario();
            $Usuario->setCPF($_POST["CPF"]);
-        $Usuario->getCPF();
+           $Usuario->getCPF();
             if ($Usuario->VerificarCPF()!=0) {
                
                 $_SESSION["Usuario"]= $Usuario; 
+                $_SESSION["Tipo"]= "Normal";
               header('Location: ../View/usuario.php'); 
 
             }else

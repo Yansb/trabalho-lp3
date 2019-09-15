@@ -35,7 +35,7 @@
                     $Tecnico= new Tecnico($CPF);
 
                     if($Tecnico->Remover()>0){
-                            
+                       
                             header('location: ../View/CadastroTecnico.php');
                     }
                     else{
