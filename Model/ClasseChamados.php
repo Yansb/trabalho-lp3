@@ -53,6 +53,10 @@ include "ClasseChamadosDAO.php";
                 return $Chamado->Pesquisar($this,$Tipo); 
 
             }
+            public function PesquisarAtual(){
+                $Chamado= new ChamadoDAO();
+                return $Chamado->PesquisarAtual($this); 
+            }
             public function Alterar()
             {
                 $Chamado= new ChamadoDAO();
@@ -66,10 +70,10 @@ include "ClasseChamadosDAO.php";
                 return $Chamado->BuscarTodos(); 
             }
             
-            Public function BuscarUsuario($Usuario) // busca todos chamados aberto de determinado usuario; 
+            Public function BuscarUsuario($Usuario,$Tipo) // busca todos chamados aberto de determinado usuario; 
             {
                 $Chamado= new ChamadoDAO(); 
-               return $Chamado->BuscarUsuario($Usuario);
+               return $Chamado->BuscarUsuario($this,$Usuario,$Tipo);
           
               
             }
@@ -100,28 +104,7 @@ include "ClasseChamadosDAO.php";
           }
         
           
-            public  function PrintUserTabela($Usuario)
-            {
-           
-                $Resultado = $this->BuscarUsuario($Usuario); 
-                $quant = Count($Resultado); 
-                for($i=0;$i<$quant;$i++){ 
             
-                    echo "<tr>"; 
-                    echo "<td scope='row'><a href='ChamadoAtualUsuario.php'>".$Resultado[$i][0]."</a></td>";
-                    echo "<td><a href='ChamadoAtualUsuario.php'>".$Resultado[$i][1]." </a></td>"; 
-                    echo"<td>".$Resultado[$i][2]."</td>";
-                    echo"<td>".$Resultado[$i][4]."</td>";  
-                    echo"<td class='bg-danger'>".$Resultado[$i][5]."</td>"; 
-                    echo"<td>".$Resultado[$i][6]."</td>";  
-                    echo"<td>".$Resultado[$i][7]."</td>"; 
-                    echo"<td>tem que fazer</td>";  
-                   echo "</tr>"; 
-          
-        
-                }
-                
-            }
             public function getTombo()
             {
                         return $this->Tombo;
@@ -345,9 +328,9 @@ include "ClasseChamadosDAO.php";
             }
 
             
-            public function setDataHora($Data)
+            public function setDataHora($DataHora)
             {
-                        $this->Data = $DataHora;
+                        $this->DataHora = $DataHora;
 
                         return $this;
             }
@@ -374,6 +357,10 @@ include "ClasseChamadosDAO.php";
             public function Adicionar(){
                 $Historico = new HistoricoChamadoDAO(); 
                 return $Historico->Adicionar($this);
+            }
+            public function BuscarTodos(){
+                $Historico = new HistoricoChamadoDAO(); 
+                return $Historico->BuscarTodos($this);
             }
   
 

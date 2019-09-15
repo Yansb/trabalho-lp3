@@ -152,6 +152,44 @@ class ChamadoDAO
         $Minhaconexao = NULL;
     }
 
+    public function PesquisarAtual($Chamado)
+    {
+
+
+        try {
+            $Minhaconexao = ConnectionFactory::getConnection();
+            $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.cpf as solicitante, s.nome as setor, c.estado, c.prioridade, c.abertura, c.fim , p.nome as problema, c.obs
+            from myb1.chamado c left join myb1.funcionario f on c.cpf_funcionario = f.cpf
+            inner join myb1.setor s on c.codigo_setor= s.codigo 
+             inner join myb1.usuario u on c.cpf_usuario = u.cpf
+             inner join myb1.problema p on c.id_problema = p.idproblema
+            where c.numero_chamado =:numero; ");
+
+            $SQL->bindParam("numero", $Numero);
+            $Numero = $Chamado->getNumero();
+            $SQL->execute();
+            while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+
+                $Chamado->setDescricao($linha['descricao']);
+                $Chamado->setTecnico($linha['atendente']);
+                $Chamado->setSolicitante($linha['solicitante']);
+                $Chamado->setSetor($linha['setor']);
+                $Chamado->setStatus($linha['estado']);
+                $Chamado->setprioridade($linha['prioridade']);
+                $Chamado->setDataHoraAbertura($linha['abertura']);
+                $Chamado->setDataHoraFechamento($linha['fim']);
+                $Chamado->setProblema($linha['problema']);
+                $Chamado->setOBS($linha['obs']);
+
+                echo $Chamado->getTecnico();
+            }
+
+            return true;
+        } catch (PDOException $Erro) {
+            echo $Erro->getMessage();
+        }
+        $Minhaconexao = NULL;
+    }
     public function Pesquisar($Chamado, $Tipo)
     {
 
@@ -175,25 +213,21 @@ class ChamadoDAO
                     where c.numero_chamado =:numero");
 
                     $SQL->bindParam("numero", $Numero);
-                  $Numero =  $Chamado->getNumero();
+                    $Numero =  $Chamado->getNumero();
+
 
                     $SQL->execute();
-                    $SQL->setFetchMode(PDO::FETCH_ASSOC);
 
+                    $SQL->setFetchMode(PDO::FETCH_ASSOC);
+                    $vet = array();
+                    $i = 0;
 
                     while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
-                        $Chamado->setNumero($linha['numero']);
-                        $Chamado->setDescricao($linha['descricao']);
 
-                        $Chamado->setTecnico($linha['atendente']);
-                        $Chamado->setSolicitante($linha['solicitante']);
-                        $Chamado->setSetor($linha['setor']);
-                        $Chamado->setStatus($linha['estado']);
-                        $Chamado->setPrioridade($linha['prioridade']);
-                        $Chamado->setDataHoraAbertura($linha['abertura']);
-                      
+                        $vet[$i] = array($linha['numero'], $linha['descricao'], $linha['atendente'], $linha['solicitante'], $linha['setor'], $linha['estado'], $linha['prioridade'], $linha['abertura']);
+                        $i++;
                     }
-                    return true;
+                    return $vet;
                 } else {
                     if ($Tipo === "Normal") {
 
@@ -217,24 +251,83 @@ class ChamadoDAO
                         return $vet;
                     } else {
                         if ($Tipo === "Solicitante") {
-                            $SQL = $Minhaconexao->prepare("");
-                            $SQL->bindParam("Solicitante", $Solicitante);
-                            $Solicitante = $Chamado->getSolicitante();
+                            $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante, s.nome as setor, c.estado, c.prioridade, c.abertura
+                            from myb1.chamado c left join myb1.funcionario f on c.cpf_funcionario = f.cpf
+                            inner join myb1.setor s on c.codigo_setor= s.codigo 
+                            inner join myb1.usuario u on c.cpf_usuario = u.cpf
+                            where u.nome =:solicitante");
+                            $SQL->bindParam("solicitante", $Solicitante);
+                            $Solicitante = $Chamado->getSolicitante();;
+                            $SQL->execute();
+                            $SQL->setFetchMode(PDO::FETCH_ASSOC);
+                            $vet = array();
+                            $i = 0;
+
+                            while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+                                $vet[$i] = array($linha['numero'], $linha['descricao'], $linha['atendente'], $linha['solicitante'], $linha['setor'], $linha['estado'], $linha['prioridade'], $linha['abertura']);
+                                $i++;
+                            }
+                            return $vet;
                         } else {
                             if ($Tipo === "Estado") {
-                                $SQL = $Minhaconexao->prepare("");
+                                $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante, s.nome as setor, c.estado, c.prioridade, c.abertura
+                                from myb1.chamado c left join myb1.funcionario f on c.cpf_funcionario = f.cpf
+                                inner join myb1.setor s on c.codigo_setor= s.codigo 
+                                inner join myb1.usuario u on c.cpf_usuario = u.cpf
+                                where c.estado =:estado");
                                 $SQL->bindParam("estado", $Status);
                                 $Status = $Chamado->getStatus();
+
+                                $SQL->execute();
+                                $SQL->setFetchMode(PDO::FETCH_ASSOC);
+                                $vet = array();
+                                $i = 0;
+
+                                while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+                                    $vet[$i] = array($linha['numero'], $linha['descricao'], $linha['atendente'], $linha['solicitante'], $linha['setor'], $linha['estado'], $linha['prioridade'], $linha['abertura']);
+                                    $i++;
+                                }
+                                return $vet;
                             } else {
                                 if ($Tipo === "Prioridade") {
-                                    $SQL = $Minhaconexao->prepare("");
-                                    $SQL->bindParam("numero", $Prioridade);
-                                    $Prioridade = $Chamado->getNumero();
+                                    $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante, s.nome as setor, c.estado, c.prioridade, c.abertura
+                                    from myb1.chamado c left join myb1.funcionario f on c.cpf_funcionario = f.cpf
+                                    inner join myb1.setor s on c.codigo_setor= s.codigo 
+                                    inner join myb1.usuario u on c.cpf_usuario = u.cpf
+                                    where c.prioridade =:prioridade");
+                                    $SQL->bindParam("prioridade", $Prioridade);
+                                    $Prioridade = $Chamado->getPrioridade();
+
+                                    $SQL->execute();
+                                    $SQL->setFetchMode(PDO::FETCH_ASSOC);
+                                    $vet = array();
+                                    $i = 0;
+
+                                    while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+                                        $vet[$i] = array($linha['numero'], $linha['descricao'], $linha['atendente'], $linha['solicitante'], $linha['setor'], $linha['estado'], $linha['prioridade'], $linha['abertura']);
+                                        $i++;
+                                    }
+                                    return $vet;
                                 } else {
                                     if ($Tipo === "Atendente") {
-                                        $SQL = $Minhaconexao->prepare("");
-                                        $SQL->bindParam("numero", $Atendente);
-                                        $Atendente = $Chamado->getAtendente();
+                                        $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante, s.nome as setor, c.estado, c.prioridade, c.abertura
+                                        from myb1.chamado c left join myb1.funcionario f on c.cpf_funcionario = f.cpf
+                                        inner join myb1.setor s on c.codigo_setor= s.codigo 
+                                        inner join myb1.usuario u on c.cpf_usuario = u.cpf
+                                        where c.cpf_funcionario =:atendente");
+                                        $SQL->bindParam("atendente", $Atendente);
+                                        $Atendente = $Chamado->getTecnico();
+
+                                        $SQL->execute();
+                                        $SQL->setFetchMode(PDO::FETCH_ASSOC);
+                                        $vet = array();
+                                        $i = 0;
+
+                                        while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+                                            $vet[$i] = array($linha['numero'], $linha['descricao'], $linha['atendente'], $linha['solicitante'], $linha['setor'], $linha['estado'], $linha['prioridade'], $linha['abertura']);
+                                            $i++;
+                                        }
+                                        return $vet;
                                     } else {
                                         if ($Tipo === "Setor") {
 
@@ -242,9 +335,10 @@ class ChamadoDAO
                                             from myb1.chamado c left join myb1.funcionario f on c.cpf_funcionario = f.cpf
                                             inner join myb1.setor s on c.codigo_setor= s.codigo 
                                             inner join myb1.usuario u on c.cpf_usuario = u.cpf
-                                            where s.nome =:setor and (c.estado = 'Em Aberto' or c.estado = 'Em Atendimento')");
+                                            where c.codigo_setor =:setor ");
                                             $SQL->bindParam("setor", $Setor);
                                             $Setor = $Chamado->getSetor();
+
 
                                             $SQL->execute();
                                             $SQL->setFetchMode(PDO::FETCH_ASSOC);
@@ -257,11 +351,48 @@ class ChamadoDAO
                                             }
                                             return $vet;
                                         } else {
+                                            if ($Tipo === "Problema") {
+                                                $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante, s.nome as setor, c.estado, c.prioridade, c.abertura
+                                                from myb1.chamado c left join myb1.funcionario f on c.cpf_funcionario = f.cpf
+                                                inner join myb1.setor s on c.codigo_setor= s.codigo 
+                                                inner join myb1.usuario u on c.cpf_usuario = u.cpf
+                                                where c.id_problema =:problema ");
+                                                $SQL->bindParam("problema", $Problema);
+                                                $Problema = $Chamado->getProblema();
+                                                $SQL->execute();
+                                                $SQL->setFetchMode(PDO::FETCH_ASSOC);
+                                                $vet = array();
+                                                $i = 0;
 
-                                            $SQL = $Minhaconexao->prepare("");
-                                            //$SQL->bindParam("qtds", $Qtds);
-                                            //$Qtds= $Chamado->getQtds();
-                                            // qtd dias;
+                                                while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+                                                    $vet[$i] = array($linha['numero'], $linha['descricao'], $linha['atendente'], $linha['solicitante'], $linha['setor'], $linha['estado'], $linha['prioridade'], $linha['abertura']);
+                                                    $i++;
+                                                }
+                                                return $vet;
+                                            } else {
+                                                if ($Tipo === "Qdias") {
+
+                                                    $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante, s.nome as setor, c.estado, c.prioridade, c.abertura
+                                                    from myb1.chamado c left join myb1.funcionario f on c.cpf_funcionario = f.cpf
+                                                    inner join myb1.setor s on c.codigo_setor= s.codigo 
+                                                    inner join myb1.usuario u on c.cpf_usuario = u.cpf
+                                                    where  c.qdias = :qdias ");
+                                                    $SQL->bindParam("qdias", $Qdias);
+                                                    $Qdias = $Chamado->getSetor();
+
+
+                                                    $SQL->execute();
+                                                    $SQL->setFetchMode(PDO::FETCH_ASSOC);
+                                                    $vet = array();
+                                                    $i = 0;
+
+                                                    while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+                                                        $vet[$i] = array($linha['numero'], $linha['descricao'], $linha['atendente'], $linha['solicitante'], $linha['setor'], $linha['estado'], $linha['prioridade'], $linha['abertura']);
+                                                        $i++;
+                                                    }
+                                                    return $vet;
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -301,28 +432,77 @@ class ChamadoDAO
         $Minhaconexao = NULL;
     }
 
-    public function BuscarUsuario($Usuario)
+    public function BuscarUsuario($Chamado, $Usuario, $Tipo)
     {
         try {
             $Minhaconexao = ConnectionFactory::getConnection();
-            $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante, s.nome as setor, c.estado as situacao, c.prioridade, c.abertura
+            if ($Tipo == "Normal") {
+                $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante, s.nome as setor, c.estado as situacao, c.prioridade, c.abertura
             from myb1.chamado c inner join myb1.usuario u on c.cpf_usuario = u.cpf 
             inner join myb1.setor s on c.codigo_setor = s.codigo
             left join myb1.funcionario f on f.cpf= c.cpf_funcionario 
             where c.cpf_usuario =:cpf");
-            $SQL->bindParam('cpf', $CPF);
-            $CPF = $Usuario->getCPF();
+                $SQL->bindParam('cpf', $CPF);
+                $CPF = $Usuario->getCPF();
 
-            $SQL->execute();
-            $SQL->setFetchMode(PDO::FETCH_ASSOC);
-            $vet = array();
-            $i = 0;
+                $SQL->execute();
+                $SQL->setFetchMode(PDO::FETCH_ASSOC);
+                $vet = array();
+                $i = 0;
 
-            while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
-                $vet[$i] = array($linha['numero'], $linha['descricao'], $linha['atendente'], $linha['solicitante'], $linha['setor'], $linha['situacao'], $linha['prioridade'], $linha['abertura']);
-                $i++;
+                while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+                    $vet[$i] = array($linha['numero'], $linha['descricao'], $linha['atendente'], $linha['solicitante'], $linha['setor'], $linha['situacao'], $linha['prioridade'], $linha['abertura']);
+                    $i++;
+                }
+                return $vet;
+            } else {
+                if ($Tipo == "Numero") {
+                    $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante, s.nome as setor, c.estado as situacao, c.prioridade, c.abertura
+                from myb1.chamado c inner join myb1.usuario u on c.cpf_usuario = u.cpf 
+                inner join myb1.setor s on c.codigo_setor = s.codigo
+                left join myb1.funcionario f on f.cpf= c.cpf_funcionario 
+                where c.cpf_usuario =:cpf and c.numero_chamado =:numero");
+                    $SQL->bindParam('cpf', $CPF);
+                    $SQL->bindParam('numero', $Numero);
+                    $CPF = $Usuario->getCPF();
+                    $Numero = $Chamado->getNumero();
+
+                    $SQL->execute();
+                    $SQL->setFetchMode(PDO::FETCH_ASSOC);
+                    $vet = array();
+                    $i = 0;
+
+                    while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+                        $vet[$i] = array($linha['numero'], $linha['descricao'], $linha['atendente'], $linha['solicitante'], $linha['setor'], $linha['situacao'], $linha['prioridade'], $linha['abertura']);
+                        $i++;
+                    }
+                    return $vet;
+                } else {
+
+                    if ($Tipo == "Setor") {
+                        $SQL = $Minhaconexao->prepare("select c.numero_chamado as numero, c.descricao, f.nome as atendente, u.nome as solicitante, s.nome as setor, c.estado as situacao, c.prioridade, c.abertura
+                    from myb1.chamado c inner join myb1.usuario u on c.cpf_usuario = u.cpf 
+                    inner join myb1.setor s on c.codigo_setor = s.codigo
+                    left join myb1.funcionario f on f.cpf= c.cpf_funcionario 
+                    where c.cpf_usuario =:cpf and c.codigo_setor = :setor ");
+                        $SQL->bindParam('cpf', $CPF);
+                        $SQL->bindParam('setor', $Setor);
+                        $CPF = $Usuario->getCPF();
+                        $Setor = $Chamado->getSetor();
+
+                        $SQL->execute();
+                        $SQL->setFetchMode(PDO::FETCH_ASSOC);
+                        $vet = array();
+                        $i = 0;
+
+                        while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+                            $vet[$i] = array($linha['numero'], $linha['descricao'], $linha['atendente'], $linha['solicitante'], $linha['setor'], $linha['situacao'], $linha['prioridade'], $linha['abertura']);
+                            $i++;
+                        }
+                        return $vet;
+                    }
+                }
             }
-            return $vet;
         } catch (PDOException $Erro) {
             echo $Erro;
         }
@@ -351,6 +531,36 @@ class HistoricoChamadoDAO
             $SQL->execute();
 
             return $SQL->rowCount();
+        } catch (PDOException $Erro) {
+
+            echo "Erro ao adicionar Historico" . $Erro->getmessage();
+            return 0;
+        }
+        $Minhaconexao = null;
+    }
+
+    public function BuscarTodos($Historico)
+    {
+        try {
+            $Minhaconexao = ConnectionFactory::getconnection();
+
+            $SQL = $Minhaconexao->prepare("select *from myb1.historico where numero_chamado=:numero"); // codigo sql
+
+
+            $SQL->bindParam("numero", $Numero);
+            $Numero = $Historico->getChamado();
+            $SQL->execute();
+            $SQL->setFetchMode(PDO::FETCH_ASSOC);
+            $vet = array();
+            $i = 0;
+
+            while ($linha = $SQL->fetch(PDO::FETCH_ASSOC)) {
+                $vet[$i] = array($linha["id"],$linha["DataHora"],$linha["descricao"],$linha["numero_chamado"],);
+                $i++; 
+
+            }
+
+            return $vet;
         } catch (PDOException $Erro) {
 
             echo "Erro ao adicionar Historico" . $Erro->getmessage();

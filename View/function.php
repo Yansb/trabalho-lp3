@@ -47,7 +47,7 @@ function Tabela($Tipo)
             echo "<th>" . $TecTabela[$i][3] . "</th>"; // login
             echo " <th>" . $TecTabela[$i][1] . "</th>";
             echo "<th>" . $TecTabela[$i][2] . "</th>";
-            echo "<th> <button class='btn btn-info' type='submit' name='validar'> Excluir</button></th>";
+            echo "<th><a href='../Controller/ControladorListaTec.php?Acao=Tecnico&CPF=".$TecTabela[$i][0]."'> <button class='btn btn-info' > Excluir</button></th></a>";
             echo " <th> <a href='CadastroTecnico.php'> <button class='btn btn-info' type='submit' name='validar'> ADD</button></th></a>";
             echo "</tr>";
         }
@@ -61,8 +61,8 @@ function Tabela($Tipo)
                 echo " <th>" . $TecTabela[$i][3] . "</th>";
                 echo "<th>" . $TecTabela[$i][1] . "</th>";
                 echo "<th>" . $TecTabela[$i][2] . "</th>";
-                echo "<th> <button class='btn btn-info' type='submit' name='validar'> Excluir</button></th>";
-                echo " <th> <a href='CadastroTecnico.php'> <button class='btn btn-info' type='submit' name='validar'> ADD</button></th></a>";
+                echo "<th> <a href='../Controller/ControladorListaTec.php?Acao=Setor&Codigo=".$TecTabela[$i][0]."'><button class='btn btn-info' > Excluir</button></th></a>";
+                echo " <th> <a href='cadastroSetor.php'> <button class='btn btn-info' type='submit' name='validar'> ADD</button></th></a>";
                 echo "<tr>";
             }
         } else {
@@ -73,8 +73,8 @@ function Tabela($Tipo)
                 echo "<tr>";
                 echo "<th>" . $TecTabela[$i][0] . "</th>"; // codigo 
                 echo " <th>" . $TecTabela[$i][1] . "</th>";
-                echo "<th> <button class='btn btn-info' type='submit' name='validar'> Excluir</button></th>";
-                echo " <th> <a href='CadastroTecnico.php'> <button class='btn btn-info' type='submit' name='validar'> ADD</button></th></a>";
+                echo "<th> <a href='../Controller/ControladorListaTec.php?Acao=Problemas&Codigo=".$TecTabela[$i][0] ."'><button class='btn btn-info' > Excluir</button></th></a>";
+                echo " <th> <a href='problemas.php'> <button class='btn btn-info' type='submit' name='validar'> ADD</button></th></a>";
                 echo "</tr>";
             }
         }

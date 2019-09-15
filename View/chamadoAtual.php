@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/MYB.css">
     <?php
+ 
     require_once "../Model/ClasseChamados.php";
     require_once "../Model/ClassUsuarios.php";
     require_once "function.php";
-    session_start();
 
     session_start();
 
     $Tecnico = $_SESSION['Tecnico'];
-    $Chamado = $_SESSION['Chamado'];
+    $Chamado = $_SESSION['Chamado2'];
     $Usuario  =  $_SESSION['Usuario'];
 
 
@@ -111,17 +111,21 @@
 
         <div id="form-processamento" style="display: none; margin-top: 8%">
 
-
-
-
-            <div class="ChatProcessamento">
-                <img src="img/avatar.png" alt="Matheus" style="width:5%;">Matheus
-                <p style="margin-left:8%">Fonte Trocada e testada e equipamento testado </p>
-                <span class="time-right">13:02</span>
-            </div>
-
             <div class="ChatProcessamento" style="border:0; margin-left:40%">
                 <form method="POST" action="../Controller/ControladorChamadoAtual.php">
+                    <?php
+                    $Historico = new HistoricoChamado();
+                    $Historico->setChamado($Chamado->getNumero());
+                    $Resultado = $Historico->BuscarTodos();
+                    $quant = count($Resultado);
+                    for ($i = 0; $i < $quant; $i++) {
+                        echo '<p>';
+                       echo '<img src="img/avatar.png" alt="Matheus" style="width:5%;">'.$Tecnico->getNome();
+                        echo '<p style="margin-left:8%">'.$Resultado[$i][2].'</p>';
+                        echo '<span class="time-right">'.$Resultado[$i][1].'</span>';
+                        echo '</p>';
+                    }
+                    ?>
                     <p>
                         <h5 style="color:rgb(14, 7, 7) ">Novo Processamento </h5>
                         <textarea name="Descricao" id="process" rows="4" value="" cols="50" size="50px" maxlength="99999" required></textarea>
@@ -129,13 +133,14 @@
                         <input type="Hidden" name="Numero" value="<?php echo $Chamado->getNumero(); ?>">
 
                     </p>
-                    <input class="btn btn-info" type="submit" value="Processar" ">
+                    <input class="btn btn-info" type="submit" value="Processar" >
             </form>
             </div>
 
         </div>
+  
 
-        <div id=" form-encaminhar" style="display: none; ">
+        <div id=" form-encaminhar" style="display:none; ">
                     <form method="POST" action="../Controller/ControladorChamadoAtual.php">
 
                         <div class=" itens">
@@ -156,8 +161,6 @@
                                 <input type="Hidden" name="Acao" value="Encaminhar">
                                 <input class="btn btn-info" type="submit" method="POST" alue="Encaminhar">
 
-
-
                             </div>
                         </div>
                     </form>
@@ -177,26 +180,28 @@
                                 <h5 style="color:rgb(14, 7, 7) ">Relate o que aconteceu: </h5>
                                 <textarea name="OBS" rows="4" value="" id="relato" cols="50" size="50px" maxlength="99999"></textarea>
                             </p>
-                            <input class="btn btn-info" type="submit" method="POST" action="" value="Finalizar" onclick="tombamento()">
+                            <input class="btn btn-info" type="submit" value="Marcar" >
 
                         </div>
                     </div>
                 </form>
             </div>
 
-            <div id="form-finalizar" style="display: none">
-                <form method="POST" action="../Controller/ControladorChamadoAtual.php?>"></form>
+            <div id="form-finalizar" style="display:none">
+                <form method="POST" action="../Controller/ControladorChamadoAtual.php>"></form>
                 <div class=" itens">
                     <div class="arrumar">
 
                         <p>
                             <h5 style="color:rgb(14, 7, 7) ">Digite o Relatório de Finalização </h5>
-                            <textarea name="OBS" rows="4" value="" id="finalizar" cols="50" size="50px" maxlength="99999"></textarea>
-
+                            <textarea name="Finalização" rows="4" value="" id="finalizar" cols="50" size="50px" maxlength="99999"></textarea>
+                            <input type="Hidden" name="Numero" value=" <?php echo $Chamado->getNumero(); ?>">
+                            <input type="Hidden" name="Acao" value="Finalizar">
                         </p>
-                        <input class="btn btn-info" type="submit" method="POST" action="" value="Finalizar" onclick="finalizar()">
+
 
                     </div>
+                    <input class="btn btn-info" type="submit" value="Finalizar">
                 </div>
                 </form>
             </div>

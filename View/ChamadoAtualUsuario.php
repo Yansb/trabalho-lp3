@@ -15,7 +15,7 @@
     session_start();
     
     
-    $Chamado = $_SESSION['Chamado'];
+    $Chamado = $_SESSION['Chamado2'];
     $Usuario  =  $_SESSION['Usuario'];
     
     

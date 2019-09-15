@@ -14,7 +14,7 @@
     require_once "../Model/ClasseChamados.php";
     require_once "../Model/ClassUsuarios.php";
     require_once "function.php";
-    session_start(); 
+    session_start();
     ?>
 
 </head>
@@ -32,7 +32,7 @@
                         <div class="btn btn-info btn-lg">Menu</div>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <?php Menu($_SESSION['Tecnico']->getCargo()); ?>
+                        <?php Menu($_SESSION['Tecnico']->getCargo()); ?>
                     </div>
                 </li>
                 <li>
@@ -61,17 +61,17 @@
                 <p>
                     <p>Pesquisar por:</p>
                     <select class="custom-select custom-select-lg mb-3" id="Pesquisar" name="Pesquisar" onchange="mostraOculta('Pesquisar');">
-                        <option value=""></option>
+                        <option value="Padrao">Padrão</option>
                         <option value="Periodo">Período</option>
                         <option value="Numero">Numero do Chamado</option>
-                        <option value="Equipamento">Equipamento</option>
+                        <option value="Problema">Problema</option>
                         <option value="Setor">Setor</option>
                         <option value="Solicitante">Solicitante</option>
                         <option value="Estado">Estado</option>
                         <option value="Prioridade">Prioridade</option>
                         <option value="Atendente">Atendente</option>
                         <option value="Qtdias">Quantidade de dias</option>
-                       
+
 
                     </select>
                 </p>
@@ -86,9 +86,9 @@
                 <p>Termina em:</p><input class="form-control" type="date" name="Fim" id="Fim" />
             </div>
 
-            <div class="divDireita" id="Equipamento" style="display:none;">
+            <div class="divDireita" id="Problema" style="display:none;">
                 <p> Qual Problema?</p>
-                <?php  Select("Problema");?>
+                <?php Select("Problema"); ?>
 
             </div>
             <div class="divDireita" id="Solicitante" style="display:none;">
@@ -98,10 +98,11 @@
             <div class="divDireita" id="Estado" style="display:none;">
                 <p>Qual?</p>
                 <select class="custom-select custom-select-lg mb-3" id="Estado" name="Estado">
-                    <option value="Aberto">Em Aberto </option>
-                    <option value="Atendimento">Em Atendimento</option>
-                    <option value="Fechado">Fechado</option>
                     <option value=""></option>
+                    <option value="Em Aberto">Em Aberto </option>
+                    <option value="Em Atendimento">Em Atendimento</option>
+                    <option value="Fechado">Fechado</option>
+
                 </select>
 
 
@@ -109,26 +110,26 @@
             <div class="divDireita" id="Prioridade" style="display:none;">
                 <p>Qual?</p>
                 <select class="custom-select custom-select-lg mb-3" name="Prioridade">
-
+                    <option value=""></option>
                     <option value="Baixa">Baixa </option>
                     <option value="Consideravel">Considerável</option>
                     <option value="Alta">Alta</option>
                     <option value="Muito Alta">Muito Altao</option>
-                    <option value=""></option>
+
                 </select>
 
             </div>
             <div class="divDireita" id="Atendente" style="display:none;">
                 <p>Selecione o Nome</p>
 
-                <?php  Select("Tecnico");?>
+                <?php Select("Tecnico"); ?>
 
             </div>
             <div class="divDireita" id="Setor" style="display:none;">
                 <p>Selecione o Setor</p>
-              
 
-                <?php  Select("Setor"); ?>
+
+                <?php Select("Setor"); ?>
 
             </div>
             <div class="divDireita" id="Qtdias" style="display:none;">
@@ -165,26 +166,28 @@
                     </tr>
                 </thead>
                 <?php
-    
-              $Resultado= $_SESSION['Chamado']->Pesquisar("Normal");
-              $quant = Count($Resultado); 
-              for($i=0;$i<$quant;$i++){ 
-              
-                  echo "<tr>"; 
-                  echo "<td scope='row'><a href='../Controller/ControladorChamados.php?Numero=".$Resultado[$i][0]."&Pagina=2&Acao=Busca'>".$Resultado[$i][0]."</a></td>";
-                  echo "<td><a href='../Controller/ControladorChamados.php?Numero=".$Resultado[$i][0]."&Pagina=2&Acao=Busca'>".$Resultado[$i][1]." </a></td>"; 
-                  echo"<td>".$Resultado[$i][2]."</td>";
-                  echo"<td>".$Resultado[$i][3]."</td>";  
-                  echo"<td>".$Resultado[$i][4]."</td>";  
-                  echo"<td class='bg-danger'>".$Resultado[$i][5]."</td>"; 
-                  echo"<td>".$Resultado[$i][6]."</td>";  
-                  echo"<td>".$Resultado[$i][7]."</td>"; 
-                  echo"<td>tem que fazer</td>";  
-                 echo "</tr>"; 
-              }
-              /*0['numero']1['descricao']2['atendente']3['solicitante']4['setor']
-              5['situacao']6['prioridade']7['abertura']*/
-      
+             
+                    $Resultado = $_SESSION['Chamado']->Pesquisar($_SESSION['Tipo']);
+                    $quant = Count($Resultado);
+                  
+                    for ($i = 0; $i < $quant; $i++) {
+
+                        echo "<tr>";
+                        echo "<td scope='row'><a href='../Controller/ControladorChamados.php?Numero=".$Resultado[$i][0]."&Pagina=2&Acao=Busca'>".$Resultado[$i][0] . "</a></td>";
+                        echo "<td><a href='../Controller/ControladorChamados.php?Numero=".$Resultado[$i][0]."&Pagina=2&Acao=Busca'>".$Resultado[$i][1] . " </a></td>";
+                        echo "<td>" . $Resultado[$i][2] . "</td>";
+                        echo "<td>" . $Resultado[$i][3] . "</td>";
+                        echo "<td>" . $Resultado[$i][4] . "</td>";
+                        echo "<td class='bg-danger'>" . $Resultado[$i][5] . "</td>";
+                        echo "<td>" . $Resultado[$i][6] . "</td>";
+                        echo "<td>" . $Resultado[$i][7] . "</td>";
+                        echo "<td>tem que fazer</td>";
+                        echo "</tr>";
+                    }
+                    /*0['numero']1['descricao']2['atendente']3['solicitante']4['setor']
+                  5['situacao']6['prioridade']7['abertura']*/
+                
+
                 ?>
 
                 </tbody>
