@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/MYB.css">
     <?php
- 
+
     require_once "../Model/ClasseChamados.php";
     require_once "../Model/ClassUsuarios.php";
     require_once "function.php";
@@ -120,9 +120,9 @@
                     $quant = count($Resultado);
                     for ($i = 0; $i < $quant; $i++) {
                         echo '<p>';
-                       echo '<img src="img/avatar.png" alt="Matheus" style="width:5%;">'.$Tecnico->getNome();
-                        echo '<p style="margin-left:8%">'.$Resultado[$i][2].'</p>';
-                        echo '<span class="time-right">'.$Resultado[$i][1].'</span>';
+                        echo '<img src="img/avatar.png" alt="Matheus" style="width:5%;">' . $Tecnico->getNome();
+                        echo '<p style="margin-left:8%">' . $Resultado[$i][2] . '</p>';
+                        echo '<span class="time-right">' . $Resultado[$i][1] . '</span>';
                         echo '</p>';
                     }
                     ?>
@@ -133,62 +133,62 @@
                         <input type="Hidden" name="Numero" value="<?php echo $Chamado->getNumero(); ?>">
 
                     </p>
-                    <input class="btn btn-info" type="submit" value="Processar" >
-            </form>
-            </div>
-
-        </div>
-  
-
-        <div id="form-encaminhar" style="display:none; ">
-                    <form method="POST" action="../Controller/ControladorChamadoAtual.php">
-
-                        <div class="itens">
-                            <div class="arrumar">
-
-                                <p>Selecione o Técnico</p>
-
-                                <?php
-                                Select("Tecnico");
-                                ?>
-
-                                <p>Selecione o Setor</p>
-
-                                <?php
-                                Select("Setor");
-                                ?>
-                                <input type="Hidden" name="Numero" value=" <?php echo $Chamado->getNumero(); ?>">
-                                <input type="Hidden" name="Acao" value="Encaminhar">
-                                <input class="btn btn-info" type="submit" method="POST" alue="Encaminhar">
-
-                            </div>
-                        </div>
-                    </form>
-            </div>
-            <div id="form-tombamento" style="display: none">
-
-                <form method="POST" action="../Controller/ControladorChamadoAtual.php">
-                    <div class=" itens">
-                        <div class="arrumar">
-                            <p>
-                                <h5 style="color:rgb(14, 7, 7) ">Código do Tombamento</h5>
-                                <input class="form-control" value="" id="codTomb" type="text" id="CodigoTombamento" name="CodigoTombamento" size="25px" maxlength="100">
-
-                            </p>
-
-                            <p>
-                                <h5 style="color:rgb(14, 7, 7) ">Relate o que aconteceu: </h5>
-                                <textarea name="OBS" rows="4" value="" id="relato" cols="50" size="50px" maxlength="99999"></textarea>
-                            </p>
-                            <input class="btn btn-info" type="submit" value="Marcar" >
-
-                        </div>
-                    </div>
+                    <input class="btn btn-info" type="submit" value="Processar">
                 </form>
             </div>
 
-            <div id="form-finalizar" style="display:none">
-                <form method="POST" action="../Controller/ControladorChamadoAtual.php">
+        </div>
+
+
+        <div id="form-encaminhar" style="display:none; ">
+            <form method="POST" action="../Controller/ControladorChamadoAtual.php">
+
+                <div class="itens">
+                    <div class="arrumar">
+
+                        <p>Selecione o Técnico</p>
+
+                        <?php
+                        Select("Tecnico");
+                        ?>
+
+                        <p>Selecione o Setor</p>
+
+                        <?php
+                        Select("Setor");
+                        ?>
+                        <input type="Hidden" name="Numero" value=" <?php echo $Chamado->getNumero(); ?>">
+                        <input type="Hidden" name="Acao" value="Encaminhar">
+                        <input class="btn btn-info" type="submit" method="POST" alue="Encaminhar">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="form-tombamento" style="display: none">
+
+            <form method="POST" action="../Controller/ControladorChamadoAtual.php">
+                <div class=" itens">
+                    <div class="arrumar">
+                        <p>
+                            <h5 style="color:rgb(14, 7, 7) ">Código do Tombamento</h5>
+                            <input class="form-control" value="" id="codTomb" type="text" id="CodigoTombamento" name="CodigoTombamento" size="25px" maxlength="100">
+
+                        </p>
+
+                        <p>
+                            <h5 style="color:rgb(14, 7, 7) ">Relate o que aconteceu: </h5>
+                            <textarea name="OBS" rows="4" value="" id="relato" cols="50" size="50px" maxlength="99999"></textarea>
+                        </p>
+                        <input class="btn btn-info" type="submit" value="Marcar">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div id="form-finalizar" style="display:none">
+            <form method="POST" action="../Controller/ControladorChamadoAtual.php">
                 <div class=" itens">
                     <div class="arrumar">
 
@@ -203,13 +203,13 @@
                     </div>
                     <input class="btn btn-info" type="submit" value="Finalizar">
                 </div>
-                </form>
-            </div>
+            </form>
+        </div>
 
-            <!-- 
-        <div id="form-atender" style="display: none">
-            <h1>ATENDER</h1>
-            <div class=" itens">
+         
+        <div id="form-estado" style="display: none">
+            <h1>Alterar Estado</h1>
+            <div class="itens">
                 <div class="arrumar">
                     <p>Número do Processamento <input class="form-control" type="text" name="chamado" size="25px"
                             maxlength="100"></p>
@@ -234,25 +234,26 @@
             </div>
             </form>
         </div>
-  -->
 
 
-            <div class="esquerda">
-                <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="Chamado" data-toggle="list" href="#" role="tab" aria-controls="Chamado">Chamado</a>
-                    <a class="list-group-item list-group-item-action" id="Processamento" data-toggle="list" href="#" role="tab" aria-controls="Processamento">Histórico de Alteração</a>
-                    <a class="list-group-item list-group-item-action" id="Encaminhar" data-toggle="list" href="#" role="tab" aria-controls="Encaminhar">Encaminhar</a>
-                    <a class="list-group-item list-group-item-action" id="Tombamento" data-toggle="list" href="#" role="tab" aria-controls="Tombamento">Tombo de Patrimônio</a>
-                    <a class="list-group-item list-group-item-action" id="Finalizar" data-toggle="list" href="#" role="tab" aria-controls="Finalizar">Finalizar</a>
-                    <a class="list-group-item list-group-item-action" id="Atender" href="../Controller/ControladorChamadoAtual.php?Acao=Atender&Numero=<?php echo $Chamado->getNumero(); ?>&Tecnico=<?php echo $Tecnico->getCPF(); ?>" role="tab" aria-controls="Atender">Atender</a>
-                    <a class="list-group-item list-group-item-action" id="Retornar" href="Chamados.php" role="tab" aria-controls="Retornar">Retornar</a>
 
-                </div>
+        <div class="esquerda">
+            <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="Chamado" data-toggle="list" href="#" role="tab" aria-controls="Chamado">Chamado</a>
+                <a class="list-group-item list-group-item-action" id="Processamento" data-toggle="list" href="#" role="tab" aria-controls="Processamento">Histórico de Alteração</a>
+                <a class="list-group-item list-group-item-action" id="Encaminhar" data-toggle="list" href="#" role="tab" aria-controls="Encaminhar">Encaminhar</a>
+                <a class="list-group-item list-group-item-action" id="Tombamento" data-toggle="list" href="#" role="tab" aria-controls="Tombamento">Tombo de Patrimônio</a>
+                <a class="list-group-item list-group-item-action" id="Estado" data-toggle="list" href="#" role="tab" aria-controls="Estado">Alterar Estado</a>
+                <a class="list-group-item list-group-item-action" id="Finalizar" data-toggle="list" href="#" role="tab" aria-controls="Finalizar">Finalizar</a>
+                <a class="list-group-item list-group-item-action" id="Atender" href="../Controller/ControladorChamadoAtual.php?Acao=Atender&Numero=<?php echo $Chamado->getNumero(); ?>&Tecnico=<?php echo $Tecnico->getCPF(); ?>" role="tab" aria-controls="Atender">Atender</a>
+                <a class="list-group-item list-group-item-action" id="Retornar" href="Chamados.php" role="tab" aria-controls="Retornar">Retornar</a>
 
             </div>
 
-
         </div>
+
+
+    </div>
 
 
 
