@@ -206,35 +206,25 @@
                 </form>
             </div>
 
-            <!-- 
-        <div id="form-atender" style="display: none">
-            <h1>ATENDER</h1>
+            
+        <div id="form-estado" style="display: none">
+              <form>     
             <div class=" itens">
                 <div class="arrumar">
-                    <p>Número do Processamento <input class="form-control" type="text" name="chamado" size="25px"
-                            maxlength="100"></p>
-                    <p>SEILA <input class="form-control" type="text" name="Nome" size="25px" maxlength="100"></p>
-                    <p>SO UM TESTE <input class="form-control" type="text" name="setor" size="25px" maxlength="100"></p>
-                    <p>
-                        Prioridade
-                        <input class="form-control" type="text" name="prioridade" size="0">
-                    </p>
+                <p>Deseja mudar para qual estado?</p>
+                <select class="custom-select custom-select-lg mb-3" name="Prioridade">
+                    <option value=""></option>
+                    <option value="Baixa">Baixa </option>
+                    <option value="Normal">Normal</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Muito Alta">Muito Altao</option>
 
-                    <p>Situação <input class="form-control" type="text" name="informe" size="25px" maxlength="100"></p>
-
-                    <p>Data de Abertura <input class="form-control" type="text" name="data" size="25px" maxlength="100">
-                    </p>
-                    <p> Técnico Responsável <input class="form-control" type="text" name="data" size="25px"
-                            maxlength="100"></p>
-                    <p>
-                        Observações <textarea name="OBS" rows="4" cols="50" size="50px" maxlength="99999" required>
-                            </textarea>
-                    </p>
+                </select>
                 </div>
             </div>
             </form>
         </div>
-  -->
+  
 
 
             <div class="esquerda">
@@ -243,9 +233,11 @@
                     <a class="list-group-item list-group-item-action" id="Processamento" data-toggle="list" href="#" role="tab" aria-controls="Processamento">Histórico de Alteração</a>
                     <a class="list-group-item list-group-item-action" id="Encaminhar" data-toggle="list" href="#" role="tab" aria-controls="Encaminhar">Encaminhar</a>
                     <a class="list-group-item list-group-item-action" id="Tombamento" data-toggle="list" href="#" role="tab" aria-controls="Tombamento">Tombo de Patrimônio</a>
+                    <a class="list-group-item list-group-item-action" id="Estado" data-toggle="list" href="#" role="tab" aria-controls="Estado">Estado</a>
                     <a class="list-group-item list-group-item-action" id="Finalizar" data-toggle="list" href="#" role="tab" aria-controls="Finalizar">Finalizar</a>
                     <a class="list-group-item list-group-item-action" id="Atender" href="../Controller/ControladorChamadoAtual.php?Acao=Atender&Numero=<?php echo $Chamado->getNumero(); ?>&Tecnico=<?php echo $Tecnico->getCPF(); ?>" role="tab" aria-controls="Atender">Atender</a>
                     <a class="list-group-item list-group-item-action" id="Retornar" href="Chamados.php" role="tab" aria-controls="Retornar">Retornar</a>
+                    
 
                 </div>
 
