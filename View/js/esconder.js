@@ -4,7 +4,7 @@ $("#Processamento").click(function () {
     $("#form-encaminhar").hide();
     $("#form-tombamento").hide();
     $("#form-finalizar").hide();
-    $("#form-estado").hide();
+    $("#form-atender").hide();
 });
 $("#Chamado").click(function () {
     $("#form-chamado").show();
@@ -12,7 +12,7 @@ $("#Chamado").click(function () {
     $("#form-encaminhar").hide();
     $("#form-tombamento").hide();
     $("#form-finalizar").hide();
-    $("#form-estado").hide();
+    $("#form-atender").hide();
 });
 $("#Encaminhar").click(function () {
     $("#form-encaminhar").show();
@@ -20,7 +20,7 @@ $("#Encaminhar").click(function () {
     $("#form-chamado").hide();
     $("#form-tombamento").hide();
     $("#form-finalizar").hide();
-    $("#form-estado").hide();
+    $("#form-atender").hide();
 });
 $("#Tombamento").click(function () {
     $("#form-tombamento").show();
@@ -28,7 +28,7 @@ $("#Tombamento").click(function () {
     $("#form-chamado").hide();
     $("#form-encaminhar").hide();
     $("#form-finalizar").hide();
-    $("#form-estado").hide();
+    $("#form-atender").hide();
 });
 $("#Finalizar").click(function () {
     $("#form-finalizar").show();
@@ -36,17 +36,24 @@ $("#Finalizar").click(function () {
     $("#form-chamado").hide();
     $("#form-encaminhar").hide();  
     $("#form-tombamento").hide();
-    $("#form-estado").hide();
+    $("#form-atender").hide();
 });
-$("#Estado").click(function () {
+$("#Finalizar").click(function () {
+    $("#form-finalizar").show();
+    $("#form-processamento").hide();
     $("#form-chamado").hide();
+    $("#form-encaminhar").hide();
+    $("#form-tombamento").hide();
+    $("#form-atender").hide();
+});
+$("#Atender").click(function () {
+    $("#form-chamado").show();
     $("#form-processamento").hide();
     $("#form-encaminhar").hide();
     $("#form-tombamento").hide();
     $("#form-finalizar").hide();
-    $("#form-estado").show();
+    $("#form-atender").hide();
 });
-
 $("#consulta").click(function () {
     $("#consulta-form").show();
     $("#exterior").hide();

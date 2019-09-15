@@ -6,7 +6,7 @@
         public static function getConnection(){
             $Servername="localhost:3306";
             $Username="root";
-            $Password="f25ni6gt";
+            $Password="152418";
             $Dbname="myb1";
 
             // colocar as informaçoes de acordo com as do servidor; 
