@@ -64,7 +64,20 @@ if (isset($_GET['Acao'])) {
                 echo "Erro Chamado já foi finalizado ";
             }
         } else {
-            if ($_POST['Acao'] === "Tombo") { } else {
+            if ($_POST['Acao'] === "Tombo") {
+
+                $Chamado = new Chamado($_POST['Numero']);
+                $Chamado->setStatus("finalizado");
+                $Chamado->setTombo($_POST['Tombamento']);
+               
+                echo $Chamado->getTombo();
+                if ($Chamado->VerificarEstado() == 0) {
+                    if ($Chamado->MarcarTombo())
+                        header("Location: ../View/Chamados.php");
+                } else {
+                    echo "Chamado já foi finalizado";
+                }
+            } else {
                 if ($_POST['Acao'] === "Encaminhar") {
                     $Chamado = new Chamado($_POST['Numero']);
                     $Chamado->setStatus("finalizado");

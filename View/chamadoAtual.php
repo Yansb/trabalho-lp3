@@ -158,7 +158,7 @@
                         ?>
                         <input type="Hidden" name="Numero" value=" <?php echo $Chamado->getNumero(); ?>">
                         <input type="Hidden" name="Acao" value="Encaminhar">
-                        <input class="btn btn-info" type="submit" method="POST" alue="Encaminhar">
+                        <input class="btn btn-info" type="submit" method="POST" value="Encaminhar">
 
                     </div>
                 </div>
@@ -169,16 +169,13 @@
             <form method="POST" action="../Controller/ControladorChamadoAtual.php">
                 <div class=" itens">
                     <div class="arrumar">
-                        <p>
-                            <h5 style="color:rgb(14, 7, 7) ">Código do Tombamento</h5>
-                            <input class="form-control" value="" id="codTomb" type="text" id="CodigoTombamento" name="CodigoTombamento" size="25px" maxlength="100">
-
-                        </p>
-
+                       
                         <p>
                             <h5 style="color:rgb(14, 7, 7) ">Relate o que aconteceu: </h5>
-                            <textarea name="OBS" rows="4" value="" id="relato" cols="50" size="50px" maxlength="99999"></textarea>
+                            <textarea name="Tombamento" rows="4" value="" id="relato" cols="50" size="50px" maxlength="99999"></textarea>
                         </p>
+                        <input type="Hidden" name="Acao" value="Tombo">
+                        <input type="Hidden" name="Numero" value=" <?php echo $Chamado->getNumero(); ?>">
                         <input class="btn btn-info" type="submit" value="Marcar">
 
                     </div>

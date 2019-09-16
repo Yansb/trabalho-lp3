@@ -145,19 +145,19 @@
         <p>
           Gostaria de alterar ?:
           <p>
-            <select class="custom-select custom-select-lg mb-3" name="alterar" id="">
-              <option value="">Nome</option>
-              <option value="">Telefone</option>
-              <option value="">Email</option>
-              <option value="">Cargo</option>
-              <option value="">Login</option>
-              <option value="">Senha</option>
+            <select class="custom-select custom-select-lg mb-3" name="Campo" id="">
+              <option value="nome">Nome</option>
+              <option value="telefone">Telefone</option>
+              <option value="email">Email</option>
+              <option value="cargo">Cargo</option>
+              <option value="login">Login</option>
+              <option value="senha">Senha</option>
             </select>
           </p>
 
         </p>
         <p>
-          Novo Campo<input class="form-control" value="" type="text" id="" name="Nome" size="25px" maxlength="100">
+          Novo Campo<input class="form-control" value="" type="text" id="" name="Novo" size="25px" maxlength="100">
         </p>
         <input type="hidden" id="Acao" name="Acao" value="Alterar">
         <div class="botoes">

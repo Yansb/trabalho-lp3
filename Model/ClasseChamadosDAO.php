@@ -171,6 +171,24 @@ class ChamadoDAO
         }
         $Minhaconexao = NULL;
     }
+    public function MarcarTombo($Chamado)
+    {
+        try {
+            $Minhaconexao = ConnectionFactory::getConnection();
+            $SQL = $Minhaconexao->prepare("update myb1.chamado set  tombo_patrimonio =:tombo where numero_chamado =:numero");
+
+            $SQL->bindParam("numero", $Numero);
+            $SQL->bindParam("tombo", $Tombo);
+            $Numero = $Chamado->getNumero();
+            $Tombo = $Chamado->getTombo();
+            $SQL->execute();
+
+            return $SQL->rowCount();
+        } catch (PDOException $Erro) {
+            echo $Erro->getMessage();
+        }
+        $Minhaconexao = NULL;
+    }
 
     public function Encaminhar($Chamado)
     {

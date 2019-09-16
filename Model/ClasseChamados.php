@@ -59,10 +59,11 @@ class Chamado
         $Chamado = new ChamadoDAO();
         return $Chamado->PesquisarAtual($this);
     }
-    public function Alterar()
+   
+    public function MarcarTombo()
     {
         $Chamado = new ChamadoDAO();
-        return $Chamado->Alterar();
+        return $Chamado->MarcarTombo($this);
     }
 
     public function BuscarTodos()

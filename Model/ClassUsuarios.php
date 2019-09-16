@@ -145,10 +145,10 @@
                         return $Tecnico->Remover($this);
                     }
                     
-                    public function Alterar($Novo){
+                    public function Alterar($Campo,$Novo){
 
                         $Tecnico = new TecnicoDAO(); 
-                        return $Tecnico->Alterar($this,$Novo); 
+                        return $Tecnico->Alterar($this,$Campo,$Novo); 
                     }
 
                     public function Pesquisar(){
