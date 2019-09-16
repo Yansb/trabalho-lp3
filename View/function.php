@@ -88,11 +88,11 @@ function select($Tipo)
         $Setor = new Setor();
         $Resultado = $Setor->BuscarTodos();
         $quant = Count($Resultado);
-        echo "<select class='custom-select custom-select-lg mb-3' name='Codigo' id='Codigo'>";
+        echo "<select class='custom-select custom-select-lg mb-3' name='Codigo' id='Codigo' '>";
         echo "<option value=''></option>";
         for ($i = 0; $i < $quant; $i++) {
 
-            echo "<option value='" . $Resultado[$i][0] . "'>" . $Resultado[$i][3] . "</option>";
+            echo "<option  value='" . $Resultado[$i][0] . "'>" . $Resultado[$i][3] . "</option>";
         }
         echo "</select>";
     } else {
@@ -113,16 +113,21 @@ function select($Tipo)
         } else {
             $Problema = new Problema();
             $Resultado = $Problema->BuscarTodos();
+         
             $quant = count($Resultado);
-
-            echo "<select class='custom-select custom-select-lg mb-3' name='Problema' id='Problema'>";
+         
+            echo "<select class='custom-select custom-select-lg mb-3' name='Problema' id='Problema' onchange='mostraOculta('Pesquisar');'>";
             echo "<option value= ''</option>";
             for ($i = 0; $i < $quant; $i++) {
+          
                 echo "<option value= '" . $Resultado[$i][0] . "'>" . $Resultado[$i][1] . "</option>";
+            
             }
-            echo "</select>";
+           echo "</select>";
+      
         }
     }
+    return; 
 }
 
 function pedeSenha()

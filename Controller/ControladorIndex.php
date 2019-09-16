@@ -17,7 +17,7 @@ if (isset($_POST['Acao'])) {
         $Email = $_POST["Email"];
         $Telefone = $_POST["Telefone"];
         $Setor = $_POST["Codigo"];
-        $Problema = $_POST["Problema"]; 
+        $Problema = $_POST["Problema"];
         if (isset($_POST["Arquivo"])) {
             $Arquivo = $_POST["Arquivo"];
         }
@@ -28,19 +28,20 @@ if (isset($_POST['Acao'])) {
         } else {
             $Tombo = "nao";
         }
-        echo $Arquivo;
-        $Usuario = new Usuario($CPF, $Nome, $Telefone, $Email);
-        if ($Usuario->Inserir() > 0) {
 
+        $Usuario = new Usuario($CPF, $Nome, $Telefone, $Email);
+        if ($A=$Usuario->Inserir() > 0) {
+          
             $Chamado = new Chamado("", $Descricao, "Em Aberto", $Setor, $Problema, "Normal", $Arquivo, $OBS, $DataHoraAbertura, null, $Usuario->getCPF(), $Tombo, null);
 
             if ($Chamado->Adicionar() > 0) {
-                
+
                 $_SESSION["Usuario"] = $Usuario;
+                $_SESSION['Tipo']= "Normal"; 
                 header('Location: ../View/usuario.php');
             } else {
                 echo "FALHA EM REALIZAR O CHAMADO";
-            }
+            } 
         }
     } else {
         echo "erro ao inserir ";
@@ -69,44 +70,50 @@ if (isset($_POST['Acao'])) {
         $CPF = $_POST["CPF"];
         $Email = $_POST["Email"];
         $Telefone = $_POST["Telefone"];
-        $Setor = $_POST["Lab"];
+        $Setor = 3;
         $Descricao = $_POST['Software'];
         $Link = $_POST['Link'];
         $Plugin = $_POST['Plugin'];
+        $Lab = $_POST['Lab'];
+        $Problema = 15;
+        $Tombo = "nao";
+        $Chamado = new Chamado();
 
-        $ChamadoSoftware = new ChamadoSoftware("", $Descricao, $Setor, "", "adad", "dasda", $DataHoraAbertura, $Link, $Plugin);
-        $$Usuario = new Usuario($Nome, $CPF, $Telefone, $Email);
-        
-        if ($ChamadoSoftware->Adicionar($Usuario) > 0) {
+        $Usuario = new Usuario($CPF, $Nome, $Telefone, $Email);
+        if ($Usuario->Inserir() > 0) {
 
-            header('Location: ../Model/ClasseChamadosDAO.php');
-        } else {
-            echo "FALHA EM REALIZAR O CHAMADO DE SOFTWARE";
+            $Chamado = new Chamado("", $Descricao, "Em Aberto", $Setor, $Problema, "Normal", null, null, $DataHoraAbertura, null, $Usuario->getCPF(), null, $Tombo);
+            $Chamado->setLink($Link);
+            $Chamado->setPlugin($Plugin);
+            $Chamado->setLab($Lab);
+
+            if ($Chamado->Adicionar() > 0) {
+
+                $_SESSION["Usuario"] = $Usuario;
+
+                $_SESSION['Tipo']= "Normal"; 
+                header('Location: ../View/usuario.php');
+            } else {
+                echo "FALHA EM REALIZAR O CHAMADO";
+            }
         }
     }
-}else{
+} else {
 
-    if(isset($_POST['Acao2'])){
-       
-        if( $Acao=$_POST["Acao2"]==="Consulta"){
-     
-           $Usuario = new Usuario();
-           $Usuario->setCPF($_POST["CPF"]);
-           $Usuario->getCPF();
-            if ($Usuario->VerificarCPF()!=0) {
-               
-                $_SESSION["Usuario"]= $Usuario; 
-                $_SESSION["Tipo"]= "Normal";
-              header('Location: ../View/usuario.php'); 
+    if (isset($_POST['Acao2'])) {
 
-            }else
-               echo  "Não exite Chamado para Esse CPF"; 
-            
-  
+        if ($Acao = $_POST["Acao2"] === "Consulta") {
 
+            $Usuario = new Usuario();
+            $Usuario->setCPF($_POST["CPF"]);
+            $Usuario->getCPF();
+            if ($Usuario->VerificarCPF() != 0) {
 
-            
-
+                $_SESSION["Usuario"] = $Usuario;
+                $_SESSION["Tipo"] = "Normal";
+                header('Location: ../View/usuario.php');
+            } else
+                echo  "Não exite Chamado para Esse CPF";
         }
     }
 }

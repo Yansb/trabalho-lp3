@@ -137,7 +137,7 @@
             echo "<td class='bg-danger'>" . $Resultado[$i][5] . "</td>";
             echo "<td>" . $Resultado[$i][6] . "</td>";
             echo "<td>" . $Resultado[$i][7] . "</td>";
-            echo "<td>tem que fazer</td>";
+            echo "<td>" . $Resultado[$i][8] . "</td>";
             echo "</tr>";
           }
           ?>

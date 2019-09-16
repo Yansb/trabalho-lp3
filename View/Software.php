@@ -44,7 +44,7 @@
                             size="25px" maxlength="100" value=""required>
                     </p>
 
-                    <p> Data de uso<input type="date" value="" id="data" name="data" size="25px" maxlength="11"required> </p>
+                 
 
 
                     <p>Link para Download<input class="form-control" value="" id="Link" type="url" name="Link"
@@ -66,7 +66,7 @@
                 </form>
                 <div>
                     <p><a href="index.php"><button class="btn btn-info">Voltar</button></a> </p>
-                    <a href="usuario.php"><button class="btn btn-info">consulta</button></a>
+                
                 </div>
 
 

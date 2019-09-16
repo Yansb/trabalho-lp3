@@ -74,12 +74,13 @@
                                                         ?></p>
                                                 <p>
                                                         Problema
+
                                                         <?php
-                                                       Select('Problema');
+                                                        Select('Problema');
                                                         ?>
 
                                                 </p>
-
+                                                
                                                 <p>Descrição: <input class="form-control" type="text" id="Descricao" value="" name="Descricao" size="25px" maxlength="100" value="" required></p>
 
                                                 <p>
@@ -122,11 +123,11 @@
                         <p>Insira seu CPF: </p> <input class="form-control" type="text" name="CPF" />
                         <input type="hidden" name="Acao2" value="Consulta" />
                         <p>
-                         <input class="btn btn-info" type="submit" value="Consultar">
-                        <button id="voltar-form" class="btn btn-info" aria-controls="voltar-form">Voltar</button>
-                </p>
+                                <input class="btn btn-info" type="submit" value="Consultar">
+                                <button id="voltar-form" class="btn btn-info" aria-controls="voltar-form">Voltar</button>
+                        </p>
                 </form>
-                
+
         </div>
 
 </body>

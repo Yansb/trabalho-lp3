@@ -31,8 +31,8 @@
                         }
                         public function Inserir(){
                                  
-                            if($this->VerificarCPF()!=0){
-                                return 1; 
+                            if($A=$this->VerificarCPF()!=0){
+                              
                             }else{
                                 $Usuario = new UsuarioDAO();
                                 return $Usuario->Inserir($this); 

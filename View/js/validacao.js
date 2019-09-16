@@ -118,6 +118,8 @@ function mostraOculta(opc) {
     } else {
         document.getElementById("Qtdias").style.display = 'none';
     }
+
+   
 }
 
 

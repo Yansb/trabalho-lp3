@@ -14,7 +14,7 @@ if (isset($_POST['Pesquisar'])) {
         $Chamado->setSetor($_SESSION["Tecnico"]->getSetor());
         $_SESSION["Chamado2"] = $Chamado;
         $_SESSION["Tipo"] = "Finalizado";
-        echo $Chamado->getSetor(); 
+        echo $Chamado->getSetor();
 
         header("Location: ../View/Chamados.php");
     } else {
@@ -71,6 +71,7 @@ if (isset($_POST['Pesquisar'])) {
                                 if ($Pesquisar == "Atendente") {
 
                                     $Chamado->setTecnico($_POST['CPF']);
+                                    $Chamado->setSetor($_SESSION["Tecnico"]->getSetor());
                                     $_SESSION["Chamado"] = $Chamado;
                                     $_SESSION["Tipo"] = "Atendente";
 
@@ -80,19 +81,21 @@ if (isset($_POST['Pesquisar'])) {
                                     if ($Pesquisar == "Padrao") {
 
                                         $Chamado->setSetor($_SESSION["Tecnico"]->getSetor());
-                                       $Chamado->getSetor();
+                                        $Chamado->getSetor();
                                         $_SESSION["Chamado"] = $Chamado;
                                         $_SESSION["Tipo"] = "Normal";
 
                                         header("Location: ../View/Chamados.php");
                                     } else {
-                                        /// qtdias
-                                        $QtdDias = $_POST['Qtdias'];
-                                        // $Chamado->setQtdias($_POST['Qtdias']);
-                                        $_SESSION["Chamado"] = $Chamado;
-                                        $_SESSION["Tipo"] = "Qtdias";
+                                        if ($Pesquisar === "Qtdias") {
+                                            $Chamado->setNumero($_POST['Qtdias']);
+                                            $Chamado->setSetor($_SESSION["Tecnico"]->getSetor());
+                                            $_SESSION["Chamado"] = $Chamado;
+                                            $_SESSION["Tipo"] = "Qtdias";
+                                            
 
-                                        header("Location: ../View/Chamados.php");
+                                         header("Location: ../View/Chamados.php");
+                                        }
                                     }
                                 }
                             }
