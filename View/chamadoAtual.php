@@ -65,6 +65,12 @@
 
     <br><br><br>
     <h1 style="margin-top:0%">MYB Chamado </h1>
+    <?php
+    if ($_SESSION["OPC"] = "Atender")
+        if ($_SESSION["Alerta"])
+            mensagem("Erro: O Chamado já Em Atendimento  ", "Atual")
+
+            ?>
 
     <div class="chamado" style="height: 120%;">
         <div style=" align-content: center; text-align: center;">
@@ -169,7 +175,7 @@
             <form method="POST" action="../Controller/ControladorChamadoAtual.php">
                 <div class=" itens">
                     <div class="arrumar">
-                       
+
                         <p>
                             <h5 style="color:rgb(14, 7, 7) ">Relate o que aconteceu: </h5>
                             <textarea name="Tombamento" rows="4" value="" id="relato" cols="50" size="50px" maxlength="99999"></textarea>

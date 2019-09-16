@@ -80,7 +80,7 @@
                                                         ?>
 
                                                 </p>
-                                                
+
                                                 <p>Descrição: <input class="form-control" type="text" id="Descricao" value="" name="Descricao" size="25px" maxlength="100" value="" required></p>
 
                                                 <p>
@@ -118,17 +118,23 @@
                                 </div>
                         </div>
         </div>
-        <div class="conter-item-validar" id="consulta-form" style="display:none;">
-                <form method="POST" action="../Controller/ControladorIndex.php">
-                        <p>Insira seu CPF: </p> <input class="form-control" type="text" name="CPF" />
-                        <input type="hidden" name="Acao2" value="Consulta" />
-                        <p>
-                                <input class="btn btn-info" type="submit" value="Consultar">
-                                <button id="voltar-form" class="btn btn-info" aria-controls="voltar-form">Voltar</button>
-                        </p>
-                </form>
+   
+
+                <div class="container"id="consulta-form" style="display:none;">
+                        <form method="POST" action="../Controller/ControladorIndex.php">
+                        <br>
+                                <h5>Insira seu CPF: </h5> 
+                                <p><input class="form-control type="text" name="CPF" maxlength="11"/></p>
+                                <input type="hidden" name="Acao2" value="Consulta" />
+                                <p>
+                                 <input class="btn btn-info" type="submit" value="Consultar">
+                        <button id="voltar-form" class="btn btn-info" aria-controls="voltar-form">Voltar</button>
+                                </p>
+                        </form>
+
 
         </div>
+
 
 </body>
 

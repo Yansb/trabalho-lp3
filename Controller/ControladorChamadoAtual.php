@@ -18,7 +18,12 @@ if (isset($_GET['Acao'])) {
                     echo "erro ao atender";
                 }
             } else {
-                echo "chamado já em atendimento";
+                
+                echo "<script>alert('Erro Chamado já em Atendimento');</script>";
+               //header("Location: ../View/chamadoAtual.php");
+            exit;
+               
+           
             }
         } else {
             echo "Erro Chamado já foi Finalizado";

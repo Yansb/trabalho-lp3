@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <nav class="navbar navbar-expand-lg navbar-primary bg-Secondary">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,27 +28,39 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuPrimary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="btn btn-info btn-lg">Menu</div>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <?php Menu($_SESSION['Tecnico']->getCargo()); ?>
                     </div>
                 </li>
-                <li>
-
-
-
-                </li>
             </ul>
+
+           
         </div>
-        <div>
-            <a href="#" class="btn btn-info btn-lg">
-                <li class="list-group">Nome:<?php echo  $_SESSION['Tecnico']->getNome()?></li>
-                <li class="list-group">Cargo:<?php  echo $_SESSION['Tecnico']->getCargo()?></li>
-                <li class="list-group">Setor:<?php echo $_SESSION['Tecnico']->getSetor()?></li>
-            </a>
-        </div>
+
+
+
+
+        <div class="collapse navbar-collapse" id="textoNavbar">
+                <ul class="navbar-nav" >
+                   
+                    <span class="navbar-text">
+                    <h5 class="text-white h4">Nome:  <?php echo  $_SESSION['Tecnico']->getNome() ?></h5>
+                 
+                    </span>
+                    <span class="navbar-text">
+                    <h5 class="text-white h4">Setor:  <?php echo $_SESSION['Tecnico']->getSetor() ?></h5>
+                 
+                    </span>
+                </ul>
+                <span class="navbar-text">
+                <h5 class="text-white h4">Cargo:  <?php echo $_SESSION['Tecnico']->getCargo() ?></h5>
+                </span>
+            </div>
+
+
 
         <div>
             <a href="login.php" class="btn btn-info btn-lg">
@@ -56,6 +68,9 @@
             </a>
         </div>
     </nav>
+
+
+
     <div class="pesquisa id=">
 
         <form action="../Controller/ControladorChamados.php" method="post">
@@ -67,8 +82,8 @@
                 <p>
                     <p>Pesquisar por:</p>
                     <select class="custom-select custom-select-lg mb-3" id="Pesquisar" name="Pesquisar" onchange="mostraOculta('Pesquisar');">
-                       
-                        <?php  selectPesquisa($_SESSION['Tecnico']->getCargo()); ?>
+
+                        <?php selectPesquisa($_SESSION['Tecnico']->getCargo()); ?>
 
                     </select>
                 </p>
@@ -163,36 +178,36 @@
                     </tr>
                 </thead>
                 <?php
-             
-                    $Resultado = $_SESSION['Chamado']->Pesquisar($_SESSION['Tipo']);
-                    $quant = Count($Resultado);
-                  
-                    for ($i = 0; $i < $quant; $i++) {
-                        if($Resultado[$i][5]==="Finalizado"){
-                            $cor = 'bg-success'; 
-                        }else{
-                            if($Resultado[$i][5]==="Em Atendimento"){
-                                $cor = 'bg-warning'; 
-                            }else{
-                                $cor = 'bg-danger'; 
-                            }
+
+                $Resultado = $_SESSION['Chamado']->Pesquisar($_SESSION['Tipo']);
+                $quant = Count($Resultado);
+
+                for ($i = 0; $i < $quant; $i++) {
+                    if ($Resultado[$i][5] === "Finalizado") {
+                        $cor = 'bg-success';
+                    } else {
+                        if ($Resultado[$i][5] === "Em Atendimento") {
+                            $cor = 'bg-warning';
+                        } else {
+                            $cor = 'bg-danger';
                         }
-                  
-                        echo "<tr>";
-                        echo "<td scope='row'><a href='../Controller/ControladorChamados.php?Numero=".$Resultado[$i][0]."&Pagina=2&Acao=Busca'>".$Resultado[$i][0] . "</a></td>";
-                        echo "<td><a href='../Controller/ControladorChamados.php?Numero=".$Resultado[$i][0]."&Pagina=2&Acao=Busca'>".$Resultado[$i][1] . " </a></td>";
-                        echo "<td>" . $Resultado[$i][2] . "</td>";
-                        echo "<td>" . $Resultado[$i][3] . "</td>";
-                        echo "<td>" . $Resultado[$i][4] . "</td>";
-                        echo "<td class='".$cor."'>" . $Resultado[$i][5] . "</td>";
-                        echo "<td>" . $Resultado[$i][6] . "</td>";
-                        echo "<td>" . $Resultado[$i][7] . "</td>";
-                        echo "<td>". $Resultado[$i][8] ."</td>";
-                        echo "</tr>";
                     }
-                    /*0['numero']1['descricao']2['atendente']3['solicitante']4['setor']
+
+                    echo "<tr>";
+                    echo "<td scope='row'><a href='../Controller/ControladorChamados.php?Numero=" . $Resultado[$i][0] . "&Pagina=2&Acao=Busca'>" . $Resultado[$i][0] . "</a></td>";
+                    echo "<td><a href='../Controller/ControladorChamados.php?Numero=" . $Resultado[$i][0] . "&Pagina=2&Acao=Busca'>" . $Resultado[$i][1] . " </a></td>";
+                    echo "<td>" . $Resultado[$i][2] . "</td>";
+                    echo "<td>" . $Resultado[$i][3] . "</td>";
+                    echo "<td>" . $Resultado[$i][4] . "</td>";
+                    echo "<td class='" . $cor . "'>" . $Resultado[$i][5] . "</td>";
+                    echo "<td>" . $Resultado[$i][6] . "</td>";
+                    echo "<td>" . $Resultado[$i][7] . "</td>";
+                    echo "<td>" . $Resultado[$i][8] . "</td>";
+                    echo "</tr>";
+                }
+                /*0['numero']1['descricao']2['atendente']3['solicitante']4['setor']
                   5['situacao']6['prioridade']7['abertura']*/
-                
+
 
                 ?>
 

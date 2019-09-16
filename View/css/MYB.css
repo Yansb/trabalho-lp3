@@ -228,7 +228,15 @@ th{
     padding: 50px;
     margin: 10px;
 }
-
+#Formasl {
+    display: inline-block;
+    width: 500px;
+    border: 3px solid grey;
+    padding: 50px;
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+}
 #form{
     flex-direction: column;
     flex-wrap: wrap;

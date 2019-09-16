@@ -22,6 +22,7 @@ if ($Acao === "Logar") {
         $_SESSION["Chamado"]= $Chamado; 
         $_SESSION["Tipo"]= "Normal";
 
+        $_SESSION['Alerta']= false; 
          $_SESSION["Tecnico"]= $Tecnico; 
          if($Tecnico->getCargo()==="Admin")
                  header('location: ../View/ListaTec.php'); 
@@ -31,6 +32,7 @@ if ($Acao === "Logar") {
     } else {
         unset ($_SESSION['Login']);
         unset ($_SESSION['Senha']);
+        $_SESSION['Alerta']= true; 
         header('location:../View/login.php');
     }
 }

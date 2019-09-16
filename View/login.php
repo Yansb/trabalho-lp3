@@ -12,7 +12,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/MYB.css">
 
-
+<?php require_once "function.php";
+    session_start();
+    $_SESSION['Alerta'];
+?>
 </head>
 
 <body>
@@ -24,12 +27,14 @@
 
             <ul class="right hide-on-med-and-down">
 
-                <li><a href="index.php" waves-effect waves-light btn-small"><i
-                            class="material-icons left">cloud</i>Novo Chamado</a></a></li>
+                <li><a href="index.php" waves-effect waves-light btn-small"><i class="material-icons left">cloud</i>Novo Chamado</a></a></li>
             </ul>
         </div>
     </nav>
-
+    <?php            //  if($_SESSION['Alerta']===true)
+                        //        mensagem("Verifique Login e Senha ", "Login"); 
+                ?>
+            </div>
 
     <header class="header">
 
@@ -64,7 +69,7 @@
                             <input id="Senha" name="Senha" type="password" required>
                             <label for="senha">Senha</label>
                         </div>
-                            <input type="hidden" id="Acao" name="Acao" value="Logar">
+                        <input type="hidden" id="Acao" name="Acao" value="Logar">
                         <div>
                             <p>
                                 <a><button class="btn btn-info">Login</button></a>
@@ -78,8 +83,7 @@
                 </form>
 
 
-
-            </div>
+               
 
 
         </div>

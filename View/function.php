@@ -113,21 +113,19 @@ function select($Tipo)
         } else {
             $Problema = new Problema();
             $Resultado = $Problema->BuscarTodos();
-         
+
             $quant = count($Resultado);
-         
+
             echo "<select class='custom-select custom-select-lg mb-3' name='Problema' id='Problema' onchange='mostraOculta('Pesquisar');'>";
             echo "<option value= ''</option>";
             for ($i = 0; $i < $quant; $i++) {
-          
+
                 echo "<option value= '" . $Resultado[$i][0] . "'>" . $Resultado[$i][1] . "</option>";
-            
             }
-           echo "</select>";
-      
+            echo "</select>";
         }
     }
-    return; 
+    return;
 }
 
 function pedeSenha()
@@ -172,13 +170,14 @@ function enviaEmail()
     }
 }
 
-function mensagem($texto)
+function mensagem($texto, $Pagina)
 {
     echo '<div id="exterior">';
     echo '<div   id="interior" id="alterar-form"">';
-    echo '<form method="POST" action="">';
-    echo '<p>Insira Aqui : </p> <input class="form-control" type="alterar-setor" value="' . $texto . '" name="texto" />';
-    echo '<p>';
+    echo '<form method="POST" action="../Controller/ControladorErro.php">';
+    echo ' <input type="hidden" id="Pagina" name="Pagina" value="' . $Pagina . '">';
+    echo '<h5 style=" color:blue;">' . $texto;
+    echo '</h5>';
     echo '<div>';
     echo '<a href=""><button id="OK" class="btn btn-info" aria-controls="OK">OK</button></a>';
     echo '</div>';
@@ -212,7 +211,7 @@ function selectPesquisa($Cargo)
             echo '<option value="Prioridade">Prioridade</option>';
             echo '<option value="Atendente">Atendente</option>';
             echo '<option value="Qtdias">Quantidade de dias</option>';
-        }else{
+        } else {
             echo ' <option value="Padrao">Padrão</option>';
             echo '<option value="Finalizado">Finalizado</option>';
             echo '<option value="Numero">Numero do Chamado</option>';
@@ -223,7 +222,7 @@ function selectPesquisa($Cargo)
             echo '<option value="Prioridade">Prioridade</option>';
             echo '<option value="Atendente">Atendente</option>';
             echo '<option value="Qtdias">Quantidade de dias</option>';
-        } 
+        }
     }
     return;
 }
