@@ -52,7 +52,6 @@
   <div class="pesquisa id=">
 
     <form action="../Controller/ControladorChamados.php" method="POST">
-      <!--Javascript aqui para quando eu selecionar um tipo de consulta, preencher a especificação dela -->
 
 
 

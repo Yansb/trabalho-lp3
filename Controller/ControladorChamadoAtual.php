@@ -15,18 +15,18 @@ if (isset($_GET['Acao'])) {
 
                     header("Location: ../View/Chamados.php");
                 } else {
-                    echo "erro ao atender";
+                    header ("Location: ../View/erro.php");
                 }
             } else {
                 
-                echo "<script>alert('Erro Chamado já em Atendimento');</script>";
-               //header("Location: ../View/chamadoAtual.php");
+                //echo "<script>alert('Erro Chamado já em Atendimento');</script>";
+               header("Location: ../View/erro.php");
             exit;
                
            
             }
         } else {
-            echo "Erro Chamado já foi Finalizado";
+            header ("Location: ../View/erro.php");
         }
     } else {
         if ($_GET['Acao'] === "Cancelar") {
@@ -39,7 +39,7 @@ if (isset($_GET['Acao'])) {
                 }
             } else {
 
-                echo "Chamado não pode ser cancelado pois já está em atendimento ";
+                header ("Location: ../View/erro.php");
             }
         }
     }
@@ -66,7 +66,7 @@ if (isset($_GET['Acao'])) {
                     header("Location: ../View/Chamados.php");
                 }
             } else {
-                echo "Erro Chamado já foi finalizado ";
+                header ("Location: ../View/erro.php");
             }
         } else {
             if ($_POST['Acao'] === "Tombo") {
@@ -80,7 +80,7 @@ if (isset($_GET['Acao'])) {
                     if ($Chamado->MarcarTombo())
                         header("Location: ../View/Chamados.php");
                 } else {
-                    echo "Chamado já foi finalizado";
+                    header ("Location: ../View/erro.php");
                 }
             } else {
                 if ($_POST['Acao'] === "Encaminhar") {
@@ -92,7 +92,7 @@ if (isset($_GET['Acao'])) {
                         if ($Chamado->Encaminhar())
                             header("Location: ../View/Chamados.php");
                     } else {
-                        echo "Chamado já foi finalizado não pode ser Encaminhado";
+                        header ("Location: ../View/erro.php");
                     }
                 } else {
                     if ($_POST['Acao'] === "Historico") {
@@ -112,7 +112,7 @@ if (isset($_GET['Acao'])) {
                             }
                         } else {
 
-                            echo " Não pode fazer alteração no Historico de chamado Finalizado";
+                            header ("Location: ../View/erro.php");
                         }
                     } else {
                         if ($_POST['Acao'] === "Prioridade") {
@@ -125,7 +125,7 @@ if (isset($_GET['Acao'])) {
                                     header("Location: ../View/Chamados.php");
                                 }
                             } else {
-                                echo "erro Chamado já foi finalizado";
+                                header ("Location: ../View/erro.php");
                             }
                         }
                     }
